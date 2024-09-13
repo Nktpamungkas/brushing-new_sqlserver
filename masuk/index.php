@@ -2,6 +2,7 @@
 ini_set("error_reporting", 1);
 session_start();
 include("../koneksi.php");
+include "../utils/helper.php";
 //request page
 $page   = isset($_GET['p']) ? $_GET['p'] : '';
 $act    = isset($_GET['act']) ? $_GET['act'] : '';

@@ -1,8 +1,7 @@
 <?php
-ini_set("error_reporting", 1);
+// ini_set("error_reporting", 1);
 session_start();
 include_once("../koneksi.php");
-// include("../../koneksi.php");
 ?>
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -36,10 +35,10 @@ include_once("../koneksi.php");
 		{
 			include("../koneksi.php");
 			$format = date("ymd");
-			$sql = mysqli_query($con,"SELECT nokk FROM tbl_adm WHERE substr(nokk,1,6) like '%" . $format . "%' ORDER BY nokk DESC LIMIT 1 ") or die(mysqli_error());
-			$d = mysqli_num_rows($sql);
+			$sql = sqlsrv_query($con,"SELECT TOP 1 nokk FROM db_brushing.tbl_adm WHERE substring(nokk,1,6) like '%" . $format . "%' ORDER BY nokk DESC", array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET)) or die(sqlsrv_errors());
+			$d = sqlsrv_num_rows($sql);
 			if ($d > 0) {
-				$r = mysqli_fetch_array($sql);
+				$r = sqlsrv_fetch_array($sql);
 				$d = $r['nokk'];
 				$str = substr($d, 6, 2);
 				$Urut = (int)$str;
@@ -146,8 +145,10 @@ include_once("../koneksi.php");
 		}elseif ($_GET['typekk'] == "NOW") {
 			if ($idkk != "") {
 				include_once("../now.php");
-				$qry = mysqli_query($con,"SELECT * FROM tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and status='1' and ISNULL(tgl_out) ORDER BY id DESC LIMIT 1");
-				$rw = mysqli_fetch_array($qry);
+				$qry = sqlsrv_query($con,"SELECT TOP 1 * FROM db_brushing.tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and status='1' and tgl_out IS NULL ORDER BY id DESC");
+				$rw = sqlsrv_fetch_array($qry, SQLSRV_FETCH_ASSOC);
+
+				// $rw = array_trim_cek($rw);
 			}
 		}
 	?>
@@ -180,31 +181,63 @@ include_once("../koneksi.php");
 			$proses 	= $_POST['proses'];
 			$kondisi 	= $_POST['kondisi'];
 			$tglin 		= $_POST['tgl_proses_m'] . " " . $_POST['proses_in'];
-			$simpanSql 	= "INSERT INTO tbl_adm SET 
-											`nokk`					='$nokk',
-											`nodemand`				='$nodemand',
-											`shift`					='$shift',
-											`shift1`				='$shift1',
-											`langganan`				='$langganan',
-											`no_order`				='$order',
-											`jenis_kain`			='$jenis_kain',
-											`warna`					='$warna',
-											`no_warna`				='$nowarna',
-											`no_item`				='$noitem',
-											`lebar`					='$lebar',
-											`gramasi`				='$gramasi',
-											`lot`					='$lot',
-											`rol`					='$rol',
-											`qty`					='$qty',
-											`panjang`				='$yard',
-											`proses`				='$proses',
-											`catatan`				='$note',
-											`kondisi_kain`			='$kondisi',
-											`tgl_buat`				= now(),
-											`tgl_update`			= now(),
-											`tgl_in`				='$tglin',
-											`jumlah_gerobak_in`		='$_POST[jumlah_gerobak_in]'";
-			mysqli_query($con,$simpanSql) or die("Gagal Simpan" . mysqli_error());
+			$simpanSql 	= "INSERT INTO db_brushing.tbl_adm (
+							nokk,
+							nodemand,
+							shift,
+							shift1,
+							langganan,
+							no_order,
+							jenis_kain,
+							warna,
+							no_warna,
+							no_item,
+							lebar,
+							gramasi,
+							lot,
+							rol,
+							qty,
+							panjang,
+							proses,
+							catatan,
+							kondisi_kain,
+							tgl_buat,
+							tgl_update,
+							tgl_in,
+							jumlah_gerobak_in
+						) VALUES (
+							?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?
+						)";
+
+			$params = [
+				$nokk,
+				$nodemand,
+				$shift,
+				$shift1,
+				$langganan,
+				$order,
+				$jenis_kain,
+				$warna,
+				$nowarna,
+				$noitem,
+				$lebar,
+				$gramasi,
+				$lot,
+				$rol,
+				$qty,
+				$yard,
+				$proses,
+				$note,
+				$kondisi,
+				date("Y-m-d H:i:s"),
+				date("Y-m-d H:i:s"),
+				$tglin,
+				$_POST['jumlah_gerobak_in']
+			];
+
+			$params = array_trim_cek($params);
+
+			sqlsrv_query($con,$simpanSql, $params) or die("Gagal Simpan" . var_dump(sqlsrv_errors()));
 
 			// Refresh form
 			echo "<meta http-equiv='refresh' content='0; url=?idkk=$idkk&status=Data Sudah DiSimpan'>";
@@ -227,30 +260,57 @@ include_once("../koneksi.php");
 			$proses = $_POST['proses'];
 			$kondisi = $_POST['kondisi'];
 			$tglin = $_POST['tgl_proses_m'] . " " . $_POST['proses_in'];
-			$simpanSql = "UPDATE tbl_adm SET
-									`shift`					= '$shift',
-									`shift1`				= '$shift1',
-									`langganan`				= '$langganan',
-									`no_order`				= '$order',
-									`jenis_kain`			= '$jenis_kain',
-									`warna`					= '$warna',
-									`no_warna`				= '$nowarna',
-									`no_item`				= '$noitem',
-									`lebar`					= '$lebar',
-									`gramasi`				= '$gramasi',
-									`lot`					= '$lot',
-									`rol`					= '$rol',
-									`qty`					= '$qty',
-									`panjang`				= '$yard',
-									`proses`				= '$proses',
-									`catatan`				= '$note',
-									`kondisi_kain`			= '$kondisi',
-									`tgl_update`			= now(),
-									`tgl_in`				= '$tglin',
-									`jumlah_gerobak_in`		='$_POST[jumlah_gerobak_in]'
+			$simpanSql = "UPDATE db_brushing.tbl_adm SET
+									shift				= ?,
+									shift1				= ?,
+									langganan			= ?,
+									no_order			= ?,
+									jenis_kain			= ?,
+									warna				= ?,
+									no_warna			= ?,
+									no_item				= ?,
+									lebar				= ?,
+									gramasi				= ?,
+									lot					= ?,
+									rol					= ?,
+									qty					= ?,
+									panjang				= ?,
+									proses				= ?,
+									catatan				= ?,
+									kondisi_kain		= ?,
+									tgl_update			= ?,
+									tgl_in				= ?,
+									jumlah_gerobak_in	= ?
 								WHERE 
-									`id`='$_POST[id]'";
-			mysqli_query($con,$simpanSql) or die("Gagal Ubah" . mysqli_error());
+									id= ?";
+
+			$params = [
+				$shift,
+				$shift1,
+				$langganan,
+				$order,
+				$jenis_kain,
+				$warna,
+				$nowarna,
+				$noitem,
+				$lebar,
+				$gramasi,
+				$lot,
+				$rol,
+				$qty,
+				$yard,
+				$proses,
+				$note,
+				$kondisi,
+				date("Y-m-d H:i:s"),
+				$tglin,
+				$_POST['jumlah_gerobak_in'],
+				$_POST['id'],
+			];
+
+			// $params = array_trim_cek($params);
+
+			sqlsrv_query($con,$simpanSql, $params) or die("Gagal Ubah" . var_dump(sqlsrv_errors()));
 
 			// Refresh form
 			echo "<meta http-equiv='refresh' content='0; url=?idkk=$idkk&status=Data Sudah DiUbah'>";
@@ -280,8 +340,8 @@ include_once("../koneksi.php");
 						<option value="KKLama" <?php if($_GET['typekk'] == "KKLama"){ echo "SELECTED"; }?>>KK Lama
 						</option>
 						<option value="NOW" <?php if($_GET['typekk'] == "NOW"){ echo "SELECTED"; } ?>>KK NOW</option>
-						-->
-						</select=>
+						
+						</select>
 				</td>
 				<td>
 				</td>
@@ -296,13 +356,13 @@ include_once("../koneksi.php");
 				<td width="1%">:</td>
 				<td width="28%">
 					<input name="nokk" type="text" id="nokk" size="17"
-						onchange="window.location='?typekk='+document.getElementById(`typekk`).value+'&idkk='+this.value"
+						onchange="window.location='?typekk='+document.getElementById('typekk').value+'&idkk='+this.value"
 						value="<?php echo $_GET['idkk']; ?>" /><input type="hidden" value="<?php echo $rw['id']; ?>"
 						name="id" />
 
 					<?php if ($_GET['typekk'] == 'NOW') { ?>
 					<select style="width: 40%" name="demand" id="demand"
-						onchange="window.location='?typekk='+document.getElementById(`typekk`).value+'&idkk='+document.getElementById(`nokk`).value+'&demand='+this.value"
+						onchange="window.location='?typekk='+document.getElementById('typekk').value+'&idkk='+document.getElementById('nokk').value+'&demand='+this.value"
 						required>
 						<option value="" disabled selected>Pilih Nomor Demand</option>
 						<?php 
@@ -394,8 +454,8 @@ include_once("../koneksi.php");
 				<td>:</td>
 				<td><select name="proses" id="proses" required>
 						<option value="">Pilih</option>
-						<?php $qry1 = mysqli_query($con,"SELECT proses,jns FROM tbl_proses ORDER BY id ASC");
-						while ($r = mysqli_fetch_array($qry1)) {
+						<?php $qry1 = sqlsrv_query($con,"SELECT proses,jns FROM db_brushing.tbl_proses ORDER BY id ASC");
+						while ($r = sqlsrv_fetch_array($qry1)) {
 						?>
 						<option value="<?php echo $r['proses'] . " (" . $r['jns'] . ")"; ?>" <?php if ($rw['proses'] == $r['proses'] . " (" . $r['jns'] . ")") {
 																									echo "SELECTED";
@@ -528,8 +588,8 @@ include_once("../koneksi.php");
 				<td>:</td>
 				<td><select name="kondisi" id="kondisi" required="required">
 						<option value="">Pilih</option>
-						<?php $qry1 = mysqli_query($con,"SELECT jenis FROM tbl_jenis_kartu ORDER BY id ASC");
-						while ($r = mysqli_fetch_array($qry1)) {
+						<?php $qry1 = sqlsrv_query($con,"SELECT jenis FROM db_brushing.tbl_jenis_kartu ORDER BY id ASC");
+						while ($r = sqlsrv_fetch_array($qry1)) {
 						?>
 						<option value="<?php echo $r['jenis']; ?>" <?php if ($rw['kondisi_kain'] == $r['jenis']) {
 																			echo "selected";
@@ -559,16 +619,10 @@ include_once("../koneksi.php");
 									this.value = time + ':';
 								} else if (time.match(/^\d{2}\:\d{2}$/) !== null) {
 									this.value = time + '';
-								}" value="<?php 
-								if ($rw['tgl_in'] != "") {
-									echo date('H:i', strtotime($rw['tgl_in']));
-								} ?>" size="5" maxlength="5" required />
+								}" value="<?php echo cek($rw['tgl_in'], "H:i"); ?>" size="5" maxlength="5" required />
 					<input name="tgl_proses_m" type="text" id="tgl_proses_m"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_proses_m);return false;" size="10"
-						placeholder="0000-00-00" value="<?php 
-														if ($rw['tgl_in'] != "") {
-															echo date('Y-m-d', strtotime($rw['tgl_in']));
-													} ?>" required />
+						placeholder="0000-00-00" value="<?php echo cek($rw['tgl_in']); ?>" required />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_proses_m);return false;">
 						<img src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal2"
