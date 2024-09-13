@@ -191,8 +191,8 @@ include_once("koneksi.php");
 if (isset($_POST['sign'])) {
     $U = md5($_POST['UserN4m3']);
     $P = md5($_POST['Pa55wor6']);
-    $sql = mysqli_query($con,"SELECT * FROM data_login where ur_name = '" . $U . "' AND ur_password = '" . $P . "' LIMIT 1 ");
-    if (mysqli_num_rows($sql) == 1) {
+    $sql = sqlsrv_query($con,"SELECT TOP 1* FROM db_brushing.data_login where ur_name = '" . $U . "' AND ur_password = '" . $P . "' ", array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET));
+    if (sqlsrv_num_rows($sql) == 1) {
         $_SESSION['Brs_Uname'] = $U;
         $_SESSION['Brs_Upw'] = $P;
         $_SESSION['last_login_timestamp'] = time();

@@ -5,7 +5,7 @@
 // $db_name="TM";
 // $connInfo = array( "Database"=>$db_name, "UID"=>$username, "PWD"=>$password);
 // $conn     = sqlsrv_connect( $host, $connInfo);
-$con=mysqli_connect("10.0.0.10","dit","4dm1n","db_brushing");
+// $con=mysqli_connect("10.0.0.10","dit","4dm1n","db_brushing");
 // $con=mysqli_connect("localhost","root","","db_brushing");
 
 $hostname="10.0.0.21";
@@ -25,12 +25,27 @@ if ($uri_segments[2] == "index.php") {
     }
 } else {
     if (empty($_SESSION['Brs_Uname'])) {
-        header("Location: /brushing-new/index.php");
+        header("Location: /brushing-new_sqlserver/index.php");
     } else {
         if ((time() - $_SESSION['last_login_timestamp']) > 3600) {
-            header("location: /brushing-new/logout.php");
+            header("location: /brushing-new_sqlserver/logout.php");
         } else {
             $_SESSION['last_login_timestamp'] = time();
         }
     }
+}
+
+
+$hostSVR19 = "10.0.0.221";
+$usernameSVR19 = "sa";
+$passwordSVR19 = "Ind@taichen2024";
+$brushing = "db_brushing";
+
+$db_brushing = array("Database" => $brushing, "UID" => $usernameSVR19, "PWD" => $passwordSVR19);
+
+$con = sqlsrv_connect($hostSVR19, $db_brushing);
+
+if ($con) {
+} else {
+    exit("SQLSVR19 Connection failed");
 }
