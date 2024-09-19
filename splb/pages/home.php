@@ -1,7 +1,7 @@
 <?php
 ini_set("error_reporting", 1);
 session_start();
-include ("../koneksi.php");
+include("../koneksi.php");
 ?>
 <!DOCTYPE html
 	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -14,81 +14,81 @@ include ("../koneksi.php");
 <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
 
 <style>
-table {
-	font-family: Arial, Helvetica, sans-serif;
-	border-collapse: collapse;
-	width: 100%;
-}
+	table {
+		font-family: Arial, Helvetica, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
 
-.table-bordered>thead>tr>th,
-.table-bordered>tbody>tr>th,
-.table-bordered>tfoot>tr>th,
-.table-bordered>thead>tr>td,
-.table-bordered>tbody>tr>td,
-.table-bordered>tfoot>tr>td {
-	border: 0.5px solid #000000;
+	.table-bordered>thead>tr>th,
+	.table-bordered>tbody>tr>th,
+	.table-bordered>tfoot>tr>th,
+	.table-bordered>thead>tr>td,
+	.table-bordered>tbody>tr>td,
+	.table-bordered>tfoot>tr>td {
+		border: 0.5px solid #000000;
 
-	text-align: left;
-	vertical-align: center;
+		text-align: left;
+		vertical-align: center;
 
-}
+	}
 
-table>tbody>tr:nth-child(even) {
-	background-color: #f2f2f2;
-}
+	table>tbody>tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
 
-table>tbody>tr:hover {
-	background-color: #ddd;
-}
+	table>tbody>tr:hover {
+		background-color: #ddd;
+	}
 
-table>thead>tr>th {
-	padding-top: 12px;
-	padding-bottom: 12px;
-	font-size: 10pt;
-	text-align: center;
-	vertical-align: middle;
-}
+	table>thead>tr>th {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		font-size: 10pt;
+		text-align: center;
+		vertical-align: middle;
+	}
 
-.dropbtn {
-	background-color: #DC3545;
-	color: white;
-	padding: 5px;
-	font-size: 10px;
-	border: none;
-}
+	.dropbtn {
+		background-color: #DC3545;
+		color: white;
+		padding: 5px;
+		font-size: 10px;
+		border: none;
+	}
 
-.dropdown {
-	position: relative;
-	display: inline-block;
-}
+	.dropdown {
+		position: relative;
+		display: inline-block;
+	}
 
-.dropdown-content {
-	display: none;
-	position: absolute;
-	background-color: #f1f1f1;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-	z-index: 1;
-}
+	.dropdown-content {
+		display: none;
+		position: absolute;
+		background-color: #f1f1f1;
+		min-width: 160px;
+		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		z-index: 1;
+	}
 
-.dropdown-content a {
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-}
+	.dropdown-content a {
+		color: black;
+		padding: 12px 16px;
+		text-decoration: none;
+		display: block;
+	}
 
-/* .dropdown-content a:hover {
+	/* .dropdown-content a:hover {
 		background-color: #ddd;
 	} */
 
-.dropdown:hover .dropdown-content {
-	display: block;
-}
+	.dropdown:hover .dropdown-content {
+		display: block;
+	}
 
-.dropdown:hover .dropbtn {
-	background-color: #3e8e41;
-}
+	.dropdown:hover .dropbtn {
+		background-color: #3e8e41;
+	}
 </style>
 
 <body>
@@ -131,35 +131,54 @@ table>thead>tr>th {
 					<tbody>
 						<?php
 						if (isset($_POST['submit'])) {
-							$sql = mysqli_query($con, "SELECT `ID`,`NO_KARTU_KERJA`,`ORDER`, `LANGGANAN` FROM tbl_splb WHERE NO_KARTU_KERJA = '$_POST[no_kk]'");
+							$no_kk = $_POST['no_kk'];
+							$sql = sqlsrv_query(
+								$con,
+								"SELECT [ID], [NO_KARTU_KERJA], [ORDER], [LANGGANAN] 
+							FROM db_brushing.tbl_splb 
+							WHERE [NO_KARTU_KERJA] = ?",
+								array($no_kk)
+							);
 						} else {
-							$sql = mysqli_query($con, "SELECT `ID`,`NO_KARTU_KERJA`,`ORDER`, `LANGGANAN` FROM tbl_splb ORDER BY `ID` DESC LIMIT 250");
+							$sql = sqlsrv_query(
+								$con,
+								"SELECT TOP 250 [ID], [NO_KARTU_KERJA], [ORDER], [LANGGANAN] 
+							FROM db_brushing.tbl_splb 
+							ORDER BY [ID] DESC",
+								array(),
+								array("Scrollable" => SQLSRV_CURSOR_KEYSET)
+							);
 						}
-						while ($li = mysqli_fetch_array($sql)) {
+						while ($li = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC)) {
 							?>
-						<tr>
-							<td>
-								<div class="dropdown">
-									<button class="dropbtn btn btn-xs btn-danger"><i
-											class="glyphicon glyphicon-tags"></i></button>
-									<div class="dropdown-content">
-										<a href="javascript:void(0)"
-											onClick="OpenInNewWindows('pages/print_splb.php?kk=<?php echo $li['NO_KARTU_KERJA'] ?>')"
-											class="btn btn-xs btn-danger print">
-											<i class="glyphicon glyphicon-print"></i>
-										</a>
-										<a href="javascript:void(0)" class="btn btn-xs btn-warning hapus"
-											data-pk="<?php echo $li['ID'] ?>"><i
-												class="glyphicon glyphicon-trash"></i></a>
+							<tr>
+								<td>
+									<div class="dropdown">
+										<button class="dropbtn btn btn-xs btn-danger">
+											<i class="glyphicon glyphicon-tags"></i>
+										</button>
+										<div class="dropdown-content">
+											<a href="javascript:void(0)"
+												onClick="OpenInNewWindows('pages/print_splb.php?kk=<?php echo $li['NO_KARTU_KERJA'] ?>')"
+												class="btn btn-xs btn-danger print">
+												<i class="glyphicon glyphicon-print"></i>
+											</a>
+											<a href="javascript:void(0)" class="btn btn-xs btn-warning hapus"
+												data-pk="<?php echo $li['ID'] ?>">
+												<i class="glyphicon glyphicon-trash"></i>
+											</a>
+										</div>
 									</div>
-								</div>
-							</td>
-							<td><?php echo $li['NO_KARTU_KERJA'] ?></td>
-							<td><?php echo $li['LANGGANAN'] ?></td>
-							<td><?php echo $li['ORDER'] ?></td>
-						</tr>
-						<?php } ?>
+								</td>
+								<td><?php echo htmlspecialchars($li['NO_KARTU_KERJA']); ?></td>
+								<td><?php echo htmlspecialchars($li['LANGGANAN']); ?></td>
+								<td><?php echo htmlspecialchars($li['ORDER']); ?></td>
+							</tr>
+							<?php
+						}
+						?>
 					</tbody>
+
 				</table>
 			</div>
 			<div class="col-md-8" id="location_table">
@@ -470,9 +489,11 @@ table>thead>tr>th {
 							<td colspan="4" style="text-align: center;font-size: 15px; font-weight: bold;">PEACHSKIN
 							</td>
 							<td colspan="3" class="bg-danger" style="text-align: center">
-								<?php echo $data['PEACHSKIN_B']; ?></td>
+								<?php echo $data['PEACHSKIN_B']; ?>
+							</td>
 							<td colspan="3" class="bg-danger" style="text-align: center">
-								<?php echo $data['PEACHSKIN_F']; ?></td>
+								<?php echo $data['PEACHSKIN_F']; ?>
+							</td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">BAGIAN</td>
@@ -721,58 +742,58 @@ table>thead>tr>th {
 <script src="../js/jquery.dataTables.js" type="text/javascript"></script>
 <script src="../bootstrap/js/bootstrap.js"></script>
 <script>
-function OpenInNewWindows(url_print) {
-	window.open(url_print, '', 'width=800, height=600');
-}
+	function OpenInNewWindows(url_print) {
+		window.open(url_print, '', 'width=800, height=600');
+	}
 
-$(document).ready(function() {
-	$('#customers').dataTable({
-		"pageLength": 40,
-		"lengthChange": false
-	});
-
-	$(document).on('click', '#customers tbody tr', function() {
-		let kk = $(this).find('td:eq(1)').text();
-
-		$.ajax({
-			url: "pages/append_detail_table.php",
-			type: "GET",
-			data: {
-				kk: kk
-			},
-			success: function(ajaxData) {
-				$('#location_table').empty();
-				$('#location_table').html(ajaxData);
-			}
+	$(document).ready(function () {
+		$('#customers').dataTable({
+			"pageLength": 40,
+			"lengthChange": false
 		});
-	});
 
-	$(document).on('click', '.hapus', function() {
-		let id = $(this).attr('data-pk');
+		$(document).on('click', '#customers tbody tr', function () {
+			let kk = $(this).find('td:eq(1)').text();
 
-		if (confirm("Apakah anda yakin ingin menghapus Data ini ?") == true) {
 			$.ajax({
-				dataType: "json",
-				url: "hapus.php",
-				type: "POST",
+				url: "pages/append_detail_table.php",
+				type: "GET",
 				data: {
-					id: id
+					kk: kk
 				},
-				success: function(response) {
-					if (response.kode == 200) {
-						location.reload();
-					} else {
-						alert('Error hubungi DIT team !')
-					}
+				success: function (ajaxData) {
+					$('#location_table').empty();
+					$('#location_table').html(ajaxData);
 				}
 			});
-		} else {
-			console.log('cancel!');
-		}
+		});
+
+		$(document).on('click', '.hapus', function () {
+			let id = $(this).attr('data-pk');
+
+			if (confirm("Apakah anda yakin ingin menghapus Data ini ?") == true) {
+				$.ajax({
+					dataType: "json",
+					url: "hapus.php",
+					type: "POST",
+					data: {
+						id: id
+					},
+					success: function (response) {
+						if (response.kode == 200) {
+							location.reload();
+						} else {
+							alert('Error hubungi DIT team !')
+						}
+					}
+				});
+			} else {
+				console.log('cancel!');
+			}
 
 
+		})
 	})
-})
 </script>
 
 </html>

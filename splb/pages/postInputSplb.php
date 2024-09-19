@@ -2,10 +2,11 @@
 ini_set("error_reporting", 1);
 session_start();
 include ("../koneksi.php");
+include('../helper.php');
 // var_dump($_POST);
 
 if ($_POST['save'] == 'simpen') {
-    $sql = mysqli_query($con, "INSERT INTO tbl_splb SET
+    $sql = sqlsrv_query($con, "INSERT INTO db_brushing.tbl_splb SET
         `NO_KARTU_KERJA`='$_POST[NO_KARTU_KERJA]',
         `LANGGANAN`='$_POST[LANGGANAN]',
         `TANGGAL_01`='$_POST[TANGGAL_01]',
@@ -16,7 +17,7 @@ if ($_POST['save'] == 'simpen') {
         `L_PERMINTAAN`='" . floatval($_POST['L_PERMINTAAN']) . "',
         `G_PERMINTAAN`='" . floatval($_POST['G_PERMINTAAN']) . "',
         `L_AKTUAL`='" . floatval($_POST['L_AKTUAL']) . "',
-        `G_AKTUAL`='" . floatval($_POST['G_AKTUAL']) . "',
+        `G_AKTUAL`='" . floatval($_POST['G_AKTUAL']). "',
         `LOT`='$_POST[LOT]',
         `NO_HANGER`='$_POST[NO_HANGER]',
         `NAMA_TTD`='$_POST[NAMA_TTD]',
@@ -373,3 +374,4 @@ if ($_POST['save'] == 'simpen') {
         echo "<script>alert('insert SETTING PERBEDAAN LOT BRUSHING gagal !'); window.location.href='index.php?p=home'; </script>";
     }
 }
+?>
