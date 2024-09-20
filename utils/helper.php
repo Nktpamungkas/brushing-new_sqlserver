@@ -1,6 +1,7 @@
 <?php
 
 function cek($value, $format = null) {
+
     // Check for NULL or empty value
     if (empty($value)) {
         return NULL;
@@ -31,4 +32,15 @@ function array_trim_cek($array) {
     }
 
     return NULL;
+}
+
+function cek_input($key){
+if($_POST[$key] !=NULL or $_POST[$key]!='')
+    $_POST[$key] = str_replace(['"', "'"], '', $_POST[$key]);
+
+if($_POST[$key]!=NULL or $_POST[$key] != ''){
+    return $_POST[$key];
+} else {
+    return NULL;
+}
 }

@@ -14,8 +14,8 @@ include("../../koneksi.php");
 <body>
   <?php
   if (isset($_POST['btnHapus'])) {
-    $hapusSql = "DELETE FROM tbl_stop_mesin WHERE id='$_POST[id]'";
-    mysqli_query($con,$hapusSql) or die("Gagal hapus" . mysqli_error());
+    $hapusSql = "DELETE FROM db_brushing.tbl_stop_mesin WHERE id='$_POST[id]'";
+    sqlsrv_query($con,$hapusSql) or die("Gagal hapus" . sqlsrv_errors());
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-stop.php?status=Data Sudah DiHapus'>";
@@ -23,10 +23,8 @@ include("../../koneksi.php");
   if (isset($_POST['btnSimpan'])) {
     $kode = $_POST['kode'];
     $ket = str_replace("'", "", $_POST['ket']);
-    $simpanSql = "INSERT INTO tbl_stop_mesin SET 
-	`kode`='$kode',
-	`ket`='$ket'";
-    mysqli_query($con,$simpanSql) or die("Gagal Simpan" . mysqli_error());
+    $simpanSql = "INSERT INTO db_brushing.tbl_stop_mesin ([kode],[ket]) VALUES ('$kode','$ket')";
+    sqlsrv_query($con,$simpanSql) or die("Gagal Simpan" . sqlsrv_errors());
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-stop.php?status=Data Sudah DiSimpan'>";
@@ -34,11 +32,11 @@ include("../../koneksi.php");
   if (isset($_POST['btnUbah'])) {
     $kode = $_POST['kode'];
     $ket = str_replace("'", "", $_POST['ket']);
-    $simpanSql = "UPDATE tbl_stop_mesin SET 
-	`kode`='$kode',
-	`ket`='$ket'
-	WHERE `id`='$_POST[id]'";
-    mysqli_query($con,$simpanSql) or die("Gagal Ubah" . mysqli_error());
+    $simpanSql = "UPDATE db_brushing.tbl_stop_mesin SET 
+	[kode]='$kode',
+	[ket]='$ket'
+	WHERE [id]='$_POST[id]'";
+    sqlsrv_query($con,$simpanSql) or die("Gagal Ubah" . sqlsrv_errors());
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-stop.php?status=Data Sudah DiUbah'>";
@@ -54,9 +52,9 @@ include("../../koneksi.php");
           <font color="#FF0000"><?php echo $_GET['status']; ?></font>
         </td>
       </tr>
-      <?php $qtampil = mysqli_query($con,"SELECT * FROM tbl_stop_mesin WHERE kode='$_GET[kode]' LIMIT 1");
-      $rt = mysqli_fetch_array($qtampil);
-      $rc = mysqli_num_rows($qtampil);
+      <?php $qtampil = sqlsrv_query($con,"SELECT TOP 1* FROM db_brushing.tbl_stop_mesin WHERE kode='$_GET[kode]'",array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET));
+      $rt = sqlsrv_fetch_array($qtampil);
+      $rc = sqlsrv_num_rows($qtampil);
       ?>
       <tr>
         <td width="21%" scope="row">Kode</td>
@@ -89,9 +87,9 @@ include("../../koneksi.php");
         <th>Keterangan</th>
       </tr>
       <?php
-      $qry = mysqli_query($con,"SELECT * FROM tbl_stop_mesin ORDER BY id ASC");
+      $qry = sqlsrv_query($con,"SELECT * FROM db_brushing.tbl_stop_mesin ORDER BY id ASC");
       $no = 1;
-      while ($r = mysqli_fetch_array($qry)) {
+      while ($r = sqlsrv_fetch_array($qry)) {
         $bgcolor = ($c++ & 1) ? '#33CCFF' : '#FFCC99'; ?>
         <tr bgcolor="<?php echo $bgcolor; ?>">
           <td align="center" scope="row"><?php echo $no; ?></td>

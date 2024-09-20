@@ -2,6 +2,7 @@
 ini_set("error_reporting", 1);
 session_start();
 include("../../koneksi.php");
+include("../untils/helper.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -15,7 +16,7 @@ include("../../koneksi.php");
   <?php
   if (isset($_POST['btnHapus'])) {
     $hapusSql = "DELETE FROM tbl_proses WHERE id='$_POST[id]'";
-    mysqli_query($con,$hapusSql) or die("Gagal hapus" . mysqli_error());
+    sqlsrv_query($con,$hapusSql) or die("Gagal hapus" . sqlsrv_errors());
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-proses.php?status=Data Sudah DiHapus'>";
@@ -24,11 +25,15 @@ include("../../koneksi.php");
     $proses = $_POST['proses'];
     $jns = $_POST['jns'];
     $ket = str_replace("'", "", $_POST['ket']);
-    $simpanSql = "INSERT INTO tbl_proses SET 
-	`proses`='$proses',
-	`jns`='$jns',
-	`ket`='$ket'";
-    mysqli_query($con,$simpanSql) or die("Gagal Simpan" . mysqli_error());
+    $simpanSql = "INSERT INTO db_brushing.tbl_proses ([proses],  
+	[jns],
+	[ket]
+  ) VALUES(
+  '$proses',
+	'$jns',
+	'$ket') 
+	";
+    sqlsrv_query($con,$simpanSql) or die("Gagal Simpan" . sqlsrv_errors());
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-proses.php?status=Data Sudah DiSimpan'>";
@@ -36,11 +41,11 @@ include("../../koneksi.php");
   if (isset($_POST['btnUbah'])) {
     $proses = $_POST['proses'];
     $ket = str_replace("'", "", $_POST['ket']);
-    $simpanSql = "UPDATE tbl_proses SET 
+    $simpanSql = "UPDATE db_brushing.tbl_proses SET 
 	`proses`='$proses',
 	`ket`='$ket'
 	WHERE `id`='$_POST[id]'";
-    mysqli_query($con,$simpanSql) or die("Gagal Ubah" . mysqli_error());
+    sqlsrv_query($con,$simpanSql) or die("Gagal Ubah" . sqlsrv_errors());
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-proses.php?status=Data Sudah DiUbah'>";
@@ -56,9 +61,9 @@ include("../../koneksi.php");
           <font color="#FF0000"><?php echo $_GET['status']; ?></font>
         </td>
       </tr>
-      <?php $qtampil = mysqli_query($con,"SELECT * FROM tbl_proses WHERE proses='$_GET[proses]' AND jns='$_GET[jns]' LIMIT 1");
-      $rt = mysqli_fetch_array($qtampil);
-      $rc = mysqli_num_rows($qtampil);
+      <?php $qtampil = sqlsrv_query($con,"SELECT * FROM tbl_proses WHERE proses='$_GET[proses]' AND jns='$_GET[jns]' LIMIT 1");
+      $rt = sqlsrv_fetch_array($qtampil);
+      $rc = sqlsrv_num_rows($qtampil);
       ?>
       <tr>
         <td width="21%" scope="row">Proses</td>
@@ -110,9 +115,9 @@ include("../../koneksi.php");
         <th>Keterangan</th>
       </tr>
       <?php
-      $qry = mysqli_query($con,"SELECT * FROM tbl_proses ORDER BY id ASC");
+      $qry = sqlsrv_query($con,"SELECT * FROM db_brushing.tbl_proses ORDER BY id ASC");
       $no = 1;
-      while ($r = mysqli_fetch_array($qry)) {
+      while ($r = sqlsrv_fetch_array($qry)) {
         $bgcolor = ($c++ & 1) ? '#33CCFF' : '#FFCC99'; ?>
         <tr bgcolor="<?php echo $bgcolor; ?>">
           <td align="center" scope="row"><?php echo $no; ?></td>

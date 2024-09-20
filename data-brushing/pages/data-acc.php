@@ -14,8 +14,8 @@ include("../../koneksi.php");
 <body>
   <?php
   if (isset($_POST['btnHapus'])) {
-    $hapusSql = "DELETE FROM tbl_staff WHERE id='".$_POST['id']."'";
-    mysqli_query($con,$hapusSql) or die("Gagal hapus");
+    $hapusSql = "DELETE FROM db_brushing.tbl_staff WHERE id='".$_POST['id']."'";
+    sqlsrv_query($con,$hapusSql) or die("Gagal hapus");
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-acc.php?status=Data Sudah DiHapus'>";
@@ -23,10 +23,8 @@ include("../../koneksi.php");
   if (isset($_POST['btnSimpan'])) {
     $nama = str_replace("'", "", $_POST['nama']);
     $jabatan = str_replace("'", "", $_POST['jabatan']);
-    $simpanSql = "INSERT INTO tbl_staff SET 
-	`nama`='$nama',
-	`jabatan`='$jabatan'";
-    mysqli_query($con,$simpanSql) or die("Gagal Simpan" . mysql_error());
+    $simpanSql = "INSERT INTO db_brushing.tbl_staff  ([nama],[jabatan]) VALUES ('$nama','$jabatan')";
+    sqlsrv_query($con,$simpanSql) or die("Gagal Simpan" . sqlsrv_errors());
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-acc.php?status=Data Sudah DiSimpan'>";
@@ -34,11 +32,11 @@ include("../../koneksi.php");
   if (isset($_POST['btnUbah'])) {
     $nama = str_replace("'", "", $_POST['nama']);
     $jabatan = str_replace("'", "", $_POST['jabatan']);
-    $simpanSql = "UPDATE tbl_staff SET 
-	`nama`='$nama',
-	`jabatan`='$jabatan'
-	WHERE `id`='".$_POST['id']."'";
-    mysqli_query($con,$simpanSql) or die("Gagal Ubah");
+    $simpanSql = "UPDATE db_brushing.tbl_staff SET 
+	[nama]='$nama',
+	[jabatan]='$jabatan'
+	WHERE [id]='".$_POST['id']."'";
+    sqlsrv_query($con,$simpanSql) or die("Gagal Ubah");
 
     // Refresh form
     echo "<meta http-equiv='refresh' content='0; url=data-acc.php?status=Data Sudah DiUbah'>";
@@ -54,9 +52,9 @@ include("../../koneksi.php");
           <font color="#FF0000"><?php echo $_GET['status']; ?></font>
         </td>
       </tr>
-      <?php $qtampil = mysqli_query($con,"SELECT * FROM tbl_staff WHERE nama='".$_GET['nama']."' LIMIT 1");
-      $rt = mysqli_fetch_array($qtampil);
-      $rc = mysqli_num_rows($qtampil);
+      <?php $qtampil = sqlsrv_query($con,"SELECT TOP 1 * FROM db_brushing.tbl_staff WHERE nama='".$_GET['nama']."'");
+      $rt = sqlsrv_fetch_array($qtampil);
+      $rc = sqlsrv_num_rows($qtampil);
       ?>
       <tr>
         <td width="21%" scope="row">Nama</td>
@@ -89,9 +87,9 @@ include("../../koneksi.php");
         <th>Jabatan</th>
       </tr>
       <?php
-      $qry = mysqli_query($con,"SELECT * FROM tbl_staff ORDER BY id ASC");
+      $qry = sqlsrv_query($con,"SELECT * FROM db_brushing.tbl_staff ORDER BY id ASC");
       $no = 1;
-      while ($r = mysqli_fetch_array($qry)) {
+      while ($r = sqlsrv_fetch_array($qry)) {
         $bgcolor = ($c++ & 1) ? '#33CCFF' : '#FFCC99'; ?>
         <tr bgcolor="<?php echo $bgcolor; ?>">
           <td align="center" scope="row"><?php echo $no; ?></td>
