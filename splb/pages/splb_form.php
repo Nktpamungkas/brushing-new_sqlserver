@@ -1446,600 +1446,429 @@ if ($idkk != "") {
                                                                         placeholder="SIKATBELAKANG_F"
                                                                         style="width: 100%">
                                                         </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SPEED MESIN
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDMESIN_B" id="SPEEDMESIN_B"
-                                                                        placeholder="SPEEDMESIN_B" style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDMESIN_F" id="SPEEDMESIN_F"
-                                                                        placeholder="SPEEDMESIN_F" style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4">TENSION MASUK</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONMASUK_B" id="TENSIONMASUK_B"
-                                                                        placeholder="TENSIONMASUK_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONMASUK_F" id="TENSIONMASUK_F"
-                                                                        placeholder="TENSIONMASUK_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SPEED JARUM
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDJARUM_B" id="SPEEDJARUM_B"
-                                                                        placeholder="SPEEDJARUM_B" style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDJARUM_F" id="SPEEDJARUM_F"
-                                                                        placeholder="SPEEDJARUM_F" style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4">TENSION TENGAH</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONTENGAH_B" id="TENSIONTENGAH_B"
-                                                                        placeholder="TENSIONTENGAH_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONTENGAH_F" id="TENSIONTENGAH_F"
-                                                                        placeholder="TENSIONTENGAH_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SPEED DRUM
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDDRUM_B" id="SPEEDDRUM_B"
-                                                                        placeholder="SPEEDDRUM_B" style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDDRUM_F" id="SPEEDDRUM_F"
-                                                                        placeholder="SPEEDDRUM_F" style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4">SPEED KAIN</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDKAIN_B" id="SPEEDKAIN_B"
-                                                                        placeholder="SPEEDKAIN_B" style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDKAIN_F" id="SPEEDKAIN_F"
-                                                                        placeholder="SPEEDKAIN_F" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SPEED TARIKAN
-                                                                KAIN</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDTARIKANKAIN_B"
-                                                                        id="SPEEDTARIKANKAIN_B"
-                                                                        placeholder="SPEEDTARIKANKAIN_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDTARIKANKAIN_F"
-                                                                        id="SPEEDTARIKANKAIN_F"
-                                                                        placeholder="SPEEDTARIKANKAIN_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4">PEACHSKIN SPEED DRUM</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="PEACHSKINSPEEDDRUM_B"
-                                                                        id="PEACHSKINSPEEDDRUM_B"
-                                                                        placeholder="PEACHSKINSPEEDDRUM_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="PEACHSKINSPEEDDRUM_F"
-                                                                        id="PEACHSKINSPEEDDRUM_F"
-                                                                        placeholder="PEACHSKINSPEEDDRUM_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="font-size: 15px; font-weight: bold;" data-no="1"
-                                                                colspan="2">ANTI PILLING</td>
-                                                        <td class="bg-danger" data-no="1" colspan="4">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="ANTIPILLING" id="ANTIPILLING"
-                                                                        placeholder="ANTIPILLING" style="width: 100%">
-                                                        </td>
-                                                        <td data-no="1" colspan="2" rowspan="2">TENSION BELAKANG</td>
-                                                        <td data-no="1" colspan="2" style="text-align:center;">1</td>
-                                                        <td class="bg-danger" data-no="1" colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONBELAKANG_B" id="TENSIONBELAKANG_B"
-                                                                        placeholder="TENSIONBELAKANG_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" data-no="1" colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONBELAKANG_F" id="TENSIONBELAKANG_F"
-                                                                        placeholder="TENSIONBELAKANG_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">MIST PRAY</td>
-                                                        <td class="bg-danger" data-no="1" colspan="4"><input type="text"
-                                                                        class="form-control input-xs" name="MISTPRAY"
-                                                                        id="MISTPRAY" placeholder="MISTPRAY"
-                                                                        style="width: 100%"></td>
-                                                        <td data-no="1" colspan="2"
-                                                                style="text-align:center; width: 10px;">2</td>
-                                                        <td class="bg-danger" data-no="1" colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONBELAKANG2_B"
-                                                                        id="TENSIONBELAKANG2_B"
-                                                                        placeholder="TENSIONBELAKANG2_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" data-no="1" colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONBELAKANG2_F"
-                                                                        id="TENSIONBELAKANG2_F"
-                                                                        placeholder="TENSIONBELAKANG2_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
+                                                </tr><tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SPEED MESIN
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SPEEDMESIN_B" id="SPEEDMESIN_B"
+                                    placeholder="SPEEDMESIN_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SPEEDMESIN_F" id="SPEEDMESIN_F"
+                                    placeholder="SPEEDMESIN_F" style="width: 100%">
+                            </td>
+                            <td colspan="4">TENSION MASUK</td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="TENSIONMASUK_B"
+                                    id="TENSIONMASUK_B" placeholder="TENSIONMASUK_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="TENSIONMASUK_F"
+                                    id="TENSIONMASUK_F" placeholder="TENSIONMASUK_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SPEED JARUM
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SPEEDJARUM_B" id="SPEEDJARUM_B"
+                                    placeholder="SPEEDJARUM_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SPEEDJARUM_F" id="SPEEDJARUM_F"
+                                    placeholder="SPEEDJARUM_F" style="width: 100%">
+                            </td>
+                            <td colspan="4">TENSION TENGAH</td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="TENSIONTENGAH_B"
+                                    id="TENSIONTENGAH_B" placeholder="TENSIONTENGAH_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="TENSIONTENGAH_F"
+                                    id="TENSIONTENGAH_F" placeholder="TENSIONTENGAH_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SPEED DRUM
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SPEEDDRUM_B" id="SPEEDDRUM_B"
+                                    placeholder="SPEEDDRUM_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SPEEDDRUM_F" id="SPEEDDRUM_F"
+                                    placeholder="SPEEDDRUM_F" style="width: 100%">
+                            </td>
+                            <td colspan="4">SPEED KAIN</td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="SPEEDKAIN_B" id="SPEEDKAIN_B"
+                                    placeholder="SPEEDKAIN_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="SPEEDKAIN_F" id="SPEEDKAIN_F"
+                                    placeholder="SPEEDKAIN_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SPEED TARIKAN
+                                KAIN</td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SPEEDTARIKANKAIN_B"
+                                    id="SPEEDTARIKANKAIN_B" placeholder="SPEEDTARIKANKAIN_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SPEEDTARIKANKAIN_F"
+                                    id="SPEEDTARIKANKAIN_F" placeholder="SPEEDTARIKANKAIN_F" style="width: 100%">
+                            </td>
+                            <td colspan="4">PEACHSKIN SPEED DRUM</td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="PEACHSKINSPEEDDRUM_B"
+                                    id="PEACHSKINSPEEDDRUM_B" placeholder="PEACHSKINSPEEDDRUM_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="PEACHSKINSPEEDDRUM_F"
+                                    id="PEACHSKINSPEEDDRUM_F" placeholder="PEACHSKINSPEEDDRUM_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="font-size: 15px; font-weight: bold;" data-no="1" colspan="2">ANTI PILLING</td>
+                            <td class="bg-danger" data-no="1" colspan="4">
+                                <input type="text" class="form-control input-xs" name="ANTIPILLING" id="ANTIPILLING"
+                                    placeholder="ANTIPILLING" style="width: 100%">
+                            </td>
+                            <td data-no="1" colspan="2" rowspan="2">TENSION BELAKANG</td>
+                            <td data-no="1" colspan="2" style="text-align:center;">1</td>
+                            <td class="bg-danger" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="TENSIONBELAKANG_B"
+                                    id="TENSIONBELAKANG_B" placeholder="TENSIONBELAKANG_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="TENSIONBELAKANG_F"
+                                    id="TENSIONBELAKANG_F" placeholder="TENSIONBELAKANG_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">MIST PRAY</td>
+                            <td class="bg-danger" data-no="1" colspan="4"><input type="text"
+                                    class="form-control input-xs" name="MISTPRAY" id="MISTPRAY" placeholder="MISTPRAY"
+                                    style="width: 100%"></td>
+                            <td data-no="1" colspan="2" style="text-align:center; width: 10px;">2</td>
+                            <td class="bg-danger" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="TENSIONBELAKANG2_B"
+                                    id="TENSIONBELAKANG2_B" placeholder="TENSIONBELAKANG2_B" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="TENSIONBELAKANG2_F"
+                                    id="TENSIONBELAKANG2_F" placeholder="TENSIONBELAKANG2_F" style="width: 100%">
+                            </td>
+                        </tr>
 
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">STEAM</td>
-                                                        <td class="bg-danger" data-no="2" colspan="4">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="STEAM" id="STEAM" placeholder="STEAM"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td data-no="3" colspan="10"
-                                                                style="font-size: 15px; font-weight: bold;text-align:center;">
-                                                                POLISHING
-                                                        </td>
-                                                </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">STEAM</td>
+                            <td class="bg-danger" data-no="2" colspan="4">
+                                <input type="text" class="form-control input-xs" name="STEAM" id="STEAM"
+                                    placeholder="STEAM" style="width: 100%">
+                            </td>
+                            <td data-no="3" colspan="10" style="font-size: 15px; font-weight: bold;text-align:center;">
+                                POLISHING
+                            </td>
+                        </tr>
 
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">OVEN</td>
-                                                        <td style="width: 100px;" class="bg-danger" data-no="1"
-                                                                colspan="4">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="OVEN" id="OVEN" placeholder="OVEN"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">BAGIAN KAIN</td>
-                                                        <td style="width: 100px;text-align: center;" data-no="1"
-                                                                colspan="3">B</td>
-                                                        <td style="width: 100px;text-align: center;" data-no="1"
-                                                                colspan="3">F</td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">PENDINGIN</td>
-                                                        <td colspan="4" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="PENDINGIN" id="PENDINGIN"
-                                                                        placeholder="PENDINGIN" style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">SUHU FRONT ROLLER</td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUHUFRONTROLLER_B" id="SUHUFRONTROLLER_B"
-                                                                        placeholder="SUHUFRONTROLLER_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUHUFRONTROLLER_F" id="SUHUFRONTROLLER_F"
-                                                                        placeholder="SUHUFRONTROLLER_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUHU</td>
-                                                        <td colspan="4" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUHU" id="SUHU" placeholder="SUHU"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">SUHU BACK ROLLER</td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUHUBACKROLLER_B" id="SUHUBACKROLLER_B"
-                                                                        placeholder="SUHUBACKROLLER_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUHUBACKROLLER_F" id="SUHUBACKROLLER_F"
-                                                                        placeholder="SUHUBACKROLLER_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="font-size: 15px; font-weight: bold;" data-no="1"
-                                                                colspan="2">WET SUEDING</td>
-                                                        <td colspan="4" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="WETSUEDING" id="WETSUEDING"
-                                                                        placeholder="WETSUEDING" style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">SPEED BACK ROLLER</td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDBACKROLLER_B" id="SPEEDBACKROLLER_B"
-                                                                        placeholder="SPEEDBACKROLLER_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDBACKROLLER_F" id="SPEEDBACKROLLER_F"
-                                                                        placeholder="SPEEDBACKROLLER_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">BAGIAN</td>
-                                                        <td style="width: 100px;text-align: center;" data-no="1"
-                                                                colspan="2">B</td>
-                                                        <td style="width: 100px;text-align: center;" data-no="1"
-                                                                colspan="2">F</td>
-                                                        <td colspan="4" style="text-align: left;">GAP 1</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="GAP_01" id="GAP_01" placeholder="GAP_01"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="GAP_02" id="GAP_02" placeholder="GAP_02"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 1
-                                                        </td>
-                                                        <td style="width: 100px;" data-no="1" colspan="2"
-                                                                class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER1_B" id="SUEDEROLLER1_B"
-                                                                        placeholder="SUEDEROLLER1_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td style="width: 100px;" data-no="1" colspan="2"
-                                                                class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER1_F" id="SUEDEROLLER1_F"
-                                                                        placeholder="SUEDEROLLER1_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">GAP 2</td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="GAP_03" id="GAP_03" placeholder="GAP_03"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="GAP_04" id="GAP_04" placeholder="GAP_04"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 2
-                                                        </td>
-                                                        <td style="width: 100px;" data-no="1" colspan="2"
-                                                                class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER2_B" id="SUEDEROLLER2_B"
-                                                                        placeholder="SUEDEROLLER2_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td style="width: 100px;" data-no="1" colspan="2"
-                                                                class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER2_F" id="SUEDEROLLER2_F"
-                                                                        placeholder="SUEDEROLLER2_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">TENSION 1</td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSION1_B" id="TENSION1_B"
-                                                                        placeholder="TENSION1_B" style="width: 100%">
-                                                        </td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSION1_F" id="TENSION1_F"
-                                                                        placeholder="TENSION1_F" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 3
-                                                        </td>
-                                                        <td style="width: 100px;" data-no="1" colspan="2"
-                                                                class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER3_B" id="SUEDEROLLER3_B"
-                                                                        placeholder="SUEDEROLLER3_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td style="width: 100px;" data-no="1" colspan="2"
-                                                                class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER3_F" id="SUEDEROLLER3_F"
-                                                                        placeholder="SUEDEROLLER3_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">TENSION 2</td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSION2_B" id="TENSION2_B"
-                                                                        placeholder="TENSION2_B" style="width: 100%">
-                                                        </td>
-                                                        <td colspan="3" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSION2_F" id="TENSION2_F"
-                                                                        placeholder="TENSION2_F" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 4
-                                                                (S/B)</td>
-                                                        <td style="width: 100px;" class="bg-danger" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER4_B" id="SUEDEROLLER4_B"
-                                                                        placeholder="SUEDEROLLER4_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td style="width: 100px;" class="bg-danger" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER4_F" id="SUEDEROLLER4_F"
-                                                                        placeholder="SUEDEROLLER4_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="10" rowspan="2"
-                                                                style="font-size: 15px; font-weight: bold;text-align: center;">
-                                                                AIRO
-                                                        </td>
-                                                </tr>
-
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 1
-                                                                (S/B)</td>
-                                                        <td style="width: 100px;" class="bg-danger" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER1(S/B)_B"
-                                                                        id="SUEDEROLLER1(S/B)_B"
-                                                                        placeholder="SUEDEROLLER1(S/B)_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td style="width: 100px;" class="bg-danger" data-no="1"
-                                                                colspan="2">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER1(S/B)_F"
-                                                                        id="SUEDEROLLER1(S/B)_F"
-                                                                        placeholder="SUEDEROLLER1(S/B)_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 2
-                                                                (S/B)</td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER2(S/B)_B"
-                                                                        id="SUEDEROLLER2(S/B)_B"
-                                                                        placeholder="SUEDEROLLER2(S/B)_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER2(S/B)_F"
-                                                                        id="SUEDEROLLER2(S/B)_F"
-                                                                        placeholder="SUEDEROLLER2(S/B)_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">NO MESIN</td>
-                                                        <td colspan="6" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="NOMESIN" id="NOMESIN"
-                                                                        placeholder="NOMESIN" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 3
-                                                                (S/B)</td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER3(S/B)_B"
-                                                                        id="SUEDEROLLER3(S/B)_B"
-                                                                        placeholder="SUEDEROLLER3(S/B)_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER3(S/B)_F"
-                                                                        id="SUEDEROLLER3(S/B)_F"
-                                                                        placeholder="SUEDEROLLER3(S/B)_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">SPEED ROLL</td>
-                                                        <td colspan="6" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SPEEDROLL" id="SPEEDROLL"
-                                                                        placeholder="SPEEDROLL" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 4
-                                                                (S/B)</td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER4(S/B)_B"
-                                                                        id="SUEDEROLLER4(S/B)_B"
-                                                                        placeholder="SUEDEROLLER4(S/B)_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUEDEROLLER4(S/B)_F"
-                                                                        id="SUEDEROLLER4(S/B)_F"
-                                                                        placeholder="SUEDEROLLER4(S/B)_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">VENTILATOR</td>
-                                                        <td colspan="6" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="VENTILATOR" id="VENTILATOR"
-                                                                        placeholder="VENTILATOR" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">TENSION
-                                                                POTENSIONER (N)</td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONPOTENSIONER(N)_B"
-                                                                        id="TENSIONPOTENSIONER(N)_B"
-                                                                        placeholder="TENSIONPOTENSIONER(N)_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONPOTENSIONER(N)_F"
-                                                                        id="TENSIONPOTENSIONER(N)_F"
-                                                                        placeholder="TENSIONPOTENSIONER(N)_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">SUHU OVEN</td>
-                                                        <td colspan="6" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SUHUOVEN" id="SUHUOVEN"
-                                                                        placeholder="SUHUOVEN" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">TENSION
-                                                                FEEDING ROLLER (N)</td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONFEEDINGROLLER(N)_B"
-                                                                        id="TENSIONFEEDINGROLLER(N)_B"
-                                                                        placeholder="TENSIONFEEDINGROLLER(N)_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="TENSIONFEEDINGROLLER(N)_F"
-                                                                        id="TENSIONFEEDINGROLLER(N)_F"
-                                                                        placeholder="TENSIONFEEDINGROLLER(N)_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">WAKTU OVEN</td>
-                                                        <td colspan="6" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="WAKTUOVEN" id="WAKTUOVEN"
-                                                                        placeholder="WAKTUOVEN" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">PENETRATOR 01
-                                                                (%)</td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="PENETRATOR01(%)_B" id="PENETRATOR01(%)_B"
-                                                                        placeholder="PENETRATOR01(%)_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="PENETRATOR01(%)_F" id="PENETRATOR01(%)_F"
-                                                                        placeholder="PENETRATOR01(%)_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">PENDINGIN</td>
-                                                        <td colspan="6" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="AIROPENDINGIN" id="AIROPENDINGIN"
-                                                                        placeholder="AIROPENDINGIN" style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                                <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">PENETRATOR 02
-                                                                (%)</td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="PENETRATOR02(%)_B" id="PENETRATOR02(%)_B"
-                                                                        placeholder="PENETRATOR02(%)_B"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="2" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="PENETRATOR02(%)_F" id="PENETRATOR02(%)_F"
-                                                                        placeholder="PENETRATOR02(%)_F"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                        <td colspan="4" style="text-align: left;">WAKTU PENDINGIN</td>
-                                                        <td colspan="6" class="bg-danger">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="WAKTUPENDINGIN" id="WAKTUPENDINGIN"
-                                                                        placeholder="WAKTUPENDINGIN"
-                                                                        style="width: 100%">
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                </table>
-                                <div class="modal-footer">
-                                        <a href="index.php" class="btn pull-left btn-danger"
-                                                data-dismiss="modal">CANCEL</a>
-                                        <button type="submit" value="save" name="simpen"
-                                                class="btn pull-left btn-info">SAVE SPLB</button>
-                                </div>
-                        </form>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">OVEN</td>
+                            <td style="width: 100px;" class="bg-danger" data-no="1" colspan="4">
+                                <input type="text" class="form-control input-xs" name="OVEN" id="OVEN"
+                                    placeholder="OVEN" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">BAGIAN KAIN</td>
+                            <td style="width: 100px;text-align: center;" data-no="1" colspan="3">B</td>
+                            <td style="width: 100px;text-align: center;" data-no="1" colspan="3">F</td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">PENDINGIN</td>
+                            <td colspan="4" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="PENDINGIN" id="PENDINGIN"
+                                    placeholder="PENDINGIN" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">SUHU FRONT ROLLER</td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUHUFRONTROLLER_B"
+                                    id="SUHUFRONTROLLER_B" placeholder="SUHUFRONTROLLER_B" style="width: 100%">
+                            </td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUHUFRONTROLLER_F"
+                                    id="SUHUFRONTROLLER_F" placeholder="SUHUFRONTROLLER_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUHU</td>
+                            <td colspan="4" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUHU" id="SUHU"
+                                    placeholder="SUHU" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">SUHU BACK ROLLER</td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUHUBACKROLLER_B"
+                                    id="SUHUBACKROLLER_B" placeholder="SUHUBACKROLLER_B" style="width: 100%">
+                            </td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUHUBACKROLLER_F"
+                                    id="SUHUBACKROLLER_F" placeholder="SUHUBACKROLLER_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="font-size: 15px; font-weight: bold;" data-no="1" colspan="2">WET SUEDING</td>
+                            <td colspan="4" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="WETSUEDING" id="WETSUEDING"
+                                    placeholder="WETSUEDING" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">SPEED BACK ROLLER</td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SPEEDBACKROLLER_B"
+                                    id="SPEEDBACKROLLER_B" placeholder="SPEEDBACKROLLER_B" style="width: 100%">
+                            </td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SPEEDBACKROLLER_F"
+                                    id="SPEEDBACKROLLER_F" placeholder="SPEEDBACKROLLER_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">BAGIAN</td>
+                            <td style="width: 100px;text-align: center;" data-no="1" colspan="2">B</td>
+                            <td style="width: 100px;text-align: center;" data-no="1" colspan="2">F</td>
+                            <td colspan="4" style="text-align: left;">GAP 1</td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="GAP_01" id="GAP_01"
+                                    placeholder="GAP_01" style="width: 100%">
+                            </td>
+                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
+                                <input type="text" class="form-control input-xs" name="GAP_02" id="GAP_02"
+                                    placeholder="GAP_02" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 1
+                            </td>
+                            <td style="width: 100px;" data-no="1" colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER1_B"
+                                    id="SUEDEROLLER1_B" placeholder="SUEDEROLLER1_B" style="width: 100%">
+                            </td>
+                            <td style="width: 100px;" data-no="1" colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER1_F"
+                                    id="SUEDEROLLER1_F" placeholder="SUEDEROLLER1_F" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">GAP 2</td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="GAP_03" id="GAP_03"
+                                    placeholder="GAP_03" style="width: 100%">
+                            </td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="GAP_04" id="GAP_04"
+                                    placeholder="GAP_04" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 2
+                            </td>
+                            <td style="width: 100px;" data-no="1" colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER2_B"
+                                    id="SUEDEROLLER2_B" placeholder="SUEDEROLLER2_B" style="width: 100%">
+                            </td>
+                            <td style="width: 100px;" data-no="1" colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER2_F"
+                                    id="SUEDEROLLER2_F" placeholder="SUEDEROLLER2_F" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">TENSION 1</td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="TENSION1_B" id="TENSION1_B"
+                                    placeholder="TENSION1_B" style="width: 100%">
+                            </td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="TENSION1_F" id="TENSION1_F"
+                                    placeholder="TENSION1_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 3
+                            </td>
+                            <td style="width: 100px;" data-no="1" colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER3_B"
+                                    id="SUEDEROLLER3_B" placeholder="SUEDEROLLER3_B" style="width: 100%">
+                            </td>
+                            <td style="width: 100px;" data-no="1" colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER3_F"
+                                    id="SUEDEROLLER3_F" placeholder="SUEDEROLLER3_F" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">TENSION 2</td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="TENSION2_B" id="TENSION2_B"
+                                    placeholder="TENSION2_B" style="width: 100%">
+                            </td>
+                            <td colspan="3" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="TENSION2_F" id="TENSION2_F"
+                                    placeholder="TENSION2_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 4
+                                (S/B)</td>
+                            <td style="width: 100px;" class="bg-danger" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER4_B"
+                                    id="SUEDEROLLER4_B" placeholder="SUEDEROLLER4_B" style="width: 100%">
+                            </td>
+                            <td style="width: 100px;" class="bg-danger" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER4_F"
+                                    id="SUEDEROLLER4_F" placeholder="SUEDEROLLER4_F" style="width: 100%">
+                            </td>
+                            <td colspan="10" rowspan="2" style="font-size: 15px; font-weight: bold;text-align: center;">
+                                AIRO
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 1
+                                (S/B)</td>
+                            <td style="width: 100px;" class="bg-danger" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER1(S/B)_B"
+                                    id="SUEDEROLLER1(S/B)_B" placeholder="SUEDEROLLER1(S/B)_B" style="width: 100%">
+                            </td>
+                            <td style="width: 100px;" class="bg-danger" data-no="1" colspan="2">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER1(S/B)_F"
+                                    id="SUEDEROLLER1(S/B)_F" placeholder="SUEDEROLLER1(S/B)_F" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 2
+                                (S/B)</td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER2(S/B)_B"
+                                    id="SUEDEROLLER2(S/B)_B" placeholder="SUEDEROLLER2(S/B)_B" style="width: 100%">
+                            </td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER2(S/B)_F"
+                                    id="SUEDEROLLER2(S/B)_F" placeholder="SUEDEROLLER2(S/B)_F" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">NO MESIN</td>
+                            <td colspan="6" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="NOMESIN" id="NOMESIN"
+                                    placeholder="NOMESIN" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 3
+                                (S/B)</td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER3(S/B)_B"
+                                    id="SUEDEROLLER3(S/B)_B" placeholder="SUEDEROLLER3(S/B)_B" style="width: 100%">
+                            </td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER3(S/B)_F"
+                                    id="SUEDEROLLER3(S/B)_F" placeholder="SUEDEROLLER3(S/B)_F" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">SPEED ROLL</td>
+                            <td colspan="6" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SPEEDROLL" id="SPEEDROLL"
+                                    placeholder="SPEEDROLL" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">SUEDE ROLLER 4
+                                (S/B)</td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER4(S/B)_B"
+                                    id="SUEDEROLLER4(S/B)_B" placeholder="SUEDEROLLER4(S/B)_B" style="width: 100%">
+                            </td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUEDEROLLER4(S/B)_F"
+                                    id="SUEDEROLLER4(S/B)_F" placeholder="SUEDEROLLER4(S/B)_F" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">VENTILATOR</td>
+                            <td colspan="6" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="VENTILATOR" id="VENTILATOR"
+                                    placeholder="VENTILATOR" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">TENSION
+                                POTENSIONER (N)</td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="TENSIONPOTENSIONER(N)_B"
+                                    id="TENSIONPOTENSIONER(N)_B" placeholder="TENSIONPOTENSIONER(N)_B"
+                                    style="width: 100%">
+                            </td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="TENSIONPOTENSIONER(N)_F"
+                                    id="TENSIONPOTENSIONER(N)_F" placeholder="TENSIONPOTENSIONER(N)_F"
+                                    style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">SUHU OVEN</td>
+                            <td colspan="6" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="SUHUOVEN" id="SUHUOVEN"
+                                    placeholder="SUHUOVEN" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">TENSION
+                                FEEDING ROLLER (N)</td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="TENSIONFEEDINGROLLER(N)_B"
+                                    id="TENSIONFEEDINGROLLER(N)_B" placeholder="TENSIONFEEDINGROLLER(N)_B"
+                                    style="width: 100%">
+                            </td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="TENSIONFEEDINGROLLER(N)_F"
+                                    id="TENSIONFEEDINGROLLER(N)_F" placeholder="TENSIONFEEDINGROLLER(N)_F"
+                                    style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">WAKTU OVEN</td>
+                            <td colspan="6" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="WAKTUOVEN" id="WAKTUOVEN"
+                                    placeholder="WAKTUOVEN" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">PENETRATOR 01
+                                (%)</td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="PENETRATOR01(%)_B"
+                                    id="PENETRATOR01(%)_B" placeholder="PENETRATOR01(%)_B" style="width: 100%">
+                            </td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="PENETRATOR01(%)_F"
+                                    id="PENETRATOR01(%)_F" placeholder="PENETRATOR01(%)_F" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">PENDINGIN</td>
+                            <td colspan="6" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="AIROPENDINGIN" id="AIROPENDINGIN"
+                                    placeholder="AIROPENDINGIN" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr class="baris">
+                            <td style="width: 180px;" data-no="1" colspan="2">PENETRATOR 02
+                                (%)</td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="PENETRATOR02(%)_B"
+                                    id="PENETRATOR02(%)_B" placeholder="PENETRATOR02(%)_B" style="width: 100%">
+                            </td>
+                            <td colspan="2" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="PENETRATOR02(%)_F"
+                                    id="PENETRATOR02(%)_F" placeholder="PENETRATOR02(%)_F" style="width: 100%">
+                            </td>
+                            <td colspan="4" style="text-align: left;">WAKTU PENDINGIN</td>
+                            <td colspan="6" class="bg-danger">
+                                <input type="text" class="form-control input-xs" name="WAKTUPENDINGIN"
+                                    id="WAKTUPENDINGIN" placeholder="WAKTUPENDINGIN" style="width: 100%">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="modal-footer">
+                    <a href="index.php" class="btn pull-left btn-danger" data-dismiss="modal">CANCEL</a>
+                    <button type="submit" value="save" name="simpen" class="btn pull-left btn-info">SAVE SPLB</button>
                 </div>
+            </form>
         </div>
-        </table>
+    </div>
+    </table>
 </body>
 
 <script src="../bootstrap/js/bootstrap.js"></script>

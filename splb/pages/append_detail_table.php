@@ -90,7 +90,6 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" data-name="NAMA_TTD" data-no="2" colspan="7" style="text-align:center;">
             <?php echo $data['NAMA_TTD'] ?>
         </td>
-
     </tr>
     <tr class="baris">
         <td data-no="1" colspan="9" rowspan="2" style="text-align: center;font-size: 15px; font-weight: bold;">QUALITY

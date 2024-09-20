@@ -708,7 +708,6 @@ include("../koneksi.php");
 							<td colspan="4" style="text-align: left;">WAKTU PENDINGIN</td>
 							<td colspan="6" class="bg-danger"></td>
 						</tr>
-
 					</tbody>
 				</table>
 			</div>
@@ -790,8 +789,6 @@ include("../koneksi.php");
 			} else {
 				console.log('cancel!');
 			}
-
-
 		})
 	})
 </script>

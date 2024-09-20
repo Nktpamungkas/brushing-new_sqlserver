@@ -3,10 +3,10 @@ ini_set("error_reporting", 1);
 session_start();
 include("../koneksi.php");
 //request page
-$page    = isset($_GET['p']) ? $_GET['p'] : '';
-$act    = isset($_GET['act']) ? $_GET['act'] : '';
-$id        = isset($_GET['id']) ? $_GET['id'] : '';
-$page    = strtolower($page);
+$page = isset($_GET['p']) ? $_GET['p'] : '';
+$act = isset($_GET['act']) ? $_GET['act'] : '';
+$id = isset($_GET['id']) ? $_GET['id'] : '';
+$page = strtolower($page);
 ?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en-US">
@@ -97,11 +97,11 @@ $page    = strtolower($page);
                                 if (!empty($page) and !empty($act)) {
                                     $files = 'pages/' . $page . '.' . $act . '.php';
                                 } else
-					if (!empty($page)) {
-                                    $files = 'pages/' . $page . '.php';
-                                } else {
-                                    $files = 'pages/home.php';
-                                }
+                                    if (!empty($page)) {
+                                        $files = 'pages/' . $page . '.php';
+                                    } else {
+                                        $files = 'pages/home.php';
+                                    }
 
                                 if (file_exists($files)) {
                                     include_once($files);
@@ -134,11 +134,11 @@ $page    = strtolower($page);
                 </p>
             </div>
         </footer>
-
     </div>
-    <iframe width=174 height=189 name="gToday:normal:../calender/agenda.js" id="gToday:normal:../calender/agenda.js" src="../calender/ipopeng.htm" scrolling="no" frameborder="0" style="visibility:visible; z-index:999; position:absolute; top:-500px; left:-500px;">
+    <iframe width=174 height=189 name="gToday:normal:../calender/agenda.js" id="gToday:normal:../calender/agenda.js"
+        src="../calender/ipopeng.htm" scrolling="no" frameborder="0"
+        style="visibility:visible; z-index:999; position:absolute; top:-500px; left:-500px;">
     </iframe>
-
 </body>
 
 </html>

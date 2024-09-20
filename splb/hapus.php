@@ -7,7 +7,6 @@ if (isset($_POST['id'])) {
     $sql = "DELETE FROM db_brushing.tbl_splb WHERE ID = ?";
     $params = array($_POST['id']);
     $stmt = sqlsrv_query($con, $sql, $params);
-
     if ($stmt) {
         $data = array(
             'kode' => 200,
