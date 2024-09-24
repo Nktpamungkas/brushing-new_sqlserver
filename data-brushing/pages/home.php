@@ -1117,13 +1117,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 						onclick="window.location.href='index.php'" class="art-button" />
 					<input type="button" name="button2" id="button2" value="Kembali"
 						onclick="window.location.href='../index.php'" class="art-button" />
-					<?php if ($_GET['idkk'] != "") { ?>
-						<a href="pages/iden_produk.php?idkk=<?php if ($_GET['id'] != "") {
-							echo $rw['nokk'];
-						} else {
-							echo $_GET['idkk'];
-						} ?>" target="_blank" class="art-button">Cetak Identifikasi Produk</a>
-					<?php } ?>
+					
 				</td>
 			</tr>
 		</table>

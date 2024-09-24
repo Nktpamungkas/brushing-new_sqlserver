@@ -2,6 +2,7 @@
 ini_set("error_reporting", 1);
 session_start();
 include("../koneksi.php");
+include("../utils/helper.php");
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -33,11 +34,12 @@ include("../koneksi.php");
   function nourut()
     {
       include("../koneksi.php");
+    // include("../utils/helper.php");
       $format = date("ymd");
-      $sql = mysqli_query($con, "SELECT nokk FROM tbl_adm WHERE substr(nokk,1,6) like '%" . $format . "%' ORDER BY nokk DESC LIMIT 1 ") or die(mysqli_error());
-      $d = mysqli_num_rows($sql);
+      $sql = sqlsrv_query($con, "SELECT TOP 1 nokk FROM db_brushing.tbl_adm WHERE SUBSTRING(nokk,1,6) like '%" . $format . "%' ORDER BY nokk DESC",array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET)) or die(sqlsrv_errors());
+      $d = sqlsrv_num_rows($sql);
       if ($d > 0) {
-        $r = mysqli_fetch_array($sql);
+        $r = sqlsrv_fetch_array($sql);
         $d = $r['nokk'];
         $str = substr($d, 6, 2);
         $Urut = (int)$str;
@@ -62,39 +64,40 @@ include("../koneksi.php");
 
     if ($idkk != "" and $_GET['demand'] != "") {
       date_default_timezone_set('Asia/Jakarta');
-      $qry1 = mysqli_query($con, "SELECT * FROM tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and status='2'  ORDER BY id DESC LIMIT 1");
-      $rw1 = mysqli_fetch_array($qry1);
-      $rc1 = mysqli_num_rows($qry1);
+      $qry1 = sqlsrv_query($con, "SELECT TOP 1 * FROM db_brushing.tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and [status]='2'  ORDER BY id DESC", array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET));
+      $rw1 = sqlsrv_fetch_array($qry1);
+      $rc1 = sqlsrv_num_rows($qry1);
 
-      $qry = mysqli_query($con, "SELECT * FROM tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and status='1' and ISNULL(tgl_out) ORDER BY id DESC LIMIT 1");
-      $rw = mysqli_fetch_array($qry);
-      $rc = mysqli_num_rows($qry);
+      $qry = sqlsrv_query($con, "SELECT TOP 1 * FROM db_brushing.tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and [status]='1' and tgl_out = NULL ORDER BY id DESC",array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET));
+      $rw = sqlsrv_fetch_array($qry);
+      $rc = sqlsrv_num_rows($qry);
       if ($rc > 0) {
       } else {
-        echo "<script>alert('Sudah Keluar $rw1[tgl_out] ke $rw1[tujuan]' );</script>";
+        $tgl_out= cek($rw1['tgl_out'], 'Y-m-d H:i:s');
+        echo "<script>alert('Sudah Keluar $tgl_out ke $rw1[tujuan]' );</script>";
       }
     }
   ?>
 
   <?php
     if (isset($_POST['btnSimpan'])) {
-      $shift      = $_POST['shift'];
-      $shift1     = $_POST['shift2'];
-      $note       = str_replace("'", "''", $_POST['catatan']);
-      $tujuan     = $_POST['tujuan'];
+      $shift      = cek_input('shift');
+      $shift1     = cek_input('shift2');
+      $note       = cek_input('catatan');
+      $tujuan     = cek_input('tujuan');
       $tglout     = $_POST['tgl_proses_k'] . " " . $_POST['proses_out'];
 
-      $simpanSql = "UPDATE tbl_adm SET
-                        `shift_out`             = '$shift',
-                        `shift1_out`            = '$shift1',
-                        `catatan`               = '$note',
-                        `tujuan`                = '$tujuan',
-                        `tgl_update`            = now(),
-                        `status`                = '2',
-                        `tgl_out`               = '$tglout',
-                        `jumlah_gerobak_out`		= '$_POST[jumlah_gerobak_out]'
-                    WHERE `id`='$_POST[id]'";
-      mysqli_query($con, $simpanSql) or die("Gagal Ubah" . mysqli_error());
+      $simpanSql = "UPDATE db_brushing.tbl_adm SET
+                        shift_out             = '$shift',
+                        shift1_out            = '$shift1',
+                        catatan               = '$note',
+                        tujuan                = '$tujuan',
+                        tgl_update            = GETDATE(),
+                        [status]                = '2',
+                        tgl_out               = '$tglout',
+                        jumlah_gerobak_out		= '$_POST[jumlah_gerobak_out]'
+                    WHERE id='$_POST[id]'";
+      sqlsrv_query($con, $simpanSql) or die("Gagal Ubah" . sqlsrv_errors());
 
       // Refresh form
       echo "<meta http-equiv='refresh' content='0; url=?idkk=$idkk&status=Data Sudah DiUbah'>";
@@ -125,7 +128,7 @@ include("../koneksi.php");
                                     } ?>>KK Lama</option>
             <option value="NOW" <?php if ($_GET['typekk'] == "NOW") {
                                   echo "SELECTED";
-                                } ?>>KK NOW</option> -->
+                                } ?>>KK NOW</option>
             </select=>
         </td>
         <td>
@@ -213,8 +216,8 @@ include("../koneksi.php");
         <td>:</td>
         <td><select name="tujuan" id="tujuan" required="required">
             <option value="">Pilih</option>
-            <?php $qry1 = mysqli_query($con, "SELECT tujuan FROM tbl_tujuan ORDER BY id ASC");
-            while ($r = mysqli_fetch_array($qry1)) {
+            <?php $qry1 = sqlsrv_query($con, "SELECT tujuan FROM db_brushing.tbl_tujuan ORDER BY id ASC");
+            while ($r = sqlsrv_fetch_array($qry1)) {
             ?>
               <option value="<?php echo $r['tujuan']; ?>" <?php if ($rw['tujuan'] == $r['tujuan']) {
                                                             echo "selected";
