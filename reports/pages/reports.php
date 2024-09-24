@@ -374,16 +374,19 @@
                             <font size="-2">
                                 <?php
                     date_default_timezone_set('Asia/Jakarta');
-                    // $time1 = strtotime($rowd['tgl_stop_l'] . " " . $rowd['stop_l']);
-                    // $time2 = strtotime($rowd['tgl_stop_r'] . " " . $rowd['stop_r']);
-                    // $diff = $time2 - $time1;
+                                // var_dump($rowd['tgl_stop_l']);
+                                // var_dump($rowd['stop_l']);
+                    $time1 = strtotime(cek($rowd['tgl_stop_l'], 'Y-m-d') . " " . $rowd['stop_l']);
+                    $time2 = strtotime(cek($rowd['tgl_stop_r'], 'Y-m-d') . " " . $rowd['stop_r']);
+                    $diff = $time2 - $time1;
+                    // var_dump($time1);
                 
-                    // $jam = floor($diff / (60 * 60));
-                    // $menit = $diff - $jam * (60 * 60);
-                    // echo $jam . ' jam ' . floor($menit / 60) . ' menit';
+                    $jam = floor($diff / (60 * 60));
+                    $menit = $diff - $jam * (60 * 60);
+                    echo $jam . ' jam ' . floor($menit / 60) . ' menit';
                     // echo $time1;
                     // echo $time2;
-                    echo $rowd['tgl_stop_l'] . " " . $rowd['stop_l'];
+                    // echo $rowd['tgl_stop_l'] . " " . $rowd['stop_l'];
                     ?>
                             </font>
                         </div>
@@ -393,8 +396,8 @@
                             <font size="-2">
                                 <?php
                     date_default_timezone_set('Asia/Jakarta');
-                    $time1 = strtotime($rowd['tgl_stop_2'] . " " . $rowd['stop_2']);
-                    $time2 = strtotime($rowd['tgl_stop_r_2'] . " " . $rowd['stop_r_2']);
+                    $time1 = strtotime(cek($rowd['tgl_stop_2'],'Y-m-d') . " " . $rowd['stop_2']);
+                    $time2 = strtotime(cek($rowd['tgl_stop_r_2'],'Y-m-d') . " " . $rowd['stop_r_2']);
                     $diff = $time2 - $time1;
 
                     $jam = floor($diff / (60 * 60));
@@ -409,8 +412,8 @@
                             <font size="-2">
                                 <?php
                     date_default_timezone_set('Asia/Jakarta');
-                    $time1 = strtotime($rowd['tgl_stop_3'] . " " . $rowd['stop_3']);
-                    $time2 = strtotime($rowd['tdatetime: gl_stop_r_3'] . " " . $rowd['stop_r_3']);
+                    $time1 = strtotime(cek($rowd['tgl_stop_3'],'Y-m-d') . " " . $rowd['stop_3']);
+                    $time2 = strtotime(cek($rowd['tdatetime: gl_stop_r_3'],'Y-m-d') . " " . $rowd['stop_r_3']);
                     $diff = $time2 - $time1;
 
                     $jam = floor($diff / (60 * 60));
