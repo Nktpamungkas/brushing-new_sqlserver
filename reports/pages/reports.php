@@ -374,8 +374,8 @@
                             <font size="-2">
                                 <?php
                     date_default_timezone_set('Asia/Jakarta');
-                                // var_dump($rowd['tgl_stop_l']);
-                                // var_dump($rowd['stop_l']);
+                    // var_dump($rowd['tgl_stop_l']);
+                    // var_dump($rowd['stop_l']);
                     $time1 = strtotime(cek($rowd['tgl_stop_l'], 'Y-m-d') . " " . $rowd['stop_l']);
                     $time2 = strtotime(cek($rowd['tgl_stop_r'], 'Y-m-d') . " " . $rowd['stop_r']);
                     $diff = $time2 - $time1;
@@ -396,8 +396,8 @@
                             <font size="-2">
                                 <?php
                     date_default_timezone_set('Asia/Jakarta');
-                    $time1 = strtotime(cek($rowd['tgl_stop_2'],'Y-m-d') . " " . $rowd['stop_2']);
-                    $time2 = strtotime(cek($rowd['tgl_stop_r_2'],'Y-m-d') . " " . $rowd['stop_r_2']);
+                    $time1 = strtotime(cek($rowd['tgl_stop_2'], 'Y-m-d') . " " . $rowd['stop_2']);
+                    $time2 = strtotime(cek($rowd['tgl_stop_r_2'], 'Y-m-d') . " " . $rowd['stop_r_2']);
                     $diff = $time2 - $time1;
 
                     $jam = floor($diff / (60 * 60));
@@ -412,8 +412,8 @@
                             <font size="-2">
                                 <?php
                     date_default_timezone_set('Asia/Jakarta');
-                    $time1 = strtotime(cek($rowd['tgl_stop_3'],'Y-m-d') . " " . $rowd['stop_3']);
-                    $time2 = strtotime(cek($rowd['tdatetime: gl_stop_r_3'],'Y-m-d') . " " . $rowd['stop_r_3']);
+                    $time1 = strtotime(cek($rowd['tgl_stop_3'], 'Y-m-d') . " " . $rowd['stop_3']);
+                    $time2 = strtotime(cek($rowd['tgl_stop_r_3'], 'Y-m-d') . " " . $rowd['stop_r_3']);
                     $diff = $time2 - $time1;
 
                     $jam = floor($diff / (60 * 60));
@@ -513,7 +513,7 @@
     if ($shft == "ALL") {
       $shift = " ";
     } else {
-      $shift = " AND `shift`='$shft' ";
+      $shift = " AND shift='$shft' ";
     }
     ?>
     <input type="button" name="button2" id="button2" value="Kembali" onclick="window.location.href='index.php'"
