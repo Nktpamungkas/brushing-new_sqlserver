@@ -685,12 +685,27 @@
                     </td>
                     <td>
                         <div align="center">
-                            <font size="-2"><?php echo $rowd['qty']; ?></font>
+                            <font size="-2"><?php $r_qty = $rowd['qty'];
+                                        if (is_null($r_qty) || $r_qty == 0) {
+                                            // Jika nilai adalah null atau 0, tampilkan 0.00
+                                            echo "0.00";
+                                        } else {
+                                            // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                            echo $r_qty;
+                                        }
+                                        ?></font>
                         </div>
                     </td>
                     <td>
                         <div align="center">
-                            <font size="-2"><?php echo $rowd['panjang']; ?></font>
+                            <font size="-2"><?php $r_panjang = $rowd['panjang'];
+                                        if (is_null($r_panjang) || $r_panjang == 0) {
+                                            // Jika nilai adalah null atau 0, tampilkan 0.00
+                                            echo "0.00";
+                                        } else {
+                                            // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                            echo $r_panjang;
+                                        } ?></font>
                         </div>
                     </td>
                     <td>
@@ -923,8 +938,7 @@
             </thead>
             <tbody>
                 <?php
-                        $query = "
-                                SELECT 
+                        $query = "SELECT 
                                     *, 
                                     a.id AS idp, 
                                     SUBSTRING(a.langganan, CHARINDEX('/', a.langganan) + 1, LEN(a.langganan)) AS buyer
@@ -1025,12 +1039,27 @@
                     </td>
                     <td>
                         <div align="center">
-                            <font size="-2"><?php echo $rowd['qty']; ?></font>
+                            <font size="-2"><?php $r_qty = $rowd['qty'];
+                                            if (is_null($r_qty) || $r_qty == 0) {
+                                                // Jika nilai adalah null atau 0, tampilkan 0.00
+                                                echo "0.00";
+                                            } else {
+                                                // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                                echo $r_qty;
+                                            }
+                                            ?></font>
                         </div>
                     </td>
                     <td>
                         <div align="center">
-                            <font size="-2"><?php echo $rowd['panjang']; ?></font>
+                            <font size="-2"><?php $r_panjang = $rowd['panjang'];
+                                            if (is_null($r_panjang) || $r_panjang == 0) {
+                                                // Jika nilai adalah null atau 0, tampilkan 0.00
+                                                echo "0.00";
+                                            } else {
+                                                // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                                echo $r_panjang;
+                                            } ?></font>
                         </div>
                     </td>
                     <td>
@@ -1298,8 +1327,7 @@
             </thead>
             <tbody>
                 <?php
-                        $query = "
-SELECT 
+                        $query = "SELECT 
                                 a.*, 
                                 a.id AS idp, 
                                 DATEDIFF(DAY, a.tgl_in, a.tgl_out) AS Hari, 
@@ -1421,18 +1449,33 @@ SELECT
                     </td>
                     <td>
                         <div align="center">
-                            <font size="-2"><?php echo $rowd['qty']; ?></font>
+                            <font size="-2"><?php $r_qty = $rowd['qty'];
+                                            if (is_null($r_qty) || $r_qty == 0) {
+                                                // Jika nilai adalah null atau 0, tampilkan 0.00
+                                                echo "0.00";
+                                            } else {
+                                                // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                                echo $r_qty;
+                                            }
+                                            ?></font>
                         </div>
                     </td>
                     <td>
                         <div align="center">
-                            <font size="-2"><?php echo $rowd['panjang']; ?></font>
+                            <font size="-2"><?php $r_panjang = $rowd['panjang'];
+                                            if (is_null($r_panjang) || $r_panjang == 0) {
+                                                // Jika nilai adalah null atau 0, tampilkan 0.00
+                                                echo "0.00";
+                                            } else {
+                                                // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                                echo $r_panjang;
+                                            } ?></font>
                         </div>
                     </td>
                     <td>
                         <div align="center"><?php
-                                        $awal = cek($rowd['tgl_in'], 'Y-m-d');
-                                        $akhir = cek($rowd['tgl_out'], 'Y-m-d');
+                                        $awal = strtotime(cek($rowd['tgl_in'], 'Y-m-d') . " " . cek($rowd['tgl_in'], 'H:i'));
+                                        $akhir = strtotime(cek($rowd['tgl_out'], 'Y-m-d') . " " . cek($rowd['tgl_out'], 'H:i'));
                                         $diff = ($akhir - $awal);
 
                                         $jam = floor($diff / (60 * 60));
