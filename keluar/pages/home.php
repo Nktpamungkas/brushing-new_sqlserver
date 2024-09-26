@@ -68,7 +68,7 @@ include("../utils/helper.php");
       $rw1 = sqlsrv_fetch_array($qry1);
       $rc1 = sqlsrv_num_rows($qry1);
 
-      $qry = sqlsrv_query($con, "SELECT TOP 1 * FROM db_brushing.tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and [status]='1' and tgl_out = NULL ORDER BY id DESC",array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET));
+      $qry = sqlsrv_query($con, "SELECT TOP 1 * FROM db_brushing.tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and [status]='1' and tgl_out IS NULL ORDER BY id DESC",array(), array("Scrollable" => SQLSRV_CURSOR_KEYSET));
       $rw = sqlsrv_fetch_array($qry);
       $rc = sqlsrv_num_rows($qry);
       if ($rc > 0) {
