@@ -61,7 +61,7 @@
             $shft = $_GET['shift'];
         }
         if ($tglakhir != "" and $tglawal != "") {
-            $tgl = " CONVERT(VARCHAR(16), tgl_in, 120)  BETWEEN '$tglawal' AND '$tglakhir' ";
+            $tgl = " SUBSTRING(CONVERT(VARCHAR(16), tgl_in, 120),1,10) BETWEEN '$tglawal' AND '$tglakhir' ";
         } else {
             $tgl = " ";
         }
@@ -385,7 +385,7 @@
                 $shft = $_GET['shift'];
             }
             if ($tglakhir != "" and $tglawal != "") {
-                $tgl = " CONVERT(VARCHAR(16), tgl_out, 120) BETWEEN '$tglawal' AND '$tglakhir' ";
+                $tgl = " SUBSTRING(CONVERT(VARCHAR(16), tgl_out, 120),1,10)BETWEEN '$tglawal' AND '$tglakhir' ";
             } else {
                 $tgl = " ";
             }
@@ -822,7 +822,7 @@
                 $shft = $_GET['shift'];
             }
             if ($tglakhir != "" and $tglawal != "") {
-                $tgl = " CONVERT(VARCHAR(16), tgl_in, 120)  BETWEEN '$tglawal' AND '$tglakhir' ";
+                $tgl = " SUBSTRING(CONVERT(VARCHAR(16), tgl_in, 120),1,10) BETWEEN '$tglawal' AND '$tglakhir' ";
             } else {
                 $tgl = " ";
             }
@@ -1145,7 +1145,7 @@
             $shft = $_GET['shift'];
         }
         if ($tglakhir != "" and $tglawal != "") {
-            $tgl = " CONVERT(VARCHAR(16), tgl_in, 120)  BETWEEN '$tglawal' AND '$tglakhir' ";
+            $tgl = " SUBSTRING(CONVERT(VARCHAR(16), tgl_out, 120),1,10) BETWEEN '$tglawal' AND '$tglakhir' ";
         } else {
             $tgl = " ";
         }
