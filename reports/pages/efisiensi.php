@@ -259,12 +259,8 @@
                                                     (1000 /((NULLIF(a.lebar,0) * NULLIF(a.gramasi,0))/ 43.056))*  NULLIF(a.qty,0) AS yd_lot,
                                                     ((1000 /((NULLIF(a.lebar,0) * NULLIF(a.gramasi,0))/ 43.056))* NULLIF(a.qty,0)) / NULLIF(a.speed, 0) AS waktu_proses 
                                                 FROM db_brushing.tbl_produksi a
-                            WHERE {$tgl} 
-                         {$shift} 
-                         {$mesin} 
-                         {$nomesin} 
-                         {$wopr}
-                        ORDER BY a.no_mesin ASC ");
+                            WHERE {$tgl}{$shift}{$mesin}{$nomesin}{$wopr}
+                        ORDER BY a.no_mesin ASC");
                 $no = 1;
                 $c = 0;
                 while ($rowd = sqlsrv_fetch_array(stmt: $sql)) {

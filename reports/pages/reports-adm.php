@@ -41,7 +41,15 @@
     <?php
     ini_set("error_reporting", 1);
     session_start();
-    include("../koneksi.php");
+    $hostSVR19 = "10.0.0.221";
+    $usernameSVR19 = "sa";
+    $passwordSVR19 = "Ind@taichen2024";
+    $brushing = "db_brushing";
+
+    $db_brushing = array("Database" => $brushing, "UID" => $usernameSVR19, "PWD" => $passwordSVR19);
+
+    $con = sqlsrv_connect($hostSVR19, $db_brushing);
+
     include('../utils/helper.php');
     if ($_POST['jenis'] == "Kartu IN" or $_GET['jenis'] == "Kartu IN") {
         ?>
@@ -560,8 +568,7 @@
             </thead>
             <tbody>
                 <?php
-                        $query = "
-                        SELECT 
+                        $query = " SELECT 
                                 a.*, 
                                 a.id AS idp, 
                                 DATEDIFF(DAY, a.tgl_in, a.tgl_out) AS Hari, 
@@ -574,7 +581,7 @@
                                 a.status = '2' 
                                 AND {$tgl} {$shift}
                             ORDER BY 
-                                a.tgl_in ASC;                                
+                                a.tgl_in ASC                                
                             ";
                         $sql = sqlsrv_query($con, $query);
 

@@ -86,9 +86,17 @@ if ($mc != "ALL") {
 
     <?php
     //   $con=mysqli_connect("10.0.0.10","dit","4dm1n","db_brushing");
-    include("../../koneksi.php");
+    $hostSVR19 = "10.0.0.221";
+    $usernameSVR19 = "sa";
+    $passwordSVR19 = "Ind@taichen2024";
+    $brushing = "db_brushing";
+
+    $db_brushing = array("Database" => $brushing, "UID" => $usernameSVR19, "PWD" => $passwordSVR19);
+
+    $con = sqlsrv_connect($hostSVR19, $db_brushing);
 
     ini_set("error_reporting", 1);
+    include("../../utils/helper.php");
     ?>
     <table width="100%" border="0" class="table-list1">
         <thead>
@@ -215,10 +223,10 @@ if ($mc != "ALL") {
                     <div align="right"><?php echo $rowd['jam_out']; ?></div>
                 </td>
                 <td>
-                    <div align="right"><?php echo $rowd['stop_l']; ?></div>
+                    <div align="right"><?php echo cek($rowd['stop_l']); ?></div>
                 </td>
                 <td>
-                    <div align="right"><?php echo $rowd['stop_r']; ?></div>
+                    <div align="right"><?php echo cek($rowd['stop_r']); ?></div>
                 </td>
                 <td>
                     <div align="center">

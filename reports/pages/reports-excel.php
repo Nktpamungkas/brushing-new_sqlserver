@@ -6,9 +6,18 @@ header("Expires: 0");
 //disini script laporan anda
 ?>
 <?php
-include("../../koneksi.php");
 // $con=mysqli_connect("localhost","root","","db_brushing");
+
+$hostSVR19 = "10.0.0.221";
+$usernameSVR19 = "sa";
+$passwordSVR19 = "Ind@taichen2024";
+$brushing = "db_brushing";
+
+$db_brushing = array("Database" => $brushing, "UID" => $usernameSVR19, "PWD" => $passwordSVR19);
+
+$con = sqlsrv_connect($hostSVR19, $db_brushing);
 ini_set("error_reporting", 1);
+include("../../utils/helper.php");
 ?>
 
 <body>

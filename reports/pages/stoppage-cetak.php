@@ -1,6 +1,14 @@
 <?php
 // $con = mysqli_connect("10.0.0.10", "dit", "4dm1n", "db_brushing");
-include("../../koneksi.php");
+$hostSVR19 = "10.0.0.221";
+$usernameSVR19 = "sa";
+$passwordSVR19 = "Ind@taichen2024";
+$brushing = "db_brushing";
+
+$db_brushing = array("Database" => $brushing, "UID" => $usernameSVR19, "PWD" => $passwordSVR19);
+
+$con = sqlsrv_connect($hostSVR19, $db_brushing);
+
 include("../../utils/helper.php");
 ?>
 <?php
@@ -11,7 +19,7 @@ $shft = $_POST['shift'];
 $mc = $_POST['nama_mesin'];
 $no_mc = $_POST['no_mesin'];
 if ($tglakhir != "" and $tglawal != "") {
-    $tgl = " CONVERT(VARCHAR(16), tgl_upadate, 120)  BETWEEN '$tglawal' AND '$tglakhir' ";
+    $tgl = " CONVERT(VARCHAR(16), a.tgl_update, 120)  BETWEEN '$tglawal' AND '$tglakhir' ";
 } else {
     $tgl = " ";
 }
@@ -80,6 +88,12 @@ if ($no_mc != "") {
 </head>
 
 <body>
+    <!-- <?php
+    echo $tgl;
+    echo $shift;
+    echo $mesin;
+    echo $nomesin;
+    ?> -->
     <table width="812" border="0" class="table-list1" style="width:8.50in">
         <thead>
             <tr valign="top">
@@ -176,14 +190,12 @@ if ($no_mc != "") {
         <tbody>
             <?php
 
-            $sql = sqlsrv_query($con, " SELECT 
-	*
-FROM
-	db_brushing.tbl_produksi a
-
-WHERE
-	not a.kd_stop='' AND " . $tgl . $shift . $mesin . $nomesin . " ORDER BY a.no_mesin ASC");
-
+            $sql = sqlsrv_query($con, "  SELECT *
+    FROM db_brushing.tbl_produksi AS a
+    WHERE NOT a.kd_stop = '' 
+    AND $tgl $shift $mesin $nomesin 
+    ORDER BY a.no_mesin ASC
+");
             $no = 1;
 
             $c = 0;
@@ -192,7 +204,7 @@ WHERE
                 ?>
             <tr valign="top">
                 <td>
-                    <div align="center"><?php echo $rowd['tgl_update']; ?></div>
+                    <div align="center"><?php echo cek($rowd['tgl_update']); ?></div>
                 </td>
                 <td>
                     <div align="center"><?php if ($rowd['shift1'] == "Pagi") {

@@ -5,7 +5,15 @@ header("Content-Disposition: attachment; filename=report-adm-" . date($_GET['tgl
 header("Pragma: no-cache");
 header("Expires: 0");
 //disini script laporan anda
-include("../../koneksi.php");
+$hostSVR19 = "10.0.0.221";
+$usernameSVR19 = "sa";
+$passwordSVR19 = "Ind@taichen2024";
+$brushing = "db_brushing";
+
+$db_brushing = array("Database" => $brushing, "UID" => $usernameSVR19, "PWD" => $passwordSVR19);
+
+$con = sqlsrv_connect($hostSVR19, $db_brushing);
+
 include("../../utils/helper.php");
 ?>
 
@@ -26,7 +34,7 @@ include("../../utils/helper.php");
         $jns = $_GET['jenis'];
         $shft = $_GET['shift'];
         if ($tglakhir != "" and $tglawal != "") {
-            $tgl = " CONVERT(VARCHAR(16), a.tgl_in, 120) BETWEEN '$tglawal' AND '$tglakhir' ";
+            $tgl = " SUBSTRING(CONVERT(VARCHAR(16), tgl_in, 120),1,10) BETWEEN '$tglawal' AND '$tglakhir' ";
         } else {
             $tgl = " ";
         }
@@ -155,17 +163,30 @@ include("../../utils/helper.php");
                 </td>
             </tr>
             <?php
-                $sql = sqlsrv_query($con, " SELECT 
-                                    *, a.id as idp,
-                                    SUBSTR(a.langganan, LOCATE('/', a.langganan)+1)	AS buyer
-                                  FROM
+                $query = "SELECT 
+                                    *, 
+                                    a.id AS idp, 
+                                    SUBSTRING(a.langganan, CHARINDEX('/', a.langganan) + 1, LEN(a.langganan)) AS buyer
+                                FROM 
                                     db_brushing.tbl_adm a
-                                  WHERE
-                                    a.status='1' AND " . $tgl . $shift . " ORDER BY a.tgl_in ASC ");
-                $no = 1;
+                                WHERE 
+                                    (a.status = '1' OR a.status = '2') 
+                                    AND {$tgl} {$shift}
+                                ORDER BY 
+                                    a.tgl_in ASC
+                            ";
+
+                $sql = sqlsrv_query($con, $query);
+                if ($sql === false) {
+                    die(print_r(sqlsrv_errors(), true));
+                }
+
+                $no = ($hal > 0) ? $hal + 1 : 1;
 
                 $c = 0;
-                while ($rowd = sqlsrv_fetch_array($sql)) {
+
+                // Fetch results
+                while ($rowd = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC)) {
                     $bgcolor = ($c++ & 1) ? '#33CCFF' : '#FFCC99';
                     ?>
             <tr style="border:1px solid;">
@@ -174,14 +195,14 @@ include("../../utils/helper.php");
                         <font size="-2"><?php echo $no; ?></font>
                     </div>
                 </td>
-                <td style="border:1px solid;">
+                <td>
                     <div align="center">
-                        <font size="-2"><?php echo date('Y-m-d', strtotime($rowd['tgl_in'])); ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_in'], 'Y-m-d'); ?></font>
                     </div>
                 </td>
-                <td style="border:1px solid;">
+                <td>
                     <div align="center">
-                        <font size="-2"><?php echo date('H:i', strtotime($rowd['tgl_in'])); ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_in'], 'H:i'); ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
@@ -247,12 +268,27 @@ include("../../utils/helper.php");
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
-                        <font size="-2"><?php echo $rowd['qty']; ?></font>
+                        <font size="-2"><?php $r_qty = $rowd['qty'];
+                                if (is_null($r_qty) || $r_qty == 0) {
+                                    // Jika nilai adalah null atau 0, tampilkan 0.00
+                                    echo "0.00";
+                                } else {
+                                    // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                    echo $r_qty;
+                                }
+                                ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
-                        <font size="-2"><?php echo $rowd['panjang']; ?></font>
+                        <font size="-2"><?php $r_panjang = $rowd['panjang'];
+                                if (is_null($r_panjang) || $r_panjang == 0) {
+                                    // Jika nilai adalah null atau 0, tampilkan 0.00
+                                    echo "0.00";
+                                } else {
+                                    // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                    echo $r_panjang;
+                                } ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
@@ -322,7 +358,7 @@ include("../../utils/helper.php");
             $jns = $_GET['jenis'];
             $shft = $_GET['shift'];
             if ($tglakhir != "" and $tglawal != "") {
-                $tgl = "CONVERT(VARCHAR(16), a.tgl_out, 120)BETWEEN '$tglawal' AND '$tglakhir' ";
+                $tgl = "SUBSTRING(CONVERT(VARCHAR(16), tgl_out, 120),1,10) BETWEEN '$tglawal' AND '$tglakhir' ";
             } else {
                 $tgl = " ";
             }
@@ -518,18 +554,33 @@ include("../../utils/helper.php");
                 </td>
             </tr>
             <?php
-                    $sql = sqlsrv_query($con, " SELECT 
-                                        *,a.id as idp ,DATEDIFF(a.tgl_out,a.tgl_in) as Hari, TIMEDIFF(a.tgl_out,a.tgl_in) as Jam,
-                                        SUBSTR(a.langganan, LOCATE('/', a.langganan)+1)	AS buyer 
-                                      FROM
-                                        db_brushing.tbl_adm a
-                                      WHERE
-                                        a.status='2' AND " . $tgl . $shift . " ORDER BY a.tgl_in ASC ");
-                    $no = 1;
+                    $query = " SELECT 
+                                a.*, 
+                                a.id AS idp, 
+                                DATEDIFF(DAY, a.tgl_in, a.tgl_out) AS Hari, 
+                                CONVERT(VARCHAR, DATEDIFF(SECOND, a.tgl_in, a.tgl_out) / 3600) + ':' +
+                                RIGHT('0' + CONVERT(VARCHAR, (DATEDIFF(SECOND, a.tgl_in, a.tgl_out) % 3600) / 60), 2) AS Jam,
+                                SUBSTRING(a.langganan, CHARINDEX('/', a.langganan) + 1, LEN(a.langganan)) AS buyer
+                            FROM 
+                                db_brushing.tbl_adm a
+                            WHERE 
+                                a.status = '2' 
+                                AND {$tgl} {$shift}
+                            ORDER BY 
+                                a.tgl_in ASC                                
+                            ";
+                    $sql = sqlsrv_query($con, $query);
 
+                    if ($sql === false) {
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+
+                    $no = 1;
                     $c = 0;
-                    while ($rowd = sqlsrv_fetch_array($sql)) {
+
+                    while ($rowd = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC)) {
                         $bgcolor = ($c++ & 1) ? '#33CCFF' : '#FFCC99';
+
                         ?>
             <tr style="border:1px solid;">
                 <td style="border:1px solid;">
@@ -539,22 +590,23 @@ include("../../utils/helper.php");
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
-                        <font size="-2"><?php echo date('Y-m-d', strtotime($rowd['tgl_in'])); ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_in'], 'Y-m-d'); ?>
+                        </font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
-                        <font size="-2"><?php echo date('H:i', strtotime($rowd['tgl_in'])); ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_in'], 'H:i'); ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
-                        <font size="-2"><?php echo date('Y-m-d', strtotime($rowd['tgl_out'])); ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_out'], 'Y-m-d'); ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
-                        <font size="-2"><?php echo date('H:i', strtotime($rowd['tgl_out'])); ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_out'], 'H:i'); ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
@@ -628,21 +680,36 @@ include("../../utils/helper.php");
                         <font size="-2"><?php echo $rowd['rol']; ?></font>
                     </div>
                 </td>
-                <td style="border:1px solid;">
+                <td>
                     <div align="center">
-                        <font size="-2"><?php echo $rowd['qty']; ?></font>
+                        <font size="-2"><?php $r_qty = $rowd['qty'];
+                                    if (is_null($r_qty) || $r_qty == 0) {
+                                        // Jika nilai adalah null atau 0, tampilkan 0.00
+                                        echo "0.00";
+                                    } else {
+                                        // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                        echo $r_qty;
+                                    }
+                                    ?></font>
                     </div>
                 </td>
-                <td style="border:1px solid;">
+                <td>
                     <div align="center">
-                        <font size="-2"><?php echo $rowd['panjang']; ?></font>
+                        <font size="-2"><?php $r_panjang = $rowd['panjang'];
+                                    if (is_null($r_panjang) || $r_panjang == 0) {
+                                        // Jika nilai adalah null atau 0, tampilkan 0.00
+                                        echo "0.00";
+                                    } else {
+                                        // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                        echo $r_panjang;
+                                    } ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
                         <font size="-2"><?php
-                                    $awal = strtotime(cek($rowd['tgl_in'], 'Y-m-d'));
-                                    $akhir = strtotime(cek($rowd['tgl_out'], 'Y-m-d'));
+                                    $awal = strtotime(cek($rowd['tgl_in'], 'Y-m-d') . " " . cek($rowd['tgl_in'], 'H:i'));
+                                    $akhir = strtotime(cek($rowd['tgl_out'], 'Y-m-d') . " " . cek($rowd['tgl_out'], 'H:i'));
                                     $diff = $akhir - $awal;
 
                                     $jam = floor($diff / (60 * 60));
@@ -743,7 +810,7 @@ include("../../utils/helper.php");
             $jns = $_GET['jenis'];
             $shft = $_GET['shift'];
             if ($tglakhir != "" and $tglawal != "") {
-                $tgl = " CONVERT(VARCHAR(16), a.tgl_in, 120)BETWEEN '$tglawal' AND '$tglakhir' ";
+                $tgl = "SUBSTRING(CONVERT(VARCHAR(16), tgl_in, 120),1,10) BETWEEN '$tglawal' AND '$tglakhir' ";
             } else {
                 $tgl = " ";
             }
@@ -940,47 +1007,57 @@ include("../../utils/helper.php");
                 </td>
             </tr>
             <?php
-                    $sql = sqlsrv_query($con, " SELECT 
-                                  *,a.id as idp ,DATEDIFF(a.tgl_out,a.tgl_in) as Hari, TIMEDIFF(a.tgl_out,a.tgl_in) as Jam,
-                                    SUBSTR(a.langganan, LOCATE('/', a.langganan)+1)	AS buyer
-                                FROM
-                                  db_brushing.tbl_adm a
-                                WHERE
-                                  (a.status='1' OR a.status='2') AND " . $tgl . $shift . " ORDER BY a.tgl_in ASC ");
-                    $no = 1;
+                    $query = "SELECT 
+                                    *, 
+                                    a.id AS idp, 
+                                    SUBSTRING(a.langganan, CHARINDEX('/', a.langganan) + 1, LEN(a.langganan)) AS buyer
+                                FROM 
+                                    db_brushing.tbl_adm a
+                                WHERE 
+                                    (a.status = '1' OR a.status = '2') 
+                                    AND {$tgl} {$shift}
+                                ORDER BY 
+                                    a.tgl_in ASC
+                            ";
+
+                    $sql = sqlsrv_query($con, $query);
+                    if ($sql === false) {
+                        die(print_r(sqlsrv_errors(), true));
+                    }
+
+                    $no = ($hal > 0) ? $hal + 1 : 1;
 
                     $c = 0;
-                    while ($rowd = sqlsrv_fetch_array($sql)) {
+
+                    // Fetch results
+                    while ($rowd = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC)) {
                         $bgcolor = ($c++ & 1) ? '#33CCFF' : '#FFCC99';
                         ?>
+
             <tr style="border:1px solid;">
                 <td style="border:1px solid;">
                     <div align="center">
                         <font size="-2"><?php echo $no; ?></font>
                     </div>
                 </td>
-                <td style="border:1px solid;">
+                <td>
                     <div align="center">
-                        <font size="-2"><?php echo date('Y-m-d', strtotime($rowd['tgl_in'])); ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_in'], 'Y-m-d'); ?></font>
                     </div>
                 </td>
-                <td style="border:1px solid;">
+                <td>
                     <div align="center">
-                        <font size="-2"><?php echo date('H:i', strtotime($rowd['tgl_in'])); ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_in'], 'H:i'); ?></font>
                     </div>
                 </td>
-                <td style="border:1px solid;">
+                <td>
                     <div align="center">
-                        <font size="-2"><?php if ($rowd['tgl_out'] != "") {
-                                        echo date('Y-m-d', strtotime($rowd['tgl_out']));
-                                    } ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_out'], 'Y-m-d'); ?></font>
                     </div>
                 </td>
-                <td style="border:1px solid;">
+                <td>
                     <div align="center">
-                        <font size="-2"><?php if ($rowd['tgl_out'] != "") {
-                                        echo date('H:i', strtotime($rowd['tgl_out']));
-                                    } ?></font>
+                        <font size="-2"><?php echo cek($rowd['tgl_out'], 'H:i'); ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
@@ -1056,19 +1133,34 @@ include("../../utils/helper.php");
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
-                        <font size="-2"><?php echo $rowd['qty']; ?></font>
+                        <font size="-2"><?php $r_qty = $rowd['qty'];
+                                    if (is_null($r_qty) || $r_qty == 0) {
+                                        // Jika nilai adalah null atau 0, tampilkan 0.00
+                                        echo "0.00";
+                                    } else {
+                                        // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                        echo $r_qty;
+                                    }
+                                    ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
-                        <font size="-2"><?php echo $rowd['panjang']; ?></font>
+                        <font size="-2"><?php $r_panjang = $rowd['panjang'];
+                                    if (is_null($r_panjang) || $r_panjang == 0) {
+                                        // Jika nilai adalah null atau 0, tampilkan 0.00
+                                        echo "0.00";
+                                    } else {
+                                        // Jika nilai bukan null dan bukan 0, tampilkan sebagaimana adanya
+                                        echo $r_panjang;
+                                    } ?></font>
                     </div>
                 </td>
                 <td style="border:1px solid;">
                     <div align="center">
                         <font size="-2"><?php
-                                    $awal = strtotime(cek($rowd['tgl_in'], 'Y-m-d'));
-                                    $akhir = strtotime(cek($rowd['tgl_out'], 'Y-m-d'));
+                                    $awal = strtotime(cek($rowd['tgl_in'], 'Y-m-d') . " " . cek($rowd['tgl_in'], 'H:i'));
+                                    $akhir = strtotime(cek($rowd['tgl_out'], 'Y-m-d') . " " . cek($rowd['tgl_out'], 'H:i'));
                                     $diff = $akhir - $awal;
 
                                     $jam = floor($diff / (60 * 60));

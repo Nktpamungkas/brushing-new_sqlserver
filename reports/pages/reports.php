@@ -91,10 +91,10 @@
     ?>
     <input type="button" name="button2" id="button2" value="Kembali" onclick="window.location.href='index.php'"
         class="art-button" />
-    <input type="button" name="button3" id="button3" value="Cetak"
+    <input type="button" name="button3" id="button4" value="Cetak"
         onclick="window.open('pages/reports-cetak.php?tglawal=<?php echo $tglawal; ?>&amp;jamawal=<?php echo $jamawal; ?>&amp;tglakhir=<?php echo $tglakhir; ?>&amp;jamakhir=<?php echo $jamakhir; ?>&amp;mesin=<?php echo $_POST['nama_mesin']; ?>&amp;no_mesin=<?php echo $_POST['no_mesin']; ?>&amp;shift=<?php echo $shft; ?>', '_blank')"
         class="art-button" />
-    <input type="button" name="button" id="button" value="Cetak Ke Excel"
+    <input type="button" name="button5" id="button5" value="Cetak Ke Excel"
         onClick="window.location.href='pages/reports-excel.php?tglawal=<?php echo $tglawal; ?>&amp;jamawal=<?php echo $jamawal; ?>&amp;tglakhir=<?php echo $tglakhir; ?>&amp;jamakhir=<?php echo $jamakhir; ?>&amp;mesin=<?php echo $_POST['nama_mesin']; ?>&amp;no_mesin=<?php echo $_POST['no_mesin']; ?>&amp;shift=<?php echo $shft; ?>'"
         class="art-button" />
     <br />

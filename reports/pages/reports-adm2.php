@@ -122,7 +122,7 @@
     <table width="100%" border="1" id="" class="display">
         <thead>
             <tr>
-                <th width="5%" rowspan="2" bgcolor="#fff">TANGGAL</th>
+                <th width="5%" rowspan="2" bgcolor="#fff">TANGGAL ase</th>
                 <th width="1%" rowspan="2" bgcolor="#fff">SHIFT</th>
                 <th colspan="14" bgcolor="#fff">JENIS PROSES</th>
                 <th width="6%" rowspan="2" bgcolor="#fff">TOTAL</th>
@@ -159,11 +159,10 @@
             $tgl = $_POST['thn'] . "-" . $_POST['bln'] . "-" . $i; ?></td>
                 <td>
                     <?php
-              $sqlA = sqlsrv_query($con, "
-    SELECT 
+              $sqlA = sqlsrv_query($con, "SELECT 
         SUM(CASE WHEN proses='Garuk Fleece (Normal)' THEN qty ELSE 0 END) AS Garuk_Fleece,
         SUM(CASE WHEN proses='Potong Bulu Peach Skin (Normal)' THEN qty ELSE 0 END) AS Potong_Bulu_Peach_Skin,
-        SUM(CASE WHEN proses='Potong Bulu Anti Pilling (Normal)' THEN qty ELSE 0 END) AS Potong_Bulu_Anti_Pilling,
+        SUM(CASE WHEN proses='POTONG BULU ANTI PILLING (Normal)' THEN qty ELSE 0 END) AS Potong_Bulu_Anti_Pilling,
         SUM(CASE WHEN proses='Garuk Grey (Normal)' THEN qty ELSE 0 END) AS Garuk_Grey,
         SUM(CASE WHEN proses='Potong Bulu Fleece (Normal)' THEN qty ELSE 0 END) AS Potong_Bulu_Fleece,
         SUM(CASE WHEN proses='Garuk Anti Pilling (Normal)' THEN qty ELSE 0 END) AS Garuk_Anti_Pilling,

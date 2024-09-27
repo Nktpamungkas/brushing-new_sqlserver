@@ -606,6 +606,7 @@
 
                         while ($rowd = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC)) {
                             $bgcolor = ($c++ & 1) ? '#33CCFF' : '#FFCC99';
+
                             ?>
 
                 <tr>
@@ -727,8 +728,8 @@
                     </td>
                     <td>
                         <div align="center"><?php
-                                    $awal = strtotime(cek($rowd['tgl_in'], 'Y-m-d'));
-                                    $akhir = strtotime(cek($rowd['tgl_out'], 'Y-m-d'));
+                                    $awal = strtotime(cek($rowd['tgl_in'], 'Y-m-d') . " " . cek($rowd['tgl_in'], 'H:i'));
+                                    $akhir = strtotime(cek($rowd['tgl_out'], 'Y-m-d') . " " . cek($rowd['tgl_out'], 'H:i'));
                                     $diff = ($akhir - $awal);
 
                                     $jam = floor($diff / (60 * 60));
