@@ -365,110 +365,158 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 		// Refresh form
 		echo "<meta http-equiv='refresh' content='0; url=?idkk=$idkk&status=Data Sudah DiSimpan'>";
 	} else if (isset($_POST['btnSimpan']) and $_GET['id'] != "") {
-		$nodemand = $_POST['demand'];
-		$langganan = $_POST['buyer'];
-		$order = $_POST['no_order'];
-		$jenis_kain = str_replace("'", "", $_POST['jenis_kain']);
-		$warna = str_replace("'", "", $_POST['warna']);
-		$lot = $_POST['lot'];
-		$qty = $_POST['qty'];
-		$qty2 = $_POST['qty2'];
-		$rol = $_POST['rol'];
-		$mesin = $_POST['no_mesin'];
-		$nmmesin = $_POST['nama_mesin'];
-		$proses = $_POST['proses'];
-		$shift = $_POST['shift'];
-		$shift1 = $_POST['shift2'];
-		$jam_in = $_POST['proses_in'];
-		$jam_out = $_POST['proses_out'];
-		$proses_jam = $_POST['proses_jam'];
-		$proses_menit = $_POST['proses_menit'];
-		$tgl_proses_in = $_POST['tgl_proses_m'];
-		$tgl_proses_out = $_POST['tgl_proses_k'];
+		$nodemand = cek_input('demand');
+		$langganan = cek_input('buyer');
+		$order = cek_input('no_order');
+		$jenis_kain =  cek_input('jenis_kain');
+		$warna =  cek_input('warna');
+		$lot = cek_input('lot');
+		$qty = cek_input('qty');
+		$qty2 = cek_input('qty2');
+		$rol = cek_input('rol');
+		$mesin = cek_input('no_mesin');
+		$nmmesin = cek_input('nama_mesin');
+		$proses = cek_input('proses');
+		$shift = cek_input('shift');
+		$shift1 = cek_input('shift2');
+		$jam_in = cek_input('proses_in');
+		$jam_out = cek_input('proses_out');
+		$proses_jam = cek_input('proses_jam');
+		$proses_menit = cek_input('proses_menit');
+		$tgl_proses_in = cek_input('tgl_proses_m');
+		$tgl_proses_out = cek_input('tgl_proses_k');
 
-		$stop_jam = $_POST['stop_jam'];
-		$stop_menit = $_POST['stop_menit'];
+		$stop_jam = cek_input('stop_jam');
+		$stop_menit = cek_input('stop_menit');
 
 		// Tambahan
-		$no_gerobak = $_POST['no_gerobak'];
-		$jenis_kartu = $_POST['jenis_kartu'];
-		$jumlah_gerobak = $_POST['jumlah_gerobak'];
-		$mulai = $_POST['stop_mulai'];
-		$mulai2 = $_POST['stop_mulai2'];
-		$mulai3 = $_POST['stop_mulai3'];
-		$selesai = $_POST['stop_selesai'];
-		$selesai2 = $_POST['stop_selesai2'];
-		$selesai3 = $_POST['stop_selesai3'];
-		$tgl_stop_m = $_POST['tgl_stop_m'];
-		$tgl_stop_m2 = $_POST['tgl_stop_m2'];
-		$tgl_stop_m3 = $_POST['tgl_stop_m3'];
-		$tgl_stop_s = $_POST['tgl_stop_s'];
-		$tgl_stop_s2 = $_POST['tgl_stop_s2'];
-		$tgl_stop_s3 = $_POST['tgl_stop_s3'];
+		$no_gerobak = cek_input('no_gerobak');
+		$jenis_kartu = cek_input('jenis_kartu');
+		$jumlah_gerobak = cek_input('jumlah_gerobak');
+		$mulai = cek_input('stop_mulai');
+		$mulai2 = cek_input('stop_mulai2');
+		$mulai3 = cek_input('stop_mulai3');
+		$selesai = cek_input('stop_selesai');
+		$selesai2 = cek_input('stop_selesai2');
+		$selesai3 = cek_input('stop_selesai3');
+		$tgl_stop_m = cek_input('tgl_stop_m');
+		$tgl_stop_m2 = cek_input('tgl_stop_m2');
+		$tgl_stop_m3 = cek_input('tgl_stop_m3');
+		$tgl_stop_s = cek_input('tgl_stop_s');
+		$tgl_stop_s2 = cek_input('tgl_stop_s2');
+		$tgl_stop_s3 = cek_input('tgl_stop_s3');
 
-		$kd = $_POST['kd_stop'];
-		$kd2 = $_POST['kd_stop2'];
-		$kd3 = $_POST['kd_stop3'];
+		$kd = cek_input('kd_stop');
+		$kd2 = cek_input('kd_stop2');
+		$kd3 = cek_input('kd_stop3');
 		// End
 	
-		$tgl = $_POST['tgl'];
-		$acc_kain = str_replace("'", "", $_POST['acc_kain']);
-		$ket = str_replace("'", "", $_POST['ket']);
-		$speed = $_POST['speed'];
-		$lebar = $_POST['lebar'];
-		$gramasi = $_POST['gramasi'];
-		$item = $_POST['no_item'];
+		$tgl = cek_input('tgl');
+		$acc_kain = cek_input('acc_kain');
+		$ket = cek_input('ket');
+		$speed = cek_input('speed');
+		$lebar = cek_input('lebar');
+		$gramasi = cek_input('gramasi');
+		$item = cek_input('no_item');
 		$simpanSql = "UPDATE db_brushing.tbl_produksi SET 
-                              nodemand = '$nodemand',
-                              shift='$shift',
-                              shift1='$shift1',
-                              no_mesin='$mesin',
-                              nama_mesin='$nmmesin',
-                              langganan='$langganan',
-                              no_order='$order',
-                              jenis_kain='$jenis_kain',
-                              warna='$warna',
-                              lot='$lot',
-                              rol='$rol',
-                              qty='$qty',
-							  qty2='$qty2',
-                              proses='$proses',
-                              jam_in='$jam_in',
-                              jam_out='$jam_out',
-                              tgl_proses_in='$tgl_proses_in',
-                              tgl_proses_out='$tgl_proses_out',
-                             
-                           -- Tambahan
-                                  no_gerobak ='$no_gerobak',
-                                                jenis_kartu ='$jenis_kartu', 
-                                                jumlah_gerobak ='$jumlah_gerobak',
-                                                stop_l='$mulai',
-                                                stop_2='$mulai2',
-                                                stop_3='$mulai3',
-                                                stop_r='$selesai',
-                                                stop_r_2='$selesai2',
-                                                stop_r_3='$selesai3',
-                                                tgl_stop_l='$tgl_stop_m',
-                                                tgl_stop_2='$tgl_stop_m2',
-                                                tgl_stop_3='$tgl_stop_m3',
-                                                tgl_stop_r='$tgl_stop_s',
-                                                tgl_stop_r_2='$tgl_stop_s2',
-                                                tgl_stop_r_3='$tgl_stop_s3',
-                                                kd_stop='$kd',
-                                                kd_stop2='$kd2',
-                                                kd_stop3='$kd3',
+                nodemand = ?, 
+                shift = ?, 
+                shift1 = ?, 
+                no_mesin = ?, 
+                nama_mesin = ?, 
+                langganan = ?, 
+                no_order = ?, 
+                jenis_kain = ?, 
+                warna = ?, 
+                lot = ?, 
+                rol = ?, 
+                qty = ?, 
+                qty2 = ?, 
+                proses = ?, 
+                jam_in = ?, 
+                jam_out = ?, 
+                tgl_proses_in = ?, 
+                tgl_proses_out = ?, 
+                no_gerobak = ?, 
+                jenis_kartu = ?, 
+                jumlah_gerobak = ?, 
+                stop_l = ?, 
+                stop_2 = ?, 
+                stop_3 = ?, 
+                stop_r = ?, 
+                stop_r_2 = ?, 
+                stop_r_3 = ?, 
+                tgl_stop_l = ?, 
+                tgl_stop_2 = ?, 
+                tgl_stop_3 = ?, 
+                tgl_stop_r = ?, 
+                tgl_stop_r_2 = ?, 
+                tgl_stop_r_3 = ?, 
+                kd_stop = ?, 
+                kd_stop2 = ?, 
+                kd_stop3 = ?, 
+                acc_staff = ?, 
+                tgl_update = ?, 
+                speed = ?, 
+                lebar = ?, 
+                gramasi = ?, 
+                no_item = ?, 
+                ket = ? 
+              WHERE id = ?";
 
-                                          -- End
-                             
-                              acc_staff='$acc_kain',
-                              tgl_update='$tgl',
-							  speed='$speed',
-							  lebar='$lebar',
-							  gramasi='$gramasi',
-							  no_item='$item',
-                              ket='$ket'
-                              WHERE id='$_POST[id]'";
-		sqlsrv_query($con, $simpanSql) or die("Gagal Ubah" . sqlsrv_errors());
+		// Prepare the statement
+		$params = [
+			$nodemand,
+			$shift,
+			$shift1,
+			$mesin,
+			$nmmesin,
+			$langganan,
+			$order,
+			$jenis_kain,
+			$warna,
+			$lot,
+			$rol,
+			$qty,
+			$qty2,
+			$proses,
+			$jam_in,
+			$jam_out,
+			$tgl_proses_in,
+			$tgl_proses_out,
+			$no_gerobak,
+			$jenis_kartu,
+			$jumlah_gerobak,
+			$mulai,
+			$mulai2,
+			$mulai3,
+			$selesai,
+			$selesai2,
+			$selesai3,
+			$tgl_stop_m,
+			$tgl_stop_m2,
+			$tgl_stop_m3,
+			$tgl_stop_s,
+			$tgl_stop_s2,
+			$tgl_stop_s3,
+			$kd,
+			$kd2,
+			$kd3,
+			$acc_kain,
+			$tgl,
+			$speed,
+			$lebar,
+			$gramasi,
+			$item,
+			$ket,
+			$_POST['id']
+		];
+
+		// Execute the statement
+		$stmt = sqlsrv_query($con, $simpanSql, $params);
+		if ($stmt === false) {
+			die("Gagal Ubah" . print_r(sqlsrv_errors(), true));
+		}
 		$idk = $_POST['id'];
 		// Refresh form
 		echo "<meta http-equiv='refresh' content='0; url=?id=$idk&status=Data Sudah DiUbah'>";
