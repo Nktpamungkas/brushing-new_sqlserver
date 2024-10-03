@@ -418,7 +418,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 		$lebar = $_POST['lebar'];
 		$gramasi = $_POST['gramasi'];
 		$item = $_POST['no_item'];
-		$simpanSql = "UPDATE tbl_produksi SET 
+		$simpanSql = "UPDATE db_brushing.tbl_produksi SET 
                               nodemand = '$nodemand',
                               shift='$shift',
                               shift1='$shift1',
@@ -597,7 +597,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 				<td>:</td>
 				<td colspan="3"><input name="tgl" type="text" id="tgl"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl);return false;" size="10"
-						placeholder="0000-00-00" required="required" value="<?php echo $rw['tgl_update']; ?>" />
+						placeholder="0000-00-00" required="required" value="<?php echo cek($rw['tgl_update']); ?>" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal"
@@ -876,7 +876,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			}" value="<?php echo $rw['jam_in'] ?>" size="5" maxlength="5" required />
 					<input name="tgl_proses_m" type="text" id="tgl_proses_m"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_proses_m);return false;" size="10"
-						placeholder="0000-00-00" value="<?php echo $rw['tgl_proses_in']; ?>" />
+						placeholder="0000-00-00" value="<?php echo cek($rw['tgl_proses_in']); ?>" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_proses_m);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal2"
@@ -898,7 +898,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			}" value="<?php echo $rw['jam_out'] ?>" size="5" maxlength="5" required />
 					<input name="tgl_proses_k" type="text" id="tgl_proses_k" placeholder="0000-00-00"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_proses_k);return false;"
-						value="<?php echo $rw['tgl_proses_out']; ?>" size="10" />
+						value="<?php echo cek($rw['tgl_proses_out']); ?>" size="10" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_proses_k);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal3"
@@ -922,7 +922,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			}" value="<?php echo $rw['stop_l'] ?>" size="5" maxlength="5" />
 					<input name="tgl_stop_m" type="text" id="tgl_stop_m" placeholder="0000-00-00"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_m);return false;"
-						value="<?php echo $rw['tgl_stop_l']; ?>" size="10" />
+						value="<?php echo cek($rw['tgl_stop_l']); ?>" size="10" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_m);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal4"
@@ -944,7 +944,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			}" value="<?php echo $rw['stop_r'] ?>" size="5" maxlength="5" />
 					<input name="tgl_stop_s" type="text" id="tgl_stop_s" placeholder="0000-00-00"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_s);return false;"
-						value="<?php echo $rw['tgl_stop_r']; ?>" size="10" />
+						value="<?php echo cek($rw['tgl_stop_r']); ?>" size="10" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_s);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal5"
@@ -982,7 +982,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			}" value="<?php echo $rw['stop_2'] ?>" size="5" maxlength="5" />
 					<input name="tgl_stop_m2" type="text" id="tgl_stop_m2" placeholder="0000-00-00"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_m2);return false;"
-						value="<?php echo $rw['tgl_stop_2']; ?>" size="10" />
+						value="<?php echo cek($rw['tgl_stop_2']); ?>" size="10" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_m2);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal4"
@@ -1004,7 +1004,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			}" value="<?php echo $rw['stop_r_2'] ?>" size="5" maxlength="5" />
 					<input name="tgl_stop_s2" type="text" id="tgl_stop_s2" placeholder="0000-00-00"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_s2);return false;"
-						value="<?php echo $rw['tgl_stop_2']; ?>" size="10" />
+						value="<?php echo cek($rw['tgl_stop_2']); ?>" size="10" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_s2);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal5"
@@ -1042,7 +1042,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			}" value="<?php echo $rw['stop_3'] ?>" size="5" maxlength="5" />
 					<input name="tgl_stop_m3" type="text" id="tgl_stop_m3" placeholder="0000-00-00"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_m3);return false;"
-						value="<?php echo $rw['tgl_stop_3']; ?>" size="10" />
+						value="<?php echo cek($rw['tgl_stop_3']); ?>" size="10" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_m3);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal4"
@@ -1064,7 +1064,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			}" value="<?php echo $rw['stop_r_3'] ?>" size="5" maxlength="5" />
 					<input name="tgl_stop_s3" type="text" id="tgl_stop_s3" placeholder="0000-00-00"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_s3);return false;"
-						value="<?php echo $rw['tgl_stop_r_3']; ?>" size="10" />
+						value="<?php echo cek($rw['tgl_stop_r_3']); ?>" size="10" />
 					<a href="javascript:void(0)"
 						onclick="if(self.gfPop)gfPop.fPopCalendar(document.form1.tgl_stop_s3);return false;"><img
 							src="../calender/calender.jpeg" alt="" name="popcal" width="30" height="25" id="popcal5"
