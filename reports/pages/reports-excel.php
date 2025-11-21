@@ -25,8 +25,8 @@ include("../../utils/helper.php");
 
   $tglawal = $_GET['tglawal'];
   $tglakhir = $_GET['tglakhir'];
-  $jamawal = $_GET['jamawal'];
-  $jamakhir = $_GET['jamakhir'];
+  $jamawal = $_GET['jamawal'].":00";
+  $jamakhir = $_GET['jamakhir'].":00";
   $shft = $_GET['shift'];
   $nmesin = $_GET['mesin'];
   $mc = $_GET['no_mesin'];
@@ -37,7 +37,7 @@ include("../../utils/helper.php");
 //    $tgl=" ";
 //  }
   if ($tglakhir != "" and $tglawal != "" and $jamakhir != "" and $jamawal != "") {
-    $tgl = " CONVERT(VARCHAR(16), a.tgl_update, 120)  BETWEEN '$tglawal $jamawal' AND '$tglakhir $jamakhir' ";
+    $tgl = " CONVERT(VARCHAR(20), a.tgl_update, 120)  BETWEEN '$tglawal $jamawal' AND '$tglakhir $jamakhir' ";
   } else {
     $tgl = " ";
   }
@@ -46,7 +46,7 @@ include("../../utils/helper.php");
   } else {
     $shift = " AND a.`shift`='$shft' ";
   }
-  if ($nmesin != "") {
+  if ($nmesin != "ALL") {
     $mesin = " AND a.`nama_mesin`='$nmesin'";
   } else {
     $mesin = " ";
