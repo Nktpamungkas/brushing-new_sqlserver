@@ -289,11 +289,11 @@ if ($idkk != "") {
                                                         <td style="width: 180px;" data-no="1">L X G AKTUAL</td>
                                                         <td class="bg-warning" data-no="2" colspan="8">
                                                                 <div class="form-inline text-center">
-                                                                        <input name="L_AKTUAL" type="text" id="L_AKTUAL"
+                                                                        <input name="L_AKTUAL" type="text" id="L_AKTUAL" value="0"
                                                                                 class="form-control input-xs"
                                                                                 placeholder="LEBAR AKTUAL" /> &nbsp; X
                                                                         &nbsp;
-                                                                        <input name="G_AKTUAL" type="text" id="G_AKTUAL"
+                                                                        <input name="G_AKTUAL" type="text" id="G_AKTUAL" value="0"
                                                                                 class="form-control input-xs"
                                                                                 placeholder="GRAMASI AKTUAL" />
                                                                 </div>

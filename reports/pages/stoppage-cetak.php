@@ -196,8 +196,9 @@ if ($no_mc != "") {
     AND $tgl $shift $mesin $nomesin 
     ORDER BY a.no_mesin ASC
 ");
-            $no = 1;
-
+            $no         = 1;
+            $totrol     = 0;
+            $totberat   = 0;
             $c = 0;
 
             while ($rowd = sqlsrv_fetch_array($sql)) {
