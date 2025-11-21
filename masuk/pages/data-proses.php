@@ -102,6 +102,9 @@ include "../../utils/helper.php";
             <option value="Khusus" <?php if ($_GET['jns'] == "Khusus") {
                                       echo "SELECTED";
                                     } ?>>Khusus</option>
+            <option value="Ulang" <?php if ($_GET['jns'] == "Ulang") {
+                                      echo "SELECTED";
+                                    } ?>>Ulang</option>
           </select></td>
       </tr>
       <tr>
