@@ -82,10 +82,13 @@ if ($_POST['kk'] == '') {
 } else {
         $idkk = $_POST['kk'];
 }
-
 // Query to check if 'NO_KARTU_KERJA' already exists
-$query = sqlsrv_query($con, "SELECT * FROM db_brushing.tbl_splb WHERE NO_KARTU_KERJA = ?", array($idkk));
-$count = sqlsrv_num_rows($query);
+$sql = "SELECT COUNT(*) AS jml FROM db_brushing.tbl_splb WHERE NO_KARTU_KERJA = ?";
+
+$stmt = sqlsrv_query($con, $sql, array($idkk));
+$row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC);
+
+$count = $row['jml'];
 
 if ($count > 0) {
         echo "<script>alert('KK yang anda input sudah exist !'); window.history.go(-1)</script>";
