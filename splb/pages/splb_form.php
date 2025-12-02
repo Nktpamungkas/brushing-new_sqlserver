@@ -43,6 +43,11 @@ include("../../koneksi.php");
                 border-radius: 3px;
                 text-align: center;
         }
+		td.bg-success {
+		background-color: #f5ddddff !important; /* warna default bg-danger kamu */
+		color: #000 !important;               /* warna teks sama */
+		border-color: #000 !important;     /* opsional: border menyerupai danger */
+	}
 </style>
 <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 <script type="text/javascript">
@@ -186,7 +191,7 @@ if ($idkk != "") {
                                 <table class="table table-bordered">
                                         <thead>
                                                 <tr>
-                                                        <th colspan="16">FW-14-BRS-12/00</th>
+                                                        <th colspan="16">FW-14-BRS-12/01</th>
                                                 </tr>
                                                 <tr>
                                                         <th colspan="16">SETTING PERBEDAAN LOT BRUSHING</th>
@@ -359,7 +364,7 @@ if ($idkk != "") {
                                                                         id="GARUK" placeholder="-GARUK1-"
                                                                         style="width: 100%"></td>
                                                         </td>
-                                                        <td colspan="14"></td>
+                                                        <td colspan="13"></td>
                                                 </tr>
 
                                                 <tr class="baris">
@@ -1310,6 +1315,23 @@ if ($idkk != "") {
                                                         </td>
 
                                                 </tr>
+                                                <tr class="baris">
+                                                        <td style="width: 22mm;" data-no="1" colspan="2">SPEED M/MNT </td>
+                                                        <td class="bg-danger" data-no="1" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT01" id="SPEED_MNT01" placeholder="SPEED_MNT01" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="2" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT02" id="SPEED_MNT02" placeholder="SPEED_MNT02" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="3" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT03" id="SPEED_MNT03" placeholder="SPEED_MNT03" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="4" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT04" id="SPEED_MNT04" placeholder="SPEED_MNT04" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="5" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT05" id="SPEED_MNT05" placeholder="SPEED_MNT05" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="6" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT06" id="SPEED_MNT06" placeholder="SPEED_MNT06" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="7" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT07" id="SPEED_MNT07" placeholder="SPEED_MNT07" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="8" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT08" id="SPEED_MNT08" placeholder="SPEED_MNT08" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="9" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT09" id="SPEED_MNT09" placeholder="SPEED_MNT09" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="10" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT10" id="SPEED_MNT10" placeholder="SPEED_MNT10" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="11" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT11" id="SPEED_MNT11" placeholder="SPEED_MNT11" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="12" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT12" id="SPEED_MNT12" placeholder="SPEED_MNT12" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="13" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT13" id="SPEED_MNT13" placeholder="SPEED_MNT13" style="width: 100%"></td>
+                                                        <td class="bg-danger" data-no="14" style="text-align: center;"><input type="text" class="form-control input-xs" name="SPEED_MNT14" id="SPEED_MNT14" placeholder="SPEED_MNT14" style="width: 100%"></td>
+                                                </tr>
                                                 <tr>
                                                         <td colspan="2"
                                                                 style="text-align: center;font-size: 15px; font-weight: bold;"
@@ -1326,17 +1348,14 @@ if ($idkk != "") {
                                                                         name="POTONGBULU2" id="POTONGBULU2"
                                                                         placeholder="POTONGBULU2" style="width: 100%">
                                                         </td>
-                                                        <td colspan="4"
-                                                                style="text-align: center;font-size: 15px; font-weight: bold;">
-                                                                PEACHSKIN
-                                                        </td>
-                                                        <td colspan="3" class="bg-danger" style="text-align: center"
+                                                        <td colspan="8" style="text-align: center;font-size: 15px; font-weight: bold;">PEACHSKIN</td>
+                                                        <td class="bg-danger" style="text-align: center"
                                                                 name="PEACHSKIN_B" id="PEACHSKIN_B"><input type="text"
                                                                         class="form-control input-xs" name="PEACHSKIN_B"
                                                                         id="PEACHSKIN_B" placeholder="PEACHSKIN_B"
                                                                         style="width: 100%">
                                                         </td>
-                                                        <td colspan="3" class="bg-danger" style="text-align: center"
+                                                        <td class="bg-danger" style="text-align: center"
                                                                 name="PEACHSKIN_F" id="PEACHSKIN_F"><input type="text"
                                                                         class="form-control input-xs" name="PEACHSKIN_F"
                                                                         id="PEACHSKIN_F" placeholder="PEACHSKIN_F"
@@ -1344,16 +1363,15 @@ if ($idkk != "") {
                                                         </td>
                                                 </tr>
                                                 <tr class="baris">
-                                                        <td style="width: 180px;" data-no="1" colspan="2">BAGIAN</td>
-                                                        <td style="width: 100px; text-align: center;" data-no="1"
-                                                                colspan="2">B</td>
-                                                        <td style="width: 100px;text-align: center;" data-no="1"
-                                                                colspan="2">F</td>
-                                                        <td colspan="4"> BAGIAN KAIN </td>
-                                                        <td style="width: 100px;text-align: center;" data-no="1"
-                                                                colspan="3">B</td>
-                                                        <td style="width: 100px;text-align: center;" data-no="1"
-                                                                colspan="3">F</td>
+                                                        <td style="width: 22mm;" data-no="1" colspan="2">BAGIAN</td>
+                                                        <td style="width: 100px; text-align: center;" data-no="1" colspan="2">B</td>
+                                                        <td style="width: 100px;text-align: center;" data-no="1" colspan="2">F</td>
+                                                        <td colspan="3"> BAGIAN KAIN </td>
+                                                        <td style="width: 7mm;text-align: center;" data-no="1">F</td>
+                                                        <td style="width: 7mm;text-align: center;" data-no="1">B</td>
+                                                        <td colspan="3"> BAGIAN KAIN </td>
+                                                        <td style="width: 7mm;text-align: center;" data-no="1">F</td>
+                                                        <td style="width: 7mm;text-align: center;" data-no="1">B</td>
                                                 </tr>
                                                 <tr class="baris">
                                                         <td style="width: 180px;" data-no="1" colspan="2">SPEED M/MNT
@@ -1370,20 +1388,19 @@ if ($idkk != "") {
                                                                         name="SPEEDM/MNT_F" id="SPEEDM/MNT_F"
                                                                         placeholder="SPEEDM/MNT_F" style="width: 100%">
                                                         </td>
-                                                        <td colspan="4">% PILE BRUSH</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <!-- Ganti dengan nilai data statis atau sesuai kebutuhan -->
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="%PILEBRUSH_B" id="%PILEBRUSH_B"
-                                                                        placeholder="%PILEBRUSH_B" style="width: 100%">
+                                                        <td colspan="3">% PILE BRUSH</td>
+                                                        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%PILEBRUSH_F">
+                                                                <input type="text" class="form-control input-xs" name="%PILEBRUSH_F" id="%PILEBRUSH_F" placeholder="%PILEBRUSH_F" style="width: 100%">
                                                         </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <!-- Ganti dengan nilai data statis atau sesuai kebutuhan -->
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="%PILEBRUSH_F" id="%PILEBRUSH_F"
-                                                                        placeholder="%PILEBRUSH_F" style="width: 100%">
+                                                        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%PILEBRUSH_B">
+                                                                <input type="text" class="form-control input-xs"name="%PILEBRUSH_B" id="%PILEBRUSH_B" placeholder="%PILEBRUSH_B" style="width: 100%">
+                                                        </td>
+                                                        <td colspan="3">% BROKEN ROLLER 1</td>
+                                                        <td class="bg-success" style="text-align:center" data-no="1" data-name="B_ROLLER_1_F">
+                                                                <input type="text" class="form-control input-xs" name="B_ROLLER_1_F" id="B_ROLLER_1_F" placeholder="B_ROLLER_1_F" style="width: 100%">
+                                                        </td>
+                                                        <td class="bg-success" style="text-align:center" data-no="1" data-name="B_ROLLER_1_B">
+                                                                <input type="text" class="form-control input-xs" name="B_ROLLER_1_B" id="B_ROLLER_1_B" placeholder="B_ROLLER_1_B" style="width: 100%">
                                                         </td>
                                                 </tr>
                                                 <tr class="baris">
@@ -1403,24 +1420,19 @@ if ($idkk != "") {
                                                                         name="JARAKPISAU_F" id="JARAKPISAU_F"
                                                                         placeholder="JARAKPISAU_F" style="width: 100%">
                                                         </td>
-                                                        <td colspan="4">% COUNTERPILE BRUSH</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <!-- Ganti dengan nilai data statis atau sesuai kebutuhan -->
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="%COUNTERPILEBRUSH_B"
-                                                                        id="%COUNTERPILEBRUSH_B"
-                                                                        placeholder="%COUNTERPILEBRUSH_B"
-                                                                        style="width: 100%">
+                                                        <td colspan="3">% COUNTERPILE BRUSH</td>
+                                                        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%COUNTERPILEBRUSH_F">
+                                                                <input type="text" class="form-control input-xs" name="%COUNTERPILEBRUSH_F" id="%COUNTERPILEBRUSH_F"placeholder="%COUNTERPILEBRUSH_F" style="width: 100%">
                                                         </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <!-- Ganti dengan nilai data statis atau sesuai kebutuhan -->
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="%COUNTERPILEBRUSH_F"
-                                                                        id="%COUNTERPILEBRUSH_F"
-                                                                        placeholder="%COUNTERPILEBRUSH_F"
-                                                                        style="width: 100%">
+                                                        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%COUNTERPILEBRUSH_B">
+                                                                <input type="text" class="form-control input-xs"name="%COUNTERPILEBRUSH_B"id="%COUNTERPILEBRUSH_B"placeholder="%COUNTERPILEBRUSH_B"style="width: 100%">
+                                                        </td>
+                                                        <td colspan="3">% BROKEN ROLLER 2</td>
+                                                        <td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="B_ROLLER_2_F">
+                                                                <input type="text" class="form-control input-xs"name="B_ROLLER_2_F"id="B_ROLLER_2_F"placeholder="B_ROLLER_2_F"style="width: 100%">
+                                                        </td>
+                                                        <td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="B_ROLLER_2_B">
+                                                                <input type="text" class="form-control input-xs"name="B_ROLLER_2_B"id="B_ROLLER_2_B"placeholder="B_ROLLER_2_B"style="width: 100%">
                                                         </td>
                                                 </tr>
                                                 <tr class="baris">
@@ -1431,41 +1443,46 @@ if ($idkk != "") {
                                                                 colspan="2">B</td>
                                                         <td style="width: 100px;text-align: center;" data-no="1"
                                                                 colspan="2">F</td>
-                                                        <td colspan="4">SIKAT BELAKANG</td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SIKATBELAKANG_B" id="SIKATBELAKANG_B"
-                                                                        placeholder="SIKATBELAKANG_B"
-                                                                        style="width: 100%">
+                                                        <td colspan="3">SIKAT BELAKANG</td>
+                                                        <td class="bg-danger" style="width: 100px;text-align: center;" data-no="1"data-name="SIKATBELAKANG_F">
+                                                                <input type="text" class="form-control input-xs"name="SIKATBELAKANG_F" id="SIKATBELAKANG_F"placeholder="SIKATBELAKANG_F"style="width: 100%">
                                                         </td>
-                                                        <td class="bg-danger" style="width: 100px;" data-no="1"
-                                                                colspan="3">
-                                                                <input type="text" class="form-control input-xs"
-                                                                        name="SIKATBELAKANG_F" id="SIKATBELAKANG_F"
-                                                                        placeholder="SIKATBELAKANG_F"
-                                                                        style="width: 100%">
+                                                        <td class="bg-danger" style="width: 100px;text-align: center;" data-no="1"data-name="SIKATBELAKANG_B">
+                                                                <input type="text" class="form-control input-xs" name="SIKATBELAKANG_B" id="SIKATBELAKANG_B"placeholder="SIKATBELAKANG_B"style="width: 100%">
                                                         </td>
-                                                </tr><tr class="baris">
+                                                        <td colspan="3">UKURAN AMPLAS BROKEN ROLLER 1</td>
+                                                        <td class="bg-success" style="width: 100px;text-align: center;" data-no="1" data-name="AB_ROLLER_1_F">
+                                                                <input type="text" class="form-control input-xs"name="AB_ROLLER_1_F" id="AB_ROLLER_1_F"placeholder="AB_ROLLER_1_F"style="width: 100%">
+                                                        </td>
+                                                        <td class="bg-success" style="width: 100px;text-align: center;" data-no="1" data-name="AB_ROLLER_1_B">
+                                                                <input type="text" class="form-control input-xs"name="AB_ROLLER_1_B" id="AB_ROLLER_1_B"placeholder="AB_ROLLER_1_B"style="width: 100%">
+                                                        </td>
+                                                </tr>
+                                                <tr class="baris">
                             <td style="width: 180px;" data-no="1" colspan="2">SPEED MESIN
                             </td>
                             <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
                                 <input type="text" class="form-control input-xs" name="SPEEDMESIN_B" id="SPEEDMESIN_B"
                                     placeholder="SPEEDMESIN_B" style="width: 100%">
                             </td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
-                                <input type="text" class="form-control input-xs" name="SPEEDMESIN_F" id="SPEEDMESIN_F"
-                                    placeholder="SPEEDMESIN_F" style="width: 100%">
-                            </td>
-                            <td colspan="4">TENSION MASUK</td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="TENSIONMASUK_B"
-                                    id="TENSIONMASUK_B" placeholder="TENSIONMASUK_B" style="width: 100%">
-                            </td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="TENSIONMASUK_F"
-                                    id="TENSIONMASUK_F" placeholder="TENSIONMASUK_F" style="width: 100%">
-                            </td>
+							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
+							<input type="text" class="form-control input-xs" name="SPEEDMESIN_F" id="SPEEDMESIN_F"
+									placeholder="SPEEDMESIN_F" style="width: 100%">
+							</td>
+							<td colspan="3">TENSION MASUK</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="TENSIONMASUK_F">
+								<input type="text" class="form-control input-xs" name="TENSIONMASUK_F" id="TENSIONMASUK_F" placeholder="TENSIONMASUK_F" style="width: 100%">
+							</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="TENSIONMASUK_B">
+								<input type="text" class="form-control input-xs" name="TENSIONMASUK_B" id="TENSIONMASUK_B" placeholder="TENSIONMASUK_B" style="width: 100%">
+							</td>
+							<td colspan="3">UKURAN AMPLAS BROKEN ROLLER 2</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="AB_ROLLER_2_F">
+								<input type="text" class="form-control input-xs" name="AB_ROLLER_2_F" id="AB_ROLLER_2_F" placeholder="AB_ROLLER_2_F" style="width: 100%">
+							</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="AB_ROLLER_2_B">
+								<input type="text" class="form-control input-xs" name="AB_ROLLER_2_B" id="AB_ROLLER_2_B" placeholder="AB_ROLLER_2_B" style="width: 100%">
+							</td>
                         </tr>
                         <tr class="baris">
                             <td style="width: 180px;" data-no="1" colspan="2">SPEED JARUM
@@ -1478,15 +1495,20 @@ if ($idkk != "") {
                                 <input type="text" class="form-control input-xs" name="SPEEDJARUM_F" id="SPEEDJARUM_F"
                                     placeholder="SPEEDJARUM_F" style="width: 100%">
                             </td>
-                            <td colspan="4">TENSION TENGAH</td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="TENSIONTENGAH_B"
-                                    id="TENSIONTENGAH_B" placeholder="TENSIONTENGAH_B" style="width: 100%">
-                            </td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="TENSIONTENGAH_F"
-                                    id="TENSIONTENGAH_F" placeholder="TENSIONTENGAH_F" style="width: 100%">
-                            </td>
+                            <td colspan="3">TENSION DRUM DEPAN</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="TDRUM_DEPAN_F">
+								<input type="text" class="form-control input-xs" name="TDRUM_DEPAN_F" id="TDRUM_DEPAN_F" placeholder="TDRUM_DEPAN_F" style="width: 100%">
+							</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="TDRUM_DEPAN_B">
+								<input type="text" class="form-control input-xs" name="TDRUM_DEPAN_B" id="TDRUM_DEPAN_B" placeholder="TDRUM_DEPAN_B" style="width: 100%">
+							</td>
+							<td colspan="3">TEKANAN AMPLAS</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="AMPLAS_F">
+								<input type="text" class="form-control input-xs" name="AMPLAS_F" id="AMPLAS_F" placeholder="AMPLAS_F" style="width: 100%">
+							</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="AMPLAS_B">
+								<input type="text" class="form-control input-xs" name="AMPLAS_B" id="AMPLAS_B" placeholder="AMPLAS_B" style="width: 100%">
+							</td>
                         </tr>
                         <tr class="baris">
                             <td style="width: 180px;" data-no="1" colspan="2">SPEED DRUM
@@ -1499,19 +1521,23 @@ if ($idkk != "") {
                                 <input type="text" class="form-control input-xs" name="SPEEDDRUM_F" id="SPEEDDRUM_F"
                                     placeholder="SPEEDDRUM_F" style="width: 100%">
                             </td>
-                            <td colspan="4">SPEED KAIN</td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="SPEEDKAIN_B" id="SPEEDKAIN_B"
-                                    placeholder="SPEEDKAIN_B" style="width: 100%">
-                            </td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="SPEEDKAIN_F" id="SPEEDKAIN_F"
-                                    placeholder="SPEEDKAIN_F" style="width: 100%">
-                            </td>
+                            <td colspan="3">TENSION DRUM BELAKANG</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="TDRUM_BELAKANG_F">
+								<input type="text" class="form-control input-xs" name="TDRUM_BELAKANG_F" id="TDRUM_BELAKANG_F" placeholder="TDRUM_BELAKANG_F" style="width: 100%">
+							</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="TDRUM_BELAKANG_B">
+								<input type="text" class="form-control input-xs" name="TDRUM_BELAKANG_B" id="TDRUM_BELAKANG_B" placeholder="TDRUM_BELAKANG_B" style="width: 100%">
+							</td>
+							<td colspan="3">SPEED DRUM</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1"data-name="PEACHSKINSPEEDDRUM_F">
+								<input type="text" class="form-control input-xs" name="PEACHSKINSPEEDDRUM_F" id="PEACHSKINSPEEDDRUM_F" placeholder="PEACHSKINSPEEDDRUM_F" style="width: 100%">
+							</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="PEACHSKINSPEEDDRUM_B">
+								<input type="text" class="form-control input-xs" name="PEACHSKINSPEEDDRUM_B" id="PEACHSKINSPEEDDRUM_B" placeholder="PEACHSKINSPEEDDRUM_B" style="width: 100%">
+							</td>
                         </tr>
                         <tr class="baris">
-                            <td style="width: 180px;" data-no="1" colspan="2">SPEED TARIKAN
-                                KAIN</td>
+                            <td style="width: 180px;" data-no="1" colspan="2">SPEED TARIKAN KAIN</td>
                             <td class="bg-danger" style="width: 100px;" data-no="1" colspan="2">
                                 <input type="text" class="form-control input-xs" name="SPEEDTARIKANKAIN_B"
                                     id="SPEEDTARIKANKAIN_B" placeholder="SPEEDTARIKANKAIN_B" style="width: 100%">
@@ -1520,15 +1546,20 @@ if ($idkk != "") {
                                 <input type="text" class="form-control input-xs" name="SPEEDTARIKANKAIN_F"
                                     id="SPEEDTARIKANKAIN_F" placeholder="SPEEDTARIKANKAIN_F" style="width: 100%">
                             </td>
-                            <td colspan="4">PEACHSKIN SPEED DRUM</td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="PEACHSKINSPEEDDRUM_B"
-                                    id="PEACHSKINSPEEDDRUM_B" placeholder="PEACHSKINSPEEDDRUM_B" style="width: 100%">
-                            </td>
-                            <td class="bg-danger" style="width: 100px;" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="PEACHSKINSPEEDDRUM_F"
-                                    id="PEACHSKINSPEEDDRUM_F" placeholder="PEACHSKINSPEEDDRUM_F" style="width: 100%">
-                            </td>
+                            <td colspan="3">TENSION BELAKANG</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="T_BELAKANG_F">
+								<input type="text" class="form-control input-xs" name="T_BELAKANG_F" id="T_BELAKANG_F" placeholder="T_BELAKANG_F" style="width: 100%">
+							</td>
+							<td class="bg-success" style="width: 100px;text-align:center" data-no="1" data-name="T_BELAKANG_B">
+								<input type="text" class="form-control input-xs" name="T_BELAKANG_B" id="T_BELAKANG_B" placeholder="T_BELAKANG_B" style="width: 100%">
+							</td>
+							<td colspan="3">SPEED KAIN</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="SPEEDKAIN_F">
+								<input type="text" class="form-control input-xs" name="SPEEDKAIN_F" id="SPEEDKAIN_F" placeholder="SPEEDKAIN_F" style="width: 100%">
+							</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="SPEEDKAIN_B">
+								<input type="text" class="form-control input-xs" name="SPEEDKAIN_B" id="SPEEDKAIN_B" placeholder="SPEEDKAIN_B" style="width: 100%">
+							</td>
                         </tr>
                         <tr class="baris">
                             <td style="font-size: 15px; font-weight: bold;" data-no="1" colspan="2">ANTI PILLING</td>
@@ -1536,31 +1567,23 @@ if ($idkk != "") {
                                 <input type="text" class="form-control input-xs" name="ANTIPILLING" id="ANTIPILLING"
                                     placeholder="ANTIPILLING" style="width: 100%">
                             </td>
-                            <td data-no="1" colspan="2" rowspan="2">TENSION BELAKANG</td>
-                            <td data-no="1" colspan="2" style="text-align:center;">1</td>
-                            <td class="bg-danger" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="TENSIONBELAKANG_B"
-                                    id="TENSIONBELAKANG_B" placeholder="TENSIONBELAKANG_B" style="width: 100%">
-                            </td>
-                            <td class="bg-danger" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="TENSIONBELAKANG_F"
-                                    id="TENSIONBELAKANG_F" placeholder="TENSIONBELAKANG_F" style="width: 100%">
-                            </td>
+                            <td data-no="1" colspan="3">TENSION KELUAR</td>
+							<td  class="bg-success" data-no="1" colspan="1" data-name="T_KELUAR_F" style="width: 10px; text-align:center;">
+								<input type="text" class="form-control input-xs" name="T_KELUAR_F" id="T_KELUAR_F" placeholder="T_KELUAR_F" style="width: 100%">
+							</td>
+							<td class="bg-success" data-no="1" data-name="T_KELUAR_B" style="text-align:center">
+								<input type="text" class="form-control input-xs" name="T_KELUAR_B" id="T_KELUAR_B" placeholder="T_KELUAR_B" style="width: 100%">
+							</td>
+							<td data-no="1" colspan="5" style="text-align:center"></td>
                         </tr>
                         <tr class="baris">
                             <td style="width: 180px;" data-no="1" colspan="2">MIST PRAY</td>
                             <td class="bg-danger" data-no="1" colspan="4"><input type="text"
                                     class="form-control input-xs" name="MISTPRAY" id="MISTPRAY" placeholder="MISTPRAY"
                                     style="width: 100%"></td>
-                            <td data-no="1" colspan="2" style="text-align:center; width: 10px;">2</td>
-                            <td class="bg-danger" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="TENSIONBELAKANG2_B"
-                                    id="TENSIONBELAKANG2_B" placeholder="TENSIONBELAKANG2_B" style="width: 100%">
-                            </td>
-                            <td class="bg-danger" data-no="1" colspan="3">
-                                <input type="text" class="form-control input-xs" name="TENSIONBELAKANG2_F"
-                                    id="TENSIONBELAKANG2_F" placeholder="TENSIONBELAKANG2_F" style="width: 100%">
-                            </td>
+                            <td data-no="3" rowspan= "2" colspan="10" style="font-size: 15px; font-weight: bold;text-align:center;">
+								POLISHING
+							</td>  
                         </tr>
 
                         <tr class="baris">
@@ -1568,9 +1591,6 @@ if ($idkk != "") {
                             <td class="bg-danger" data-no="2" colspan="4">
                                 <input type="text" class="form-control input-xs" name="STEAM" id="STEAM"
                                     placeholder="STEAM" style="width: 100%">
-                            </td>
-                            <td data-no="3" colspan="10" style="font-size: 15px; font-weight: bold;text-align:center;">
-                                POLISHING
                             </td>
                         </tr>
 

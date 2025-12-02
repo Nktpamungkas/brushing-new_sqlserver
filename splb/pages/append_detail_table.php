@@ -3,15 +3,26 @@ ini_set("error_reporting", 1);
 session_start();
 include("../../koneksi.php");
 include("../../utils/helper.php");
-$sql = sqlsrv_query($con, "SELECT * FROM db_brushing.tbl_splb where NO_KARTU_KERJA = '$_GET[kk]'");
+$sql = sqlsrv_query($con, "SELECT 
+                                * 
+                            FROM db_brushing.tbl_splb splb
+                            LEFT JOIN db_brushing.tbl_splb2 splb2 ON splb2.ID_SPLB = splb.ID
+                            WHERE NO_KARTU_KERJA = '$_GET[kk]'");
 $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
 
 ?>
+<style>
+    td.bg-success {
+		background-color: #f5ddddff !important; /* warna default bg-danger kamu */
+		color: #000 !important;               /* warna teks sama */
+		border-color: #000 !important;     /* opsional: border menyerupai danger */
+	}
+</style>
 <link rel="stylesheet" href="../bootstrap/xeditable/css/bootstrap-editable.css">
 <table class="table table-bordered" id="splb">
     <thead>
         <tr>
-            <th colspan="16" style="text-align:center">FW-14-BRS-12/00</th>
+            <th colspan="16" style="text-align:center">FW-14-BRS-12/01</th>
         </tr>
         <tr>
             <th colspan="16" style="background-color: #4CAF50;">SETTING PERBEDAAN LOT BRUSHING</th>
@@ -675,7 +686,23 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" data-no="14" data-name="TENSIONKELUAR28" style="text-align: center;">
             <?php echo $data['TENSIONKELUAR28']; ?>
         </td>
-
+    </tr>
+    <tr class="baris">
+        <td style="width: 22mm;" data-no="1" colspan="2">SPEED M/MNT </td>
+        <td class="bg-success" data-no="1" data-name="SPEED_MNT01" style="text-align: center;"><?php echo $data['SPEED_MNT01'];?></td>
+        <td class="bg-success" data-no="2" data-name="SPEED_MNT02" style="text-align: center;"><?php echo $data['SPEED_MNT02'];?></td>
+        <td class="bg-success" data-no="3" data-name="SPEED_MNT03" style="text-align: center;"><?php echo $data['SPEED_MNT03'];?></td>
+        <td class="bg-success" data-no="4" data-name="SPEED_MNT04" style="text-align: center;"><?php echo $data['SPEED_MNT04'];?></td>
+        <td class="bg-success" data-no="5" data-name="SPEED_MNT05" style="text-align: center;"><?php echo $data['SPEED_MNT05'];?></td>
+        <td class="bg-success" data-no="6" data-name="SPEED_MNT06" style="text-align: center;"><?php echo $data['SPEED_MNT06'];?></td>
+        <td class="bg-success" data-no="7" data-name="SPEED_MNT07" style="text-align: center;"><?php echo $data['SPEED_MNT07'];?></td>
+        <td class="bg-success" data-no="8" data-name="SPEED_MNT08" style="text-align: center;"><?php echo $data['SPEED_MNT08'];?></td>
+        <td class="bg-success" data-no="9" data-name="SPEED_MNT09" style="text-align: center;"><?php echo $data['SPEED_MNT09'];?></td>
+        <td class="bg-success" data-no="10" data-name="SPEED_MNT10" style="text-align: center;"><?php echo $data['SPEED_MNT10'];?></td>
+        <td class="bg-success" data-no="11" data-name="SPEED_MNT11" style="text-align: center;"><?php echo $data['SPEED_MNT11'];?></td>
+        <td class="bg-success" data-no="12" data-name="SPEED_MNT12" style="text-align: center;"><?php echo $data['SPEED_MNT12'];?></td>
+        <td class="bg-success" data-no="13" data-name="SPEED_MNT13" style="text-align: center;"><?php echo $data['SPEED_MNT13'];?></td>
+        <td class="bg-success" data-no="14" data-name="SPEED_MNT14" style="text-align: center;"><?php echo $data['SPEED_MNT14'];?></td>
     </tr>
     <tr>
         <td colspan="2" style="text-align: center;font-size: 15px; font-weight: bold;" data-no="1">POTONG BULU
@@ -686,22 +713,25 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" colspan="2" data-no="3" data-name="POTONGBULU2" style="text-align: center;">
             <?php echo $data['POTONGBULU2']; ?>
         </td>
-        <td colspan="4" style="text-align: center;font-size: 15px; font-weight: bold;">PEACHSKIN
+        <td colspan="8" style="text-align: center;font-size: 15px; font-weight: bold;">PEACHSKIN
         </td>
-        <td colspan="3" class="bg-danger" style="text-align: center" data-name="PEACHSKIN_B">
+        <td class="bg-danger" style="text-align: center" data-name="PEACHSKIN_B">
             <?php echo $data['PEACHSKIN_B']; ?>
         </td>
-        <td colspan="3" class="bg-danger" style="text-align: center" data-name="PEACHSKIN_F">
+        <td class="bg-danger" style="text-align: center" data-name="PEACHSKIN_F">
             <?php echo $data['PEACHSKIN_F']; ?>
         </td>
     </tr>
     <tr class="baris">
-        <td style="width: 180px;" data-no="1" colspan="2">BAGIAN</td>
+        <td style="width: 22mm;" data-no="1" colspan="2">BAGIAN</td>
         <td style="width: 100px; text-align: center;" data-no="1" colspan="2">B</td>
         <td style="width: 100px;text-align: center;" data-no="1" colspan="2">F</td>
-        <td colspan="4"> BAGIAN KAIN </td>
-        <td style="width: 100px;text-align: center;" data-no="1" colspan="3">B</td>
-        <td style="width: 100px;text-align: center;" data-no="1" colspan="3">F</td>
+        <td colspan="3"> BAGIAN KAIN </td>
+        <td style="width: 7mm;text-align: center;" data-no="1">F</td>
+        <td style="width: 7mm;text-align: center;" data-no="1">B</td>
+        <td colspan="3"> BAGIAN KAIN </td>
+        <td style="width: 7mm;text-align: center;" data-no="1">F</td>
+        <td style="width: 7mm;text-align: center;" data-no="1">B</td>
     </tr>
     <tr class="baris">
         <td style="width: 180px;" data-no="1" colspan="2">SPEED M/MNT</td>
@@ -711,12 +741,21 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" colspan="2" data-name="SPEEDM/MNT_F">
             <?php echo $data['SPEEDM/MNT_F']; ?>
         </td>
-        <td colspan="4">% PILE BRUSH</td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3" data-name="%PILEBRUSH_B">
+        <td colspan="3">% PILE BRUSH</td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%PILEBRUSH_F">
+            <?php echo $data['%PILEBRUSH_F']; ?>
+        </td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%PILEBRUSH_B">
             <?php echo $data['%PILEBRUSH_B']; ?>
         </td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3" data-name="%PILEBRUSH_F">
-            <?php echo $data['%PILEBRUSH_F']; ?>
+        <td colspan="3">% BROKEN ROLLER 1</td>
+        <td class="bg-success" style="text-align:center" data-no="1"
+            data-name="B_ROLLER_1_F">
+            <?php echo $data['B_ROLLER_1_F']; ?>
+        </td>
+        <td class="bg-success" style="text-align:center" data-no="1"
+            data-name="B_ROLLER_1_B">
+            <?php echo $data['B_ROLLER_1_B']; ?>
         </td>
     </tr>
     <tr class="baris">
@@ -727,14 +766,23 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="JARAKPISAU_F">
             <?php echo $data['JARAKPISAU_F']; ?>
         </td>
-        <td colspan="4">% COUNTERPILE BRUSH</td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3"
+        <td colspan="3">% COUNTERPILE BRUSH</td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1"
+            data-name="%COUNTERPILEBRUSH_F">
+            <?php echo $data['%COUNTERPILEBRUSH_F']; ?>
+        </td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1"
             data-name="%COUNTERPILEBRUSH_B">
             <?php echo $data['%COUNTERPILEBRUSH_B']; ?>
         </td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3"
-            data-name="%COUNTERPILEBRUSH_F">
-            <?php echo $data['%COUNTERPILEBRUSH_F']; ?>
+        <td colspan="3">% BROKEN ROLLER 2</td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1"
+            data-name="B_ROLLER_2_F">
+            <?php echo $data['B_ROLLER_2_F']; ?>
+        </td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1"
+            data-name="B_ROLLER_2_B">
+            <?php echo $data['B_ROLLER_2_B']; ?>
         </td>
     </tr>
     <tr class="baris">
@@ -742,14 +790,23 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
             SISIR</td>
         <td style="width: 100px;text-align: center;" data-no="1" colspan="2">B</td>
         <td style="width: 100px;text-align: center;" data-no="1" colspan="2">F</td>
-        <td colspan="4">SIKAT BELAKANG</td>
-        <td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" colspan="3"
+        <td colspan="3">SIKAT BELAKANG</td>
+        <td class="bg-danger" style="width: 100px;text-align: center;" data-no="1"
+            data-name="SIKATBELAKANG_F">
+            <?php echo $data['SIKATBELAKANG_F']; ?>
+        </td>
+        <td class="bg-danger" style="width: 100px;text-align: center;" data-no="1"
             data-name="SIKATBELAKANG_B">
             <?php echo $data['SIKATBELAKANG_B']; ?>
         </td>
-        <td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" colspan="3"
-            data-name="SIKATBELAKANG_F">
-            <?php echo $data['SIKATBELAKANG_F']; ?>
+        <td colspan="3">UKURAN AMPLAS BROKEN ROLLER 1</td>
+        <td class="bg-success" style="width: 100px;text-align: center;" data-no="1"
+            data-name="AB_ROLLER_1_F">
+            <?php echo $data['AB_ROLLER_1_F']; ?>
+        </td>
+        <td class="bg-success" style="width: 100px;text-align: center;" data-no="1"
+            data-name="AB_ROLLER_1_B">
+            <?php echo $data['AB_ROLLER_1_B']; ?>
         </td>
     </tr>
     <tr class="baris">
@@ -760,12 +817,21 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDMESIN_F">
             <?php echo $data['SPEEDMESIN_F']; ?>
         </td>
-        <td colspan="4">TENSION MASUK</td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3" data-name="TENSIONMASUK_B">
+        <td colspan="3">TENSION MASUK</td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="TENSIONMASUK_F">
+            <?php echo $data['TENSIONMASUK_F']; ?>
+        </td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="TENSIONMASUK_B">
             <?php echo $data['TENSIONMASUK_B']; ?>
         </td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3" data-name="TENSIONMASUK_F">
-            <?php echo $data['TENSIONMASUK_F']; ?>
+        <td colspan="3">UKURAN AMPLAS BROKEN ROLLER 2</td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1" 
+            data-name="AB_ROLLER_2_F">
+            <?php echo $data['AB_ROLLER_2_F']; ?>
+        </td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1" 
+            data-name="AB_ROLLER_2_B">
+            <?php echo $data['AB_ROLLER_2_B']; ?>
         </td>
     </tr>
     <tr class="baris">
@@ -776,14 +842,23 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDJARUM_F">
             <?php echo $data['SPEEDJARUM_F']; ?>
         </td>
-        <td colspan="4">TENSION TENGAH</td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3"
-            data-name="TENSIONTENGAH_B">
-            <?php echo $data['TENSIONTENGAH_B']; ?>
+        <td colspan="3">TENSION DRUM DEPAN</td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1" 
+            data-name="TDRUM_DEPAN_F">
+            <?php echo $data['TDRUM_DEPAN_F']; ?>
         </td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3"
-            data-name="TENSIONTENGAH_F">
-            <?php echo $data['TENSIONTENGAH_F']; ?>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1" 
+            data-name="TDRUM_DEPAN_B">
+            <?php echo $data['TDRUM_DEPAN_B']; ?>
+        </td>
+        <td colspan="3">TEKANAN AMPLAS</td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1" 
+            data-name="AMPLAS_F">
+            <?php echo $data['AMPLAS_F']; ?>
+        </td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1" 
+            data-name="AMPLAS_B">
+            <?php echo $data['AMPLAS_B']; ?>
         </td>
     </tr>
     <tr class="baris">
@@ -794,12 +869,24 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDDRUM_F">
             <?php echo $data['SPEEDDRUM_F']; ?>
         </td>
-        <td colspan="4">SPEED KAIN</td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3" data-name="SPEEDKAIN_B">
-            <?php echo $data['SPEEDKAIN_B']; ?>
+        <td colspan="3">TENSION DRUM BELAKANG</td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1"
+            data-name="TDRUM_BELAKANG_F">
+            <?php echo $data['TDRUM_BELAKANG_F']; ?>
         </td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3" data-name="SPEEDKAIN_F">
-            <?php echo $data['SPEEDKAIN_F']; ?>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1"
+            data-name="TDRUM_BELAKANG_B">
+            <?php echo $data['TDRUM_BELAKANG_B']; ?>
+        </td>
+        
+        <td colspan="3">SPEED DRUM</td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1"
+            data-name="PEACHSKINSPEEDDRUM_F">
+            <?php echo $data['PEACHSKINSPEEDDRUM_F']; ?>
+        </td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1"
+            data-name="PEACHSKINSPEEDDRUM_B">
+            <?php echo $data['PEACHSKINSPEEDDRUM_B']; ?>
         </td>
     </tr>
     <tr class="baris">
@@ -812,14 +899,21 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
             data-name="SPEEDTARIKANKAIN_F">
             <?php echo $data['SPEEDTARIKANKAIN_F']; ?>
         </td>
-        <td colspan="4">SPEED DRUM</td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3"
-            data-name="PEACHSKINSPEEDDRUM_B">
-            <?php echo $data['PEACHSKINSPEEDDRUM_B']; ?>
+        <td colspan="3">TENSION BELAKANG</td>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1"
+            data-name="T_BELAKANG_F">
+            <?php echo $data['T_BELAKANG_F']; ?>
         </td>
-        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="3"
-            data-name="PEACHSKINSPEEDDRUM_F">
-            <?php echo $data['PEACHSKINSPEEDDRUM_F']; ?>
+        <td class="bg-success" style="width: 100px;text-align:center" data-no="1"
+            data-name="T_BELAKANG_B">
+            <?php echo $data['T_BELAKANG_B']; ?>
+        </td>
+        <td colspan="3">SPEED KAIN</td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="SPEEDKAIN_F">
+            <?php echo $data['SPEEDKAIN_F']; ?>
+        </td>
+        <td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="SPEEDKAIN_B">
+            <?php echo $data['SPEEDKAIN_B']; ?>
         </td>
     </tr>
 
@@ -828,37 +922,30 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
         <td class="bg-danger" data-no="1" colspan="4" data-name="ANTIPILLING" style="text-align:center">
             <?php echo $data['ANTIPILLING']; ?>
         </td>
-        <td data-no="1" colspan="3" rowspan="2">TENSION BELAKANG</td>
-        <td data-no="1" colspan="1" style="width: 10px;">1</td>
-        <td class="bg-danger" data-no="1" colspan="3" data-name="TENSIONBELAKANG_B" style="text-align:center">
-            <?php echo $data['TENSIONBELAKANG_B']; ?>
+        <td data-no="1" colspan="3">TENSION KELUAR</td>
+        <td  class="bg-success" data-no="1" colspan="1" data-name="T_KELUAR_F" style="width: 10px; text-align:center;">
+            <?php echo $data['T_KELUAR_F']; ?>
         </td>
-        <td class="bg-danger" data-no="1" colspan="3" data-name="TENSIONBELAKANG_F" style="text-align:center">
-            <?php echo $data['TENSIONBELAKANG_F']; ?>
+        <td class="bg-success" data-no="1" data-name="T_KELUAR_B" style="text-align:center">
+            <?php echo $data['T_KELUAR_B']; ?>
         </td>
+        <td data-no="1" colspan="5" style="text-align:center"></td>
+       
     </tr>
     <tr class="baris">
         <td style="width: 180px;" data-no="1" colspan="2">MIST PRAY</td>
         <td class="bg-danger" data-no="1" colspan="4" data-name="MISTPRAY" style="text-align:center">
             <?php echo $data['MISTPRAY']; ?>
         </td>
-        <td data-no="1" colspan="1" style="width: 10px;">2</td>
-        <td class="bg-danger" data-no="1" colspan="3" data-name="TENSIONBELAKANG2_B" style="text-align:center">
-            <?php echo $data['TENSIONBELAKANG2_B']; ?>
-        </td>
-        <td class="bg-danger" data-no="1" colspan="3" data-name="TENSIONBELAKANG2_F" style="text-align:center">
-            <?php echo $data['TENSIONBELAKANG2_F']; ?>
-        </td>
+        <td data-no="3" rowspan= "2" colspan="10" style="font-size: 15px; font-weight: bold;text-align:center;">
+            POLISHING
+        </td>  
     </tr>
-
     <tr class="baris">
         <td style="width: 180px;" data-no="1" colspan="2">STEAM</td>
         <td class="bg-danger" data-no="2" colspan="4" data-name="STEAM" style="text-align:center">
             <?php echo $data['STEAM']; ?>
         </td>
-        <td data-no="3" colspan="10" style="font-size: 15px; font-weight: bold;text-align:center;">
-            POLISHING</td>
-
     </tr>
     <tr class="baris">
         <td style="width: 180px;" data-no="1" colspan="2">OVEN</td>
@@ -1095,37 +1182,28 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
 <script src="../bootstrap/xeditable/js/bootstrap-editable.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#splb').editable({
+        $('td.bg-danger').editable({
+            emptytext: '',
             container: 'body',
-            selector: 'td.bg-danger',
             pk: `<?php echo $data['ID'] ?>`,
             url: 'update.php',
             title: `EDIT SPLB`,
-            // validate: function(value) {
-            //     if ($.trim(value) == '') {
-            //         return 'This field is required';
-            //     }
-            // },
-            success: function (response, newValue) {
+            success: function (response) {
                 if (response.kode == '404') {
-                    alert('Error Hubung DIT !')
+                    alert('Error Hubung DIT !');
                 }
             }
         });
-        $('#splb').editable({
+        
+        $('td.bg-success').editable({
+            emptytext: '',
             container: 'body',
-            selector: 'td a.bg-danger',
             pk: `<?php echo $data['ID'] ?>`,
-            url: 'update.php',
-            title: `EDIT SPLB`,
-            // validate: function(value) {
-            //     if ($.trim(value) == '') {
-            //         return 'This field is required';
-            //     }
-            // },
-            success: function (response, newValue) {
-                if (response.kode == '404') {
-                    alert('Error Hubung DIT !')
+            url: 'update2.php',
+            title: `EDIT SPLB 2`,
+            success: function (response) {
+            if (response.kode == '404') {
+                    alert('Error Hubung DIT !');
                 }
             }
         });

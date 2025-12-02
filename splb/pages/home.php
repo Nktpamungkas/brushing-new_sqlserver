@@ -185,7 +185,7 @@ include("../koneksi.php");
 				<table class="table table-bordered">
 					<thead>
 						<tr>
-							<th colspan="16" style="text-align:center">FW-14-BRS-12/00</th>
+							<th colspan="16" style="text-align:center">FW-14-BRS-12/01</th>
 						</tr>
 						<tr>
 							<th colspan="16" style="background-color: #4CAF50;text-align:center">SETTING PERBEDAAN LOT
@@ -481,6 +481,23 @@ include("../koneksi.php");
 							<td class="bg-danger" data-no="13"> </td>
 							<td class="bg-danger" data-no="14"> </td>
 						</tr>
+						<tr class="baris">
+							<td style="width: 22mm;" data-no="1" colspan="2">SPEED M/MNT </td>
+							<td class="bg-danger" data-no="1" data-name="TENSIONKELUAR15" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="2" data-name="TENSIONKELUAR16" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="3" data-name="TENSIONKELUAR17" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="4" data-name="TENSIONKELUAR18" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="5" data-name="TENSIONKELUAR19" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="6" data-name="TENSIONKELUAR20" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="7" data-name="TENSIONKELUAR21" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="8" data-name="TENSIONKELUAR22" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="9" data-name="TENSIONKELUAR23" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="10" data-name="TENSIONKELUAR24" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="11" data-name="TENSIONKELUAR25" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="12" data-name="TENSIONKELUAR26" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="13" data-name="TENSIONKELUAR27" style="text-align: center;">&nbsp;</td>
+							<td class="bg-danger" data-no="14" data-name="TENSIONKELUAR28" style="text-align: center;">&nbsp;</td>
+							</tr>
 						<tr>
 							<td colspan="2" style="text-align: center;font-size: 15px; font-weight: bold;">POTONG BULU
 							</td>
@@ -496,93 +513,111 @@ include("../koneksi.php");
 							</td>
 						</tr>
 						<tr class="baris">
-							<td style="width: 180px;" data-no="1" colspan="2">BAGIAN</td>
+							<td style="width: 22mm;" data-no="1" colspan="2">BAGIAN</td>
 							<td style="width: 100px; text-align: center;" data-no="1" colspan="2">B</td>
 							<td style="width: 100px;text-align: center;" data-no="1" colspan="2">F</td>
-							<td colspan="4">BAGIAN KAIN</td>
-							<td style="width: 100px;text-align: center;" data-no="1" colspan="3">B</td>
-							<td style="width: 100px;text-align: center;" data-no="1" colspan="3">F</td>
+							<td colspan="3"> BAGIAN KAIN </td>
+							<td style="width: 7mm;text-align: center;" data-no="1">F</td>
+							<td style="width: 7mm;text-align: center;" data-no="1">B</td>
+							<td colspan="3"> BAGIAN KAIN </td>
+							<td style="width: 7mm;text-align: center;" data-no="1">F</td>
+							<td style="width: 7mm;text-align: center;" data-no="1">B</td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">SPEED M/MNT</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td colspan="4"> % PILE BRUSH</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
+							<td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" colspan="2" data-name="SPEEDM/MNT_B"></td>
+							<td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" colspan="2" data-name="SPEEDM/MNT_F"></td>
+							<td colspan="3">% PILE BRUSH</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%PILEBRUSH_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%PILEBRUSH_B"></td>
+							<td colspan="3">% BROKEN ROLLER 1</td>
+							<td class="bg-danger" style="text-align:center" data-no="1" data-name="B_ROLLER_1_F"></td>
+							<td class="bg-danger" style="text-align:center" data-no="1" data-name="B_ROLLER_1_B"></td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">JARAK PISAU</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td colspan="4">% COUNTERPILE BRUSH</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="JARAKPISAU_B"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="JARAKPISAU_F"></td>
+							<td colspan="3">% COUNTERPILE BRUSH</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%COUNTERPILEBRUSH_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="%COUNTERPILEBRUSH_B"></td>
+							<td colspan="3">% BROKEN ROLLER 2</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="B_ROLLER_2_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="B_ROLLER_2_B"></td>
 						</tr>
 						<tr class="baris">
-							<td style="font-size: 15px; font-weight: bold;" data-no="1" colspan="2">
-								SISIR</td>
+							<td style="font-size: 15px; font-weight: bold;" data-no="1" colspan="2">SISIR</td>
 							<td style="width: 100px;text-align: center;" data-no="1" colspan="2">B</td>
 							<td style="width: 100px;text-align: center;" data-no="1" colspan="2">F</td>
-							<td colspan="4">SIKAT BELAKANG</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
+							<td colspan="3">SIKAT BELAKANG</td>
+							<td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" data-name="SIKATBELAKANG_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" data-name="SIKATBELAKANG_B"></td>
+							<td colspan="3">UKURAN AMPLAS BROKEN ROLLER 1</td>
+							<td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" data-name="AB_ROLLER_1_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align: center;" data-no="1" data-name="AB_ROLLER_1_B"></td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">SPEED MESIN</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td colspan="4">TENSION MASUK</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDMESIN_B"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDMESIN_F"></td>
+							<td colspan="3">TENSION MASUK</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="TENSIONMASUK_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="TENSIONMASUK_B"></td>
+							<td colspan="3">UKURAN AMPLAS BROKEN ROLLER 2</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="AB_ROLLER_2_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="AB_ROLLER_2_B"></td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">SPEED JARUM</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td colspan="4">TENSION TENGAH</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDJARUM_B"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDJARUM_F"></td>
+							<td colspan="3">TENSION DRUM DEPAN</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="TDRUM_DEPAN_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="TDRUM_DEPAN_B"></td>
+							<td colspan="3">TEKANAN AMPLAS</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="AMPLAS_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="AMPLAS_B"></td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">SPEED DRUM</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td colspan="4">SPEED KAIN</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDDRUM_B"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDDRUM_F"></td>
+							<td colspan="3">TENSION DRUM BELAKANG</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1"data-name="TDRUM_BELAKANG_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1"data-name="TDRUM_BELAKANG_B"></td>
+							<td colspan="3">SPEED DRUM</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1"data-name="PEACHSKINSPEEDDRUM_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1"data-name="PEACHSKINSPEEDDRUM_B"></td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">SPEED TARIKAN KAIN</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="2"></td>
-							<td colspan="4">SPEED DRUM</td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
-							<td class="bg-danger" style="width: 100px;" data-no="1" colspan="3"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDTARIKANKAIN_B"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" colspan="2" data-name="SPEEDTARIKANKAIN_F"></td>
+							<td colspan="3">TENSION BELAKANG</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="T_BELAKANG_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="T_BELAKANG_B"></td>
+							<td colspan="3">SPEED KAIN</td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="SPEEDKAIN_F"></td>
+							<td class="bg-danger" style="width: 100px;text-align:center" data-no="1" data-name="SPEEDKAIN_B"></td>
 						</tr>
-
 						<tr class="baris">
 							<td style="font-size: 15px; font-weight: bold;" data-no="1" colspan="2">ANTI PILLING</td>
-							<td class="bg-danger" data-no="1" colspan="4"></td>
-							<td data-no="1" colspan="3" rowspan="2" style="text-align:center">TENSION BELAKANG</td>
-							<td data-no="1" colspan="1" style="width: 10px;">1</td>
-							<td class="bg-danger" data-no="1" colspan="3"></td>
-							<td class="bg-danger" data-no="1" colspan="3"></td>
+							<td class="bg-danger" data-no="1" colspan="4" data-name="ANTIPILLING" style="text-align:center"></td>
+							<td data-no="1" colspan="3">TENSION KELUAR</td>
+							<td  class="bg-danger" data-no="1" colspan="1" data-name="T_KELUAR_F" style="width: 10px; text-align:center;"></td>
+							<td class="bg-danger" data-no="1" data-name="T_KELUAR_B" style="text-align:center"></td>
+							<td data-no="1" colspan="5" style="text-align:center"></td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">MIST PRAY</td>
-							<td class="bg-danger" style="width: 180px;" data-no="1" colspan="4"></td>
-							<td data-no="1" colspan="1" style="width: 10px;">2</td>
-							<td class="bg-danger" data-no="1" colspan="3"></td>
-							<td class="bg-danger" data-no="1" colspan="3"></td>
+							<td class="bg-danger" data-no="1" colspan="4" data-name="MISTPRAY" style="text-align:center"></td>
+							<td data-no="3" rowspan= "2" colspan="10" style="font-size: 15px; font-weight: bold;text-align:center;">
+								POLISHING
+							</td>  
 						</tr>
-
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">STEAM</td>
-							<td data-no="2" class="bg-danger" colspan="4"></td>
-							<td data-no="3" colspan="10" style="font-size: 15px; font-weight: bold;text-align:center;">
-								POLISHING</td>
-
+							<td class="bg-danger" data-no="2" colspan="4" data-name="STEAM" style="text-align:center"></td>
 						</tr>
 						<tr class="baris">
 							<td style="width: 180px;" data-no="1" colspan="2">OVEN</td>
