@@ -13,7 +13,7 @@ $mc = $_GET['no_mesin'];
 //    $tgl = " ";
 //  }
 if ($tglakhir != "" and $tglawal != "" and $jamakhir != "" and $jamawal != "") {
-    $tgl = "CONVERT(VARCHAR(20), a.tgl_update, 120)  BETWEEN'$tglawal $jamawal' AND '$tglakhir $jamakhir' ";
+    $tgl = "CONVERT(VARCHAR(20), a.tgl_buat, 120)  BETWEEN'$tglawal $jamawal' AND '$tglakhir $jamakhir' ";
 } else {
     $tgl = " ";
 }
