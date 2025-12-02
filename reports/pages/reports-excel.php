@@ -44,15 +44,15 @@ include("../../utils/helper.php");
   if ($shft == "ALL") {
     $shift = " ";
   } else {
-    $shift = " AND a.`shift`='$shft' ";
+    $shift = " AND a.shift='$shft' ";
   }
   if ($nmesin != "ALL") {
-    $mesin = " AND a.`nama_mesin`='$nmesin'";
+    $mesin = " AND a.nama_mesin='$nmesin'";
   } else {
     $mesin = " ";
   }
   if ($mc != "ALL") {
-    $nomesin = " AND a.`no_mesin`='$mc'";
+    $nomesin = " AND a.no_mesin='$mc'";
   } else if ($mc == "ALL") {
     $nomesin = " ";
   } else {
