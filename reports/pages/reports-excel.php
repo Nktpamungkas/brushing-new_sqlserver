@@ -165,11 +165,11 @@ include("../../utils/helper.php");
             <td><?php echo $rowd['proses']; ?></td>
             <td><?php echo $rowd['ket']; ?></td>
             <td><?php if ($rowd['jam_in'] != "") {
-          echo $rowd['tgl_proses_in'];
+                echo cek($rowd['tgl_proses_in'], 'Y-m-d');
         } ?></td>
             <td><?php echo $rowd['jam_in']; ?></td>
             <td><?php if ($rowd['jam_out'] != "") {
-          echo $rowd['tgl_proses_out'];
+            echo cek($rowd['tgl_proses_out'], 'Y-m-d');
         } ?></td>
             <td><?php echo $rowd['jam_out']; ?></td>
             <td><?php
@@ -187,11 +187,11 @@ include("../../utils/helper.php");
         echo $jam1 . ' jam ' . floor($menit1 / 60) . ' menit';
         ?></td>
             <td><?php if ($rowd['stop_l'] != "") {
-          echo $rowd['tgl_stop_l'];
+          echo cek($rowd['tgl_stop_l']);
         } ?></td>
             <td><?php echo $rowd['stop_l']; ?></td>
             <td><?php if ($rowd['stop_r'] != "") {
-          echo $rowd['tgl_stop_r'];
+          echo cek($rowd['tgl_stop_r']);
         } ?></td>
             <td><?php if ($rowd['stop_r'] != "") {
           echo $rowd['stop_r'];
@@ -211,11 +211,11 @@ include("../../utils/helper.php");
         ?></td>
 
             <td><?php if ($rowd['stop_2'] != "") {
-          echo $rowd['tgl_stop_2'];
+          echo cek($rowd['tgl_stop_2']);
         } ?></td>
             <td><?php echo $rowd['stop_2']; ?></td>
             <td><?php if ($rowd['stop_r_2'] != "") {
-          echo $rowd['tgl_stop_r_2'];
+          echo cek($rowd['tgl_stop_r_2']);
         } ?></td>
             <td><?php if ($rowd['stop_r_2'] != "") {
           echo $rowd['stop_r_2'];
@@ -232,11 +232,11 @@ include("../../utils/helper.php");
         ?></td>
 
             <td><?php if ($rowd['stop_3'] != "") {
-          echo $rowd['tgl_stop_3'];
+          echo cek($rowd['tgl_stop_3']);
         } ?></td>
             <td><?php echo $rowd['stop_3']; ?></td>
             <td><?php if ($rowd['stop_r_3'] != "") {
-          echo $rowd['tgl_stop_r_3'];
+          echo cek($rowd['tgl_stop_r_3']);
         } ?></td>
             <td><?php if ($rowd['stop_r_3'] != "") {
           echo $rowd['stop_r_3'];
