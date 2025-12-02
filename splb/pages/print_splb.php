@@ -1042,7 +1042,7 @@ $data = sqlsrv_fetch_array($sql);
                 <td class="bg-danger" data-no="1" data-name="T_KELUAR_B" style="text-align:center">
                     <?php echo $data['T_KELUAR_B']; ?>
                 </td>
-                <td data-no="1" colspan="1" colspan="5" style="width: 10px; text-align:center;">&nbsp;</td>
+                <td data-no="1" colspan="5" style="width: 10px; text-align:center;"></td>
             </tr>
             <tr class="baris">
                 <td style="width: 22mm;" data-no="1" colspan="2">MIST PRAY</td>
