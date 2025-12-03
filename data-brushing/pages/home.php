@@ -563,7 +563,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 				<td width="30%">
 					<input name="nokk" type="text" id="nokk" size="17"
 						onchange="window.location='?typekk='+document.getElementById(`typekk`).value+'&idkk='+this.value"
-						value="<?= $_GET['idkk'] ?? $rw['nokk'] ; ?>" /><input type="hidden" value="<?php echo $rw['id']; ?>"
+						value="<?= $_GET['idkk']; ?>" /><input type="hidden" value="<?php echo $rw['id']; ?>"
 						name="id" />
 
 					<?php if ($_GET['typekk'] == 'NOW') { ?>
