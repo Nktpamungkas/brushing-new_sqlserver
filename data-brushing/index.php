@@ -142,3 +142,19 @@ $page    = strtolower($page);
 </body>
 
 </html>
+
+<script>
+    function formatAngka(val){
+        var Num=val;
+        Num += '';
+        Num = Num.replace(/[^0-9.]/g, '').replace(/(\..?)\../g, '$1').replace(/^0[^.]/, '0');
+        return Num;
+    }
+
+    $( document ).ready(function() {
+        $(document).on('keyup', '.harus_angka', function(e) {
+            let val=formatAngka($(this).val());
+            this.value= val;
+        });
+    });
+</script>

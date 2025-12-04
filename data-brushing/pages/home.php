@@ -777,14 +777,14 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 				} else {
 					$nlebar = $rw['lebar'];
 				} ?>
-					<input name="lebar" type="text" id="lebar" size="6" placeholder="0" />
+					<input class="harus_angka" name="lebar" type="text" id="lebar" size="6" placeholder="0" />
 					&quot; X
 					<?php if ($cek > 0) {
 						$ngramasi = $ssr['weight'];
 					} else {
 						$ngramasi = $rw['gramasi'];
 					} ?>
-					<input name="gramasi" type="text" id="gramasi" size="6" placeholder="0" />
+					<input class="harus_angka" name="gramasi" type="text" id="gramasi" size="6" placeholder="0" />
 				</td>
 			</tr>
 			<tr>
@@ -801,7 +801,7 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 					} else {
 						$berat = $rw['qty'];
 					} ?>
-					<input name="qty" type="text" id="qty" size="5"
+					<input class="harus_angka" name="qty" type="text" id="qty" size="5"
 						value="<?php if (!empty($berat)) {
 							echo $berat;
 						} else {
@@ -813,14 +813,14 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 			<tr>
 				<td scope="row"><strong>Roll</strong></td>
 				<td>:</td>
-				<td><input name="rol" type="text" id="rol" size="3" placeholder="0" pattern="[0-9]{1,}" value="<?php if ($cLot > 0) {
+				<td><input class="harus_angka" name="rol" type="text" id="rol" size="3" placeholder="0" pattern="[0-9]{1,}" value="<?php if ($cLot > 0) {
 					echo $sLot['RollCount'];
 				} else {
 					echo $rw['rol'];
 				} ?>" /></td>
 				<td><strong>Panjang</strong></td>
 				<td>:</td>
-				<td colspan="3"><input name="qty2" type="text" id="qty2" size="8"
+				<td colspan="3"><input class="harus_angka" name="qty2" type="text" id="qty2" size="8"
 						value="<?php if (!empty($rw['panjang'])) {
 							echo $rw['panjang'];
 						} else {
