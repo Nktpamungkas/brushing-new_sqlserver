@@ -76,14 +76,14 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
     <tr class="baris">
         <td style="width: 180px;" data-no="1">L X G AKTUAL</td>
         <td class="bg-warning" data-no="2" colspan="8">
-            <a href="javascript:void(0)" class="bg-danger" data-name="L_AKTUAL"><?php
+            <a class="bg-danger" data-name="L_AKTUAL"><?php
             if (is_numeric($data['L_AKTUAL']) && floor($data['L_AKTUAL']) != $data['L_AKTUAL']) {
                 echo "0" . ltrim($data['L_AKTUAL'], '0');
             } else {
                 echo $data['L_AKTUAL'];
             } ?></a>
             X
-            <a href="javascript:void(0)" class="bg-danger" data-name="G_AKTUAL"><?php
+            <a class="bg-danger" data-name="G_AKTUAL"><?php
             if (is_numeric($data['G_AKTUAL']) && floor($data['G_AKTUAL']) != $data['G_AKTUAL']) {
                 echo "0" . ltrim($data['G_AKTUAL'], '0');
             } else {
@@ -1182,7 +1182,7 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
 <script src="../bootstrap/xeditable/js/bootstrap-editable.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('td.bg-danger').editable({
+        $('.bg-danger').editable({
             emptytext: '',
             container: 'body',
             pk: `<?php echo $data['ID'] ?>`,
@@ -1195,7 +1195,7 @@ $data = sqlsrv_fetch_array($sql, SQLSRV_FETCH_ASSOC);
             }
         });
         
-        $('td.bg-success').editable({
+        $('.bg-success').editable({
             emptytext: '',
             container: 'body',
             pk: `<?php echo $data['ID'] ?>`,
