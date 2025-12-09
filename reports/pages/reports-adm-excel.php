@@ -170,7 +170,7 @@ include("../../utils/helper.php");
                                 FROM 
                                     db_brushing.tbl_adm a
                                 WHERE 
-                                    (a.status = '1' OR a.status = '2') 
+                                    (a.status = '1') 
                                     AND {$tgl} {$shift}
                                 ORDER BY 
                                     a.tgl_in ASC
@@ -1014,7 +1014,7 @@ include("../../utils/helper.php");
                                 FROM 
                                     db_brushing.tbl_adm a
                                 WHERE 
-                                    (a.status = '1' OR a.status = '2') 
+                                    (a.status = '2') 
                                     AND {$tgl} {$shift}
                                 ORDER BY 
                                     a.tgl_in ASC
