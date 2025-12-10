@@ -152,7 +152,7 @@ include("../utils/helper.php")
 	} elseif ($_GET['typekk'] == "NOW") {
 		if ($idkk != "") {
 			include_once("../now.php");
-			$qry = sqlsrv_query($con, "SELECT TOP 1 * FROM db_brushing.tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and [status]='1' and tgl_out <> NULL ORDER BY id DESC");
+			$qry = sqlsrv_query($con, "SELECT TOP 1 * FROM db_brushing.tbl_adm WHERE nokk='$idkk' and nodemand = '$_GET[demand]' and [status]='1' and tgl_out IS NULL ORDER BY id DESC");
 			$rw = sqlsrv_fetch_array($qry);
 		} else { // EDIT
 			if ($_GET['id'] != "") {
