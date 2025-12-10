@@ -803,7 +803,8 @@ include("../../utils/helper.php");
             </tr>
         </table>
     </form>
-    <?php } else { ?>
+    <!-- Ini untuk bagian Detail Kartu IN -->
+    <?php } else { ?> 
     <?php
             $tglawal = $_GET['tgl1'];
             $tglakhir = $_GET['tgl2'];
@@ -1014,7 +1015,7 @@ include("../../utils/helper.php");
                                 FROM 
                                     db_brushing.tbl_adm a
                                 WHERE 
-                                    (a.status = '2') 
+                                    (a.status = '1' OR a.status = '2') 
                                     AND {$tgl} {$shift}
                                 ORDER BY 
                                     a.tgl_in ASC
