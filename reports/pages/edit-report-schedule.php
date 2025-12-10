@@ -2,6 +2,7 @@
     ini_set("error_reporting", 1);
     session_start();
     include_once("../../koneksi.php");
+    include("../utils/helper.php");
     // include("../../koneksi.php");
 ?>
 <!DOCTYPE html
@@ -34,9 +35,9 @@
     <?php
 		function nourut()
 		{
-			include("../../koneksi.php");
+			include("../koneksi.php");
 			$format = date("ymd");
-			$sql = sqlsrv_query($con,"SELECT TOP 1 nokk FROM db_brushing.tbl_adm WHERE substr(nokk,1,6) like '%" . $format . "%' ORDER BY nokk DESC") or die(sqlsrv_errors());
+			$sql = sqlsrv_query($con,"SELECT TOP 1 nokk FROM db_brushing.tbl_adm WHERE SUBSTRING(nokk,1,6) like '%" . $format . "%' ORDER BY nokk DESC") or die(sqlsrv_errors());
 			$d = sqlsrv_num_rows($sql);
 			if ($d > 0) {
 				$r = sqlsrv_fetch_array($sql);
@@ -346,8 +347,7 @@
                 <td><strong>Jam / Tgl Masuk</strong></td>
                 <td>:</td>
                 <td>
-                    <input name="proses_in" type="text" value="<?= $row_tbladm['tgl_in']; ?>" size="20" maxlength="5"
-                        disabled>
+                    <input name="proses_in" type="text" value="<?= cek($row_tbladm['tgl_in'], 'Y-m-d H:i:s'); ?>" size="20" maxlength="5" disabled>
                 </td>
             </tr>
             <tr>
