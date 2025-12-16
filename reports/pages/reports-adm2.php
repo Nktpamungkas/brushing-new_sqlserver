@@ -464,7 +464,7 @@
             } else {
               echo "-";
             } ?></td>
-            <td><?php $trC = $rA['Garuk_Fleece'] + $rC['Potong_Bulu_Fleece'] + $rC['Garuk_Anti_Pilling'] + $rC['Sisir_Anti_Pilling'] + $rC['Potong_Bulu_Anti_Pilling'] + $rC['Anti_Pilling'] + $rC['Peach_Skin'] + $rC['Potong_Bulu_Peach_Skin'] + $rC['Airo'] + $rC['Potong_Bulu_Lain_Lain_Bantu_Khusus'] + $rC['Potong_Bulu_Lain_Lain_Bantu'];
+            <td><?php $trC = $rC['Garuk_Fleece'] + $rC['Potong_Bulu_Fleece'] + $rC['Garuk_Anti_Pilling'] + $rC['Sisir_Anti_Pilling'] + $rC['Potong_Bulu_Anti_Pilling'] + $rC['Anti_Pilling'] + $rC['Peach_Skin'] + $rC['Potong_Bulu_Peach_Skin'] + $rC['Airo'] + $rC['Potong_Bulu_Lain_Lain_Bantu_Khusus'] + $rC['Potong_Bulu_Lain_Lain_Bantu'];
             if ($trC > 0) {
               echo number_format($trC, '2', '.', '');
             } else {

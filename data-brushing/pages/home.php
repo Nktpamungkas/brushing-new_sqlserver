@@ -547,12 +547,10 @@ kd_stop2,kd_stop3,tgl_buat,acc_staff,ket,speed,lebar,gramasi,no_item,tgl_update,
 							echo "SELECTED";
 						} ?>>KK Lama
 						</option>
-						<option value="NOW" <?php if ($_GET['typekk'] == "NOW") {
+						<option value="NOW" selected <?php if ($_GET['typekk'] == "NOW") {
 							echo "SELECTED";
 						} ?>>KK NOW</option>
-						-->
-						</select=>
-
+					</select=>
 				</td>
 			</tr>
 			<tr>
