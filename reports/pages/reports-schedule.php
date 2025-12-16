@@ -849,7 +849,6 @@
         <strong>Shift: <?php echo $shft; ?></strong>
         <strong><br />
             Detail Kartu Kerja IN</strong>
-        <?php echo $tgl; ?>
         <table width="100%" border="1" id="datatables" class="display">
             <thead>
                 <tr>
