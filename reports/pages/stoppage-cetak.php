@@ -190,12 +190,17 @@ if ($no_mc != "") {
         <tbody>
             <?php
 
-            $sql = sqlsrv_query($con, "  SELECT *
-    FROM db_brushing.tbl_produksi AS a
-    WHERE NOT a.kd_stop = '' 
-    AND $tgl $shift $mesin $nomesin 
-    ORDER BY a.no_mesin ASC
-");
+            $sql = sqlsrv_query($con, "  SELECT 
+                                            * 
+                                        FROM 
+                                            db_brushing.tbl_produksi AS a 
+                                        WHERE 
+                                            NOT a.kd_stop = ''  
+                                            AND $tgl $shift $mesin $nomesin  
+                                        ORDER BY 
+                                            a.tgl_update ASC, 
+                                            a.no_mesin ASC");
+            
             $no         = 1;
             $totrol     = 0;
             $totberat   = 0;
