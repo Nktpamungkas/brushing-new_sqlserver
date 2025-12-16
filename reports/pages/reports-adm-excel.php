@@ -836,7 +836,7 @@ include("../../utils/helper.php");
             <tr style="border:1px solid;">
                 <td rowspan="2" bgcolor="#99FF99" style="border:1px solid; vertical-align:middle;">
                     <div align="center"><strong>
-                            <font size="-2">NO.</font>
+                            <font size="-2">NO. HERE</font>
                         </strong></div>
                 </td>
                 <td colspan="2" bgcolor="#99FF99" style="border:1px solid;vertical-align:middle;">
@@ -1226,9 +1226,11 @@ include("../../utils/helper.php");
                 <td bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99">&nbsp;</td>
+                <td bgcolor="#99FF99">&nbsp;</td>
+                <td bgcolor="#99FF99">&nbsp;</td>
             </tr>
             <tr style="border:1px solid;">
-                <td colspan="14" bgcolor="#99FF99">&nbsp;</td>
+                <td colspan="16" bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99"><strong>Total</strong></td>
                 <td bgcolor="#99FF99">&nbsp;</td>
