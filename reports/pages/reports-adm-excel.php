@@ -784,6 +784,8 @@ include("../../utils/helper.php");
             <tr style="border:1px solid;">
                 <td colspan="14" bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99">&nbsp;</td>
+                <td bgcolor="#99FF99">&nbsp;</td>
+                <td bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99"><strong>Total</strong></td>
                 <td bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99"><strong><?php echo $totqty; ?></strong></td>
@@ -793,8 +795,6 @@ include("../../utils/helper.php");
                         $menit1 = $totjam - $jam1 * (60 * 60);
                         echo '' . $jam1 . 'H, ' . floor($menit1 / 60) . 'M'; ?></td>
                 <td bgcolor="#99FF99"><strong><?php echo $tothari; ?></strong></td>
-                <td bgcolor="#99FF99">&nbsp;</td>
-                <td bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99">&nbsp;</td>
                 <td bgcolor="#99FF99">&nbsp;</td>
