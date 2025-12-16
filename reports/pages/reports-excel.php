@@ -274,7 +274,7 @@ include("../../utils/helper.php");
           $diff_1 = $time2 - $time1;
           $menit_lama_1 = floor($diff_1 / 60);
         } else {
-          $menit_lama_2 = 0; // Atur nilai default jika data tidak lengkap
+          $menit_lama_1 = 0; // Atur nilai default jika data tidak lengkap
         }
 
         // Menit lama stop 2
@@ -290,7 +290,7 @@ include("../../utils/helper.php");
         // Menit lama stop 3
         if (!empty($rowd['tgl_stop_3']) && !empty($rowd['stop_3']) && !empty($rowd['tgl_stop_r_3']) && !empty($rowd['stop_r_3'])) {
           $time7 = strtotime(cek($rowd['tgl_stop_3'], 'Y-m-d') . " " . $rowd['stop_3']);
-          $time8 = strtotime(cek($rowd['tdatetime: gl_stop_r_3'], 'Y-m-d') . " " . $rowd['stop_r_3']);
+          $time8 = strtotime(cek($rowd['tgl_stop_r_3'], 'Y-m-d') . " " . $rowd['stop_r_3']);
           $diff_3 = $time8 - $time7;
 
           $menit_lama_3 = floor($diff_3 / 60);
