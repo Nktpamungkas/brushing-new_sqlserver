@@ -93,9 +93,87 @@ include("koneksi.php");
                 margin: 0.4em auto;
             }
         }
+
+        /* Simple offline modal (no CDN needed) */
+        .notice-overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 9999;
+            padding: 16px;
+            backdrop-filter: blur(1px);
+        }
+
+        .notice-modal {
+            background: #fff;
+            color: #1F1F1F;
+            width: min(440px, 100%);
+            border-radius: 14px;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+            padding: 22px 22px 18px;
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            text-align: center;
+        }
+
+        .notice-icon {
+            width: 52px;
+            height: 52px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: #FFF5F5;
+            border: 2px solid #F3C2C2;
+            color: #DC3545;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .notice-modal h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+            color: #1F5C98;
+        }
+
+        .notice-modal p {
+            margin: 8px 0;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .notice-modal .accent {
+            color: #DC3545;
+            font-weight: bold;
+        }
+
+        .notice-modal .thanks {
+            color: #1F5C98;
+            font-weight: bold;
+        }
+
+        .notice-button {
+            margin-top: 16px;
+            width: 100%;
+            border: none;
+            background: #DC3545;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            padding: 12px 14px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        .notice-button:active {
+            transform: translateY(1px);
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
-
 <body>
     <div id="art-main">
         <nav class="art-nav">
@@ -183,6 +261,47 @@ include("koneksi.php");
 
     </div>
 
+    <div id="offline-alert" class="notice-overlay" role="dialog" aria-modal="true" aria-labelledby="offline-alert-title">
+        <div class="notice-modal">
+            <div class="notice-icon">!</div>
+            <h2 id="offline-alert-title">PEMBERITAHUAN PENTING</h2>
+            <p>Online brushing akan segera di<br><span class="accent">NON AKTIFKAN hari ini pukul 13:00</span></p>
+            <p>Silahkan gunakan aplikasi app.indotaichen.com brushing untuk input data harian brushing.</p>
+            <p class="thanks">Terima kasih</p>
+            <button id="offline-alert-confirm" type="button" class="notice-button">Mengerti</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var overlay = document.getElementById('offline-alert');
+            var confirmBtn = document.getElementById('offline-alert-confirm');
+
+            if (!overlay || !confirmBtn) return;
+
+            overlay.style.display = 'flex';
+
+            confirmBtn.addEventListener('click', function () {
+                overlay.style.opacity = '0';
+                setTimeout(function () {
+                    overlay.remove();
+                }, 150);
+            });
+
+            overlay.addEventListener('click', function (event) {
+                // Block outside click (match allowOutsideClick: false)
+                if (event.target === overlay) {
+                    event.stopPropagation();
+                }
+            });
+
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    event.preventDefault(); // Block ESC close
+                }
+            });
+        });
+    </script>
 
 </body>
 
